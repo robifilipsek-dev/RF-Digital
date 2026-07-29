@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAKS GRAD | Urejanje okolic, gradbena mehanizacija in hiab prevozi</title>
+    <style>
+        :root {
+            --primary-color: #f59e0b; /* Oranžna gradbena barva */
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+            --accent-blue: #0f172a;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: var(--light-color);
+        }
+        header {
+            background: var(--dark-color);
+            color: white;
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        .logo-area img {
+            height: 45px;
+            width: 45px;
+            object-fit: contain;
+            border-radius: 5px;
+            background: white;
+            padding: 2px;
+        }
+        header h1 {
+            font-size: 1.5rem;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+        header h1 span {
+            color: var(--primary-color);
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 1.5rem;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--primary-color);
+        }
+        .hero {
+            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+        }
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        .hero p {
+            font-size: 1.25rem;
+            max-width: 700px;
+            margin: 0 auto 2rem auto;
+            color: #cbd5e1;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(245, 158, 11, 0.2);
+            color: var(--primary-color);
+            border: 1px solid var(--primary-color);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+        }
+        .btn {
+            background: var(--primary-color);
+            color: var(--dark-color);
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.3s, transform 0.2s;
+            display: inline-block;
+        }
+        .btn:hover {
+            background: #d97706;
+            color: white;
+            transform: translateY(-2px);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .section-title h2 {
+            font-size: 2.25rem;
+            color: var(--dark-color);
+        }
+        .section-title p {
+            color: #64748b;
+            margin-top: 0.5rem;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .service-card {
+            background: white;
+            padding: 2.5rem 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--primary-color);
+            transition: transform 0.3s;
+        }
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+        .service-card h3 {
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            font-size: 1.25rem;
+        }
+        .service-card p {
+            color: #64748b;
+            font-size: 0.95rem;
+        }
+        .about-section {
+            background: white;
+            padding: 5rem 0;
+            border-top: 1px solid #e2e8f0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+        }
+        .about-text h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 1.5rem;
+        }
+        .about-text p {
+            margin-bottom: 1rem;
+            color: #475569;
+        }
+        .stats-box {
+            background: var(--dark-color);
+            color: white;
+            padding: 2.5rem;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        .stats-box h3 {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .stats-box p {
+            font-size: 1.1rem;
+            color: #cbd5e1;
+        }
+        .contact {
+            background: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        .contact h2 {
+            font-size: 2.25rem;
+            margin-bottom: 1rem;
+        }
+        .contact p {
+            margin: 0.75rem 0;
+            font-size: 1.15rem;
+            color: #cbd5e1;
+        }
+        .phone-highlight {
+            font-size: 1.75rem !important;
+            color: var(--primary-color) !important;
+            font-weight: bold;
+            margin: 1.5rem 0 !important;
+        }
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #0f172a;
+            color: #94a3b8;
+            font-size: 0.9rem;
+            border-top: 1px solid #1e293b;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-area">
+            <!-- Ime datoteke logotipa mora ustrezati sliki v repozitoriju -->
+            <img src="logo.jpg" alt="MAKS GRAD Logo">
+            <h1>MAKS <span>GRAD</span></h1>
+        </div>
+        <nav>
+            <a href="#storitve">Storitve</a>
+            <a href="#o-nas">O nas</a>
+            <a href="#kontakt">Kontakt</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="badge">Družinsko podjetje z več kot 30 let tradicije</div>
+        <h2>Zanesljive storitve z gradbeno mehanizacijo in hiab prevozi</h2>
+        <p>Kakovostno urejanje okolic, precizno dvigovanje bremen ter izposoja gradbeno-strojne opreme za vaše projekte.</p>
+        <a href="#kontakt" class="btn">Pokličite nas: 070 718 550</a>
+    </section>
+
+    <div class="container" id="storitve">
+        <div class="section-title">
+            <h2>Naše storitve</h2>
+            <p>Celovite rešitve na področju gradbeništva in mehanizacije</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-card">
+                <h3>Urejanje okolic</h3>
+                <p>Celovita ureditev dvorišč, zemeljska dela, planiranje terena in priprave za tlakovanje ali asfaltiranje.</p>
+            </div>
+            <div class="service-card">
+                <h3>Gradbena mehanizacija</h3>
+                <p>Profesionalne storitve z zanesljivo gradbeno mehanizacijo za vse vrste izkopov in zemeljskih del.</p>
+            </div>
+            <div class="service-card">
+                <h3>Hiab prevozi</h3>
+                <p>Varno in natančno dvigovanje ter prevoz težkih bremen, gradbenega materiala in opreme z avtodvigalom.</p>
+            </div>
+            <div class="service-card">
+                <h3>Izposoja opreme</h3>
+                <p>Nudimo izposojo kakovostne gradbeno-strojne opreme za lažjo in učinkovitejšo izvedbo vaših del.</p>
+            </div>
+        </div>
+    </div>
+
+    <section class="about-section" id="o-nas">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>O podjetju MAKS GRAD</h2>
+                    <p>Smo izkušeno družinsko podjetje, ki že več kot 30 let uspešno deluje na področju gradbeništva. Z dolgoletnimi izkušnjami, prilagodljivostjo in posluhom za stranke zagotavljamo visoko kakovost opravljenih storitev.</p>
+                    <p>Naš cilj je vsak projekt izpeljati zanesljivo, v dogovorjenih rokovih in z maksimalno strokovnostjo. Zaupajte družinski tradiciji in strokovnemu znanju.</p>
+                    <br>
+                    <a href="#kontakt" class="btn">Stopite v stik</a>
+                </div>
+                <div>
+                    <div class="stats-box">
+                        <h3>30+</h3>
+                        <p>Let delovnih izkušenj in tradicije v gradbeništvu</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="kontakt">
+        <h2>Stopite v stik z nami</h2>
+        <p>Potrebujete zanesljivega partnerja za urejanje okolice, hiab prevoze ali izposojo opreme?</p>
+        <p class="phone-highlight">📞 070 718 550</p>
+        <p><strong>Naziv podjetja:</strong> MAKS GRAD</p>
+        <p>Pokličite nas ali nam pišite – z veseljem vam svetujemo in pripravimo ponudbo!</p>
+        <br>
+        <a href="tel:070718550" class="btn">Poklicati takoj</a>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 MAKS GRAD. Vse pravice pridržane. | Zanesljivi gradbeni partner.</p>
+    </footer>
+
+</body>
+</html>
