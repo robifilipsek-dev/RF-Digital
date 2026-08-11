@@ -92,11 +92,12 @@
                 <p class="mt-4 text-slate-400">Pošljite povpraševanje, ki bo romalo direktno v vaš nabiralnik.</p>
             </div>
             
-            <!-- FormSubmit obrazec -->
-            <form action="https://formsubmit.co/temnosivo@gmail.com" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
-                <!-- Skrite nastavitve za lepše delovanje -->
-                <input type="hidden" name="_subject" value="Novo povpraševanje s spletne strani!">
-                <input type="hidden" name="_template" value="table">
+            <!-- Web3Forms obrazec z vstavljenim ključem -->
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+                
+                <!-- Tvoj unikatni Web3Forms access key -->
+                <input type="hidden" name="access_key" value="fefcbc53-50ed-4ab7-8e90-5d1e9d1b8101">
+                <input type="hidden" name="subject" value="Novo povpraševanje s spletne strani!">
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
