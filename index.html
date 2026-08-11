@@ -3,315 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MAKS GRAD | Urejanje okolic, gradbena mehanizacija in hiab prevozi</title>
-    <style>
-        :root {
-            --primary-color: #f59e0b; /* Oranžna gradbena barva */
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --text-color: #334155;
-            --accent-blue: #0f172a;
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        body {
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--light-color);
-        }
-        header {
-            background: var(--dark-color);
-            color: white;
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        .logo-area img {
-            height: 45px;
-            width: 45px;
-            object-fit: contain;
-            border-radius: 5px;
-            background: white;
-            padding: 2px;
-        }
-        header h1 {
-            font-size: 1.5rem;
-            color: #fff;
-            letter-spacing: 1px;
-        }
-        header h1 span {
-            color: var(--primary-color);
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin-left: 1.5rem;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
-        nav a:hover {
-            color: var(--primary-color);
-        }
-        .hero {
-            background: linear-gradient(rgba(15,23,42,0.8), rgba(15,23,42,0.8)), url('https://images.unsplash.com/photo-1541888946425-d0fbb18f86f6?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 8rem 2rem;
-        }
-        .hero h2 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-        .hero p {
-            font-size: 1.25rem;
-            max-width: 700px;
-            margin: 0 auto 2rem auto;
-            color: #cbd5e1;
-        }
-        .badge {
-            display: inline-block;
-            background: rgba(245, 158, 11, 0.2);
-            color: var(--primary-color);
-            border: 1px solid var(--primary-color);
-            padding: 0.5rem 1rem;
-            border-radius: 50px;
-            font-weight: bold;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-        .btn {
-            background: var(--primary-color);
-            color: var(--dark-color);
-            padding: 0.75rem 2rem;
-            border: none;
-            border-radius: 5px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            text-decoration: none;
-            transition: background 0.3s, transform 0.2s;
-            display: inline-block;
-        }
-        .btn:hover {
-            background: #d97706;
-            color: white;
-            transform: translateY(-2px);
-        }
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 4rem 2rem;
-        }
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        .section-title h2 {
-            font-size: 2.25rem;
-            color: var(--dark-color);
-        }
-        .section-title p {
-            color: #64748b;
-            margin-top: 0.5rem;
-        }
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        .service-card {
-            background: white;
-            padding: 2.5rem 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            border-top: 4px solid var(--primary-color);
-            transition: transform 0.3s;
-        }
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        .service-card h3 {
-            margin-bottom: 1rem;
-            color: var(--dark-color);
-            font-size: 1.25rem;
-        }
-        .service-card p {
-            color: #64748b;
-            font-size: 0.95rem;
-        }
-        .about-section {
-            background: white;
-            padding: 5rem 0;
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-        }
-        @media (max-width: 768px) {
-            .about-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            .hero h2 {
-                font-size: 2.2rem;
-            }
-        }
-        .about-text h2 {
-            font-size: 2rem;
-            color: var(--dark-color);
-            margin-bottom: 1.5rem;
-        }
-        .about-text p {
-            margin-bottom: 1rem;
-            color: #475569;
-        }
-        .stats-box {
-            background: var(--dark-color);
-            color: white;
-            padding: 2.5rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-        }
-        .stats-box h3 {
-            font-size: 3.5rem;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .stats-box p {
-            font-size: 1.1rem;
-            color: #cbd5e1;
-        }
-        .contact {
-            background: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 5rem 2rem;
-        }
-        .contact h2 {
-            font-size: 2.25rem;
-            margin-bottom: 1rem;
-        }
-        .contact p {
-            margin: 0.75rem 0;
-            font-size: 1.15rem;
-            color: #cbd5e1;
-        }
-        .phone-highlight {
-            font-size: 1.75rem !important;
-            color: var(--primary-color) !important;
-            font-weight: bold;
-            margin: 1.5rem 0 !important;
-        }
-        footer {
-            text-align: center;
-            padding: 1.5rem;
-            background: #0f172a;
-            color: #94a3b8;
-            font-size: 0.9rem;
-            border-top: 1px solid #1e293b;
-        }
-    </style>
+    <title>Inovativne Inženirske Rešitve | Robert</title>
+    <!-- Tailwind CSS za hiter, moderan in odziven dizajn -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
 
-    <header>
-        <div class="logo-area">
-            <!-- Ime datoteke logotipa mora ustrezati sliki v repozitoriju -->
-            <img src="logo.jpg" alt="MAKS GRAD Logo">
-            <h1>MAKS <span>GRAD</span></h1>
+    <!-- Navigacija -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20">
+                    <i class="fa-solid fa-gears text-xl text-white"></i>
+                </div>
+                <span class="text-xl font-bold tracking-tight">Inženiring<span class="text-cyan-400">Pro</span></span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#storitve" class="hover:text-cyan-400 transition">Storitve</a>
+                <a href="#o-nas" class="hover:text-cyan-400 transition">O nas</a>
+                <a href="#kontakt" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/20 transition">Kontakt</a>
+            </nav>
         </div>
-        <nav>
-            <a href="#storitve">Storitve</a>
-            <a href="#o-nas">O nas</a>
-            <a href="#kontakt">Kontakt</a>
-        </nav>
     </header>
 
-    <section class="hero">
-        <div class="badge">Družinsko podjetje z več kot 30 let tradicije</div>
-        <h2>Zanesljive storitve z gradbeno mehanizacijo in hiab prevozi</h2>
-        <p>Kakovostno urejanje okolic, precizno dvigovanje bremen ter izposoja gradbeno-strojne opreme za vaše projekte.</p>
-        <a href="#kontakt" class="btn">Pokličite nas: 070 718 550</a>
+    <!-- Hero Sekcija -->
+    <section class="pt-32 pb-20 md:pt-48 md:py-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
+                <i class="fa-solid fa-sparkles"></i>
+                <span>Napredne tehnološke rešitve</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+                Gradimo prihodnost <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">industrijske avtomatizacije</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+                Zanesljive, natančne in inovativne rešitve, prilagojene vašim specifičnim poslovnim izzivom.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
+                    Stopite v stik
+                </a>
+                <a href="#storitve" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
+                    Rzišči storitve
+                </a>
+            </div>
+        </div>
     </section>
 
-    <div class="container" id="storitve">
-        <div class="section-title">
-            <h2>Naše storitve</h2>
-            <p>Celovite rešitve na področju gradbeništva in mehanizacije</p>
-        </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Urejanje okolic</h3>
-                <p>Celovita ureditev dvorišč, zemeljska dela, planiranje terena in priprave za tlakovanje ali asfaltiranje.</p>
+    <!-- Storitve -->
+    <section id="storitve" class="py-24 bg-slate-900/50 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold tracking-tight">Kaj ponujamo</h2>
+                <p class="mt-4 text-slate-400">Celovite inženirske storitve od ideje do končne izvedbe.</p>
             </div>
-            <div class="service-card">
-                <h3>Gradbena mehanizacija</h3>
-                <p>Profesionalne storitve z zanesljivo gradbeno mehanizacijo za vse vrste izkopov in zemeljskih del.</p>
-            </div>
-            <div class="service-card">
-                <h3>Hiab prevozi</h3>
-                <p>Varno in natančno dvigovanje ter prevoz težkih bremen, gradbenega materiala in opreme z avtodvigalom.</p>
-            </div>
-            <div class="service-card">
-                <h3>Izposoja opreme</h3>
-                <p>Nudimo izposojo kakovostne gradbeno-strojne opreme za lažjo in učinkovitejšo izvedbo vaših del.</p>
-            </div>
-        </div>
-    </div>
-
-    <section class="about-section" id="o-nas">
-        <div class="container">
-            <div class="about-grid">
-                <div class="about-text">
-                    <h2>O podjetju MAKS GRAD</h2>
-                    <p>Smo izkušeno družinsko podjetje, ki že več kot 30 let uspešno deluje na področju gradbeništva. Z dolgoletnimi izkušnjami, prilagodljivostjo in posluhom za stranke zagotavljamo visoko kakovost opravljenih storitev.</p>
-                    <p>Naš cilj je vsak projekt izpeljati zanesljivo, v dogovorjenih rokovih in z maksimalno strokovnostjo. Zaupajte družinski tradiciji in strokovnemu znanju.</p>
-                    <br>
-                    <a href="#kontakt" class="btn">Stopite v stik</a>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Kartica 1 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-robot"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Strojegradnja in avtomatizacija</h3>
+                    <p class="text-slate-400 leading-relaxed">Načrtovanje in izdelava namenskih strojev ter robotskih celic za optimizacijo proizvodnih procesov.</p>
                 </div>
-                <div>
-                    <div class="stats-box">
-                        <h3>30+</h3>
-                        <p>Let delovnih izkušenj in tradicije v gradbeništvu</p>
+                <!-- Kartica 2 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-pen-ruler"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Konstruiranje po meri</h3>
+                    <p class="text-slate-400 leading-relaxed">Natančne 3D modeliranje in priprava celotne tehnične dokumentacije za vaše projekte.</p>
+                </div>
+                <!-- Kartica 3 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
+                        <i class="fa-solid fa-chart-line"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Svetovanje in optimizacija</h3>
+                    <p class="text-slate-400 leading-relaxed">Strokovno svetovanje pri izbiri tehnologij in izboljšavi obstoječih proizvodnih linij.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt -->
+    <section id="kontakt" class="py-24 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold tracking-tight">Stopite v stik z nami</h2>
+                <p class="mt-4 text-slate-400">Imate projekt ali vprašanje? Pošljite nam sporočilo.</p>
+            </div>
+            <form class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl" onsubmit="event.preventDefault(); alert('Hvala za sporočilo! Kmalu bomo stopili v stik.');">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">Ime in priimek</label>
+                        <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2">E-poštni naslov</label>
+                        <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                 </div>
-            </div>
+                <div>
+                    <label class="block text-sm font-medium text-slate-300 mb-2">Sporočilo</label>
+                    <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                </div>
+                <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
+                    Pošlji sporočilo
+                </button>
+            </form>
         </div>
     </section>
 
-    <section class="contact" id="kontakt">
-        <h2>Stopite v stik z nami</h2>
-        <p>Potrebujete zanesljivega partnerja za urejanje okolice, hiab prevoze ali izposojo opreme?</p>
-        <p class="phone-highlight">📞 070 718 550</p>
-        <p><strong>Naziv podjetja:</strong> MAKS GRAD</p>
-        <p>Pokličite nas ali nam pišite – z veseljem vam svetujemo in pripravimo ponudbo!</p>
-        <br>
-        <a href="tel:070718550" class="btn">Poklicati takoj</a>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 MAKS GRAD. Vse pravice pridržane. | Zanesljivi gradbeni partner.</p>
+    <!-- Noga -->
+    <footer class="py-8 border-t border-slate-900 text-center text-sm text-slate-500">
+        <p>&copy; 2026 Vse pravice pridržane.</p>
     </footer>
 
 </body>
