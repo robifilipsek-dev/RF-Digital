@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inovativne Inženirske Rešitve | Robert</title>
-    <!-- Tailwind CSS za hiter, moderan in odziven dizajn -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -46,7 +45,7 @@
                     Stopite v stik
                 </a>
                 <a href="#storitve" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
-                    Rzišči storitve
+                    Razišči storitve
                 </a>
             </div>
         </div>
@@ -60,7 +59,6 @@
                 <p class="mt-4 text-slate-400">Celovite inženirske storitve od ideje do končne izvedbe.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
-                <!-- Kartica 1 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-robot"></i>
@@ -68,7 +66,6 @@
                     <h3 class="text-xl font-semibold mb-3">Strojegradnja in avtomatizacija</h3>
                     <p class="text-slate-400 leading-relaxed">Načrtovanje in izdelava namenskih strojev ter robotskih celic za optimizacijo proizvodnih procesov.</p>
                 </div>
-                <!-- Kartica 2 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-pen-ruler"></i>
@@ -76,7 +73,6 @@
                     <h3 class="text-xl font-semibold mb-3">Konstruiranje po meri</h3>
                     <p class="text-slate-400 leading-relaxed">Natančne 3D modeliranje in priprava celotne tehnične dokumentacije za vaše projekte.</p>
                 </div>
-                <!-- Kartica 3 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-chart-line"></i>
@@ -93,22 +89,28 @@
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold tracking-tight">Stopite v stik z nami</h2>
-                <p class="mt-4 text-slate-400">Imate projekt ali vprašanje? Pošljite nam sporočilo.</p>
+                <p class="mt-4 text-slate-400">Pošljite povpraševanje, ki bo romalo direktno v vaš nabiralnik.</p>
             </div>
-            <form class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl" onsubmit="event.preventDefault(); alert('Hvala za sporočilo! Kmalu bomo stopili v stik.');">
+            
+            <!-- FormSubmit obrazec -->
+            <form action="https://formsubmit.co/temnosivo@gmail.com" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+                <!-- Skrite nastavitve za lepše delovanje -->
+                <input type="hidden" name="_subject" value="Novo povpraševanje s spletne strani!">
+                <input type="hidden" name="_template" value="table">
+
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-2">Ime in priimek</label>
-                        <input type="text" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                     <div>
                         <label class="block text-sm font-medium text-slate-300 mb-2">E-poštni naslov</label>
-                        <input type="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                 </div>
                 <div>
                     <label class="block text-sm font-medium text-slate-300 mb-2">Sporočilo</label>
-                    <textarea rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                    <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
                 </div>
                 <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
                     Pošlji sporočilo
