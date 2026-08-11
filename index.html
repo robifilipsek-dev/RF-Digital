@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="sl">
+<html lang="sl" id="html-root">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,11 +18,23 @@
                 </div>
                 <span class="text-xl font-bold tracking-tight">RF<span class="text-cyan-400">Digital</span></span>
             </div>
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                <a href="#storitve" class="hover:text-cyan-400 transition">Storitve</a>
-                <a href="#o-meni" class="hover:text-cyan-400 transition">O meni</a>
-                <a href="#kontakt" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/20 transition">Kontakt</a>
-            </nav>
+            
+            <div class="flex items-center space-x-6">
+                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                    <a href="#storitve" data-i18n="nav-services" class="hover:text-cyan-400 transition">Storitve</a>
+                    <a href="#o-meni" data-i18n="nav-about" class="hover:text-cyan-400 transition">O meni</a>
+                    <a href="#kontakt" data-i18n="nav-contact-btn" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/20 transition">Kontakt</a>
+                </nav>
+
+                <!-- Izbirnik jezika -->
+                <div class="relative">
+                    <select id="language-switcher" onchange="changeLanguage(this.value)" class="bg-slate-950 text-slate-300 text-sm font-medium border border-slate-800 rounded-xl px-3 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
+                        <option value="sl">🇸🇮 SLO</option>
+                        <option value="en">🇬🇧 ENG</option>
+                        <option value="de">🇩🇪 DEU</option>
+                    </select>
+                </div>
+            </div>
         </div>
     </header>
 
@@ -35,19 +47,19 @@
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
                 <i class="fa-solid fa-sparkles"></i>
-                <span>Inženirski um. Digitalne rešitve.</span>
+                <span data-i18n="hero-badge">Inženirski um. Digitalne rešitve.</span>
             </div>
             <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
-                Inženirski um za <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">digitalno prihodnost</span>
+                <span data-i18n="hero-title-1">Inženirski um za</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-i18n="hero-title-gradient">digitalno prihodnost</span>
             </h1>
-            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto">
+            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto" data-i18n="hero-desc">
                 Povezujem natančnost strojništva z močjo sodobne programske opreme in AI avtomatizacije, da vaše podjetje raste hitreje.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#kontakt" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
+                <a href="#kontakt" data-i18n="hero-btn-contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
                     Stopite v stik
                 </a>
-                <a href="#storitve" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
+                <a href="#storitve" data-i18n="hero-btn-explore" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
                     Razišči storitve
                 </a>
             </div>
@@ -58,30 +70,33 @@
     <section id="storitve" class="py-24 bg-slate-900/50 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight">Kaj ponujam</h2>
-                <p class="mt-4 text-slate-400">Sodobne digitalne storitve za mala podjetja in optimizacijo procesov.</p>
+                <h2 class="text-3xl font-bold tracking-tight" data-i18n="services-heading">Kaj ponujam</h2>
+                <p class="mt-4 text-slate-400" data-i18n="services-subheading">Sodobne digitalne storitve za mala podjetja in optimizacijo procesov.</p>
             </div>
             <div class="grid md:grid-cols-3 gap-8">
+                <!-- Storitve 1 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-code"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Spletne strani in mini aplikacije</h3>
-                    <p class="text-slate-400 leading-relaxed">Hitre, odzivne in sodobne spletne rešitve ter namenske mini aplikacije, prilagojene specifičnim delovnim procesom vašega podjetja.</p>
+                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-1-title">Spletne strani in mini aplikacije</h3>
+                    <p class="text-slate-400 leading-relaxed" data-i18n="service-1-desc">Hitre, odzivne in sodobne spletne rešitve ter namenske mini aplikacije, prilagojene specifičnim delovnim procesom vašega podjetja.</p>
                 </div>
+                <!-- Storitve 2 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-brain"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">AI avtomatizacija poslovanja</h3>
-                    <p class="text-slate-400 leading-relaxed">Vpeljava umetne inteligence in pametnih avtomatizacij v vsakodnevne procese za prihranek časa, zmanjšanje napak in večjo produktivnost.</p>
+                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-2-title">AI avtomatizacija poslovanja</h3>
+                    <p class="text-slate-400 leading-relaxed" data-i18n="service-2-desc">Vpeljava umetne inteligence in pametnih avtomatizacij v vsakodnevne procese za prihranek časa, zmanjšanje napak in večjo produktivnost.</p>
                 </div>
+                <!-- Storitve 3 -->
                 <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
                     <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
                         <i class="fa-solid fa-gears"></i>
                     </div>
-                    <h3 class="text-xl font-semibold mb-3">Digitalno svetovanje</h3>
-                    <p class="text-slate-400 leading-relaxed">Strokovni pregled vaših procesov in svetovanje pri digitalni preobrazbi ter izbiri pravih tehnoloških orodij za napredek.</p>
+                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-3-title">Digitalno svetovanje</h3>
+                    <p class="text-slate-400 leading-relaxed" data-i18n="service-3-desc">Strokovni pregled vaših procesov in svetovanje pri digitalni preobrazbi ter izbiri pravih tehnoloških orodij za napredek.</p>
                 </div>
             </div>
         </div>
@@ -91,31 +106,31 @@
     <section id="o-meni" class="py-24 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-12 items-center">
-                <!-- Minimalistična okrogla slika v stilu LinkedIna -->
+                <!-- Minimalistična okrogla slika -->
                 <div class="md:col-span-5 flex flex-col items-center text-center">
                     <div class="relative mb-6">
                         <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-30"></div>
                         <img src="1785750119545.jfif" alt="Robi - diplomirani strojnik in digitalni inženir" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-slate-100">Robert Filipšek, dipl. str. inž.</h3>
-                    <p class="text-cyan-400 text-sm font-medium mt-1">Mechanical Design & AI Automation</p>
+                    <p class="text-cyan-400 text-sm font-medium mt-1" data-i18n="about-subtitle">Mechanical Design & AI Automation</p>
                 </div>
                 
                 <!-- Besedilo -->
                 <div class="md:col-span-7">
                     <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
-                        <span>O meni</span>
+                        <span data-i18n="about-badge">O meni</span>
                     </div>
-                    <h2 class="text-3xl font-bold tracking-tight mb-6">Od načrtovanja strojev do digitalne prihodnosti</h2>
+                    <h2 class="text-3xl font-bold tracking-tight mb-6" data-i18n="about-heading">Od konstrukcij do digitalne prihodnosti</h2>
                     <div class="space-y-4 text-slate-400 leading-relaxed">
-                        <p>
-                            Sem <strong class="text-slate-200">Robi</strong>, diplomirani strojnik (dipl. str. inž.) iz Celja, rojen leta 1995. Moja pot se je začela v svetu natančnega inženirskega snovanja – med letoma 2017 in 2021 sem kot <em>Mechanical Design Engineer</em> deloval pri podjetju Etri, od leta 2021 pa svoje izkušnje nadgrajujem v podjetju INEL.
+                        <p data-i18n="about-text-1">
+                            Sem <strong class="text-slate-200">Robi</strong>, diplomirani strojnik iz Celja. Več let nabiram dragocene izkušnje kot <strong class="text-slate-200">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od začetne ideje do končne realizacije.
                         </p>
-                        <p>
-                            Skozi leta sem spoznal ključno resnico: <strong class="text-slate-200">inženirski um ni omejen samo na stroje.</strong> Način razmišljanja, ki rešuje kompleksne mehanske probleme, postavlja tolerancije in optimizira gibe v proizvodnji, je popolnoma enak tistemu, ki ga potrebuje sodoben digitalni svet in programiranje.
+                        <p data-i18n="about-text-2">
+                            Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov odličen temelj za marsikatero področje. Zato me poleg mehanike močno veseli tudi svet umetne inteligence.
                         </p>
-                        <p>
-                            Danes to preteklost nadgrajujem. Združujem zanesljivost, pragmatizem in tehnično natančnost klasičnega inženiringa z najnovejšimi dosežki v programiranju ter AI avtomatizaciji, s čimer malim podjetjem pomagam do učinkovitejše prihodnosti.
+                        <p data-i18n="about-text-3">
+                            V prostem času z navdušenjem ustvarjam na področju <strong class="text-slate-200">AI avtomatizacije in izdelave spletnih strani</strong>. Z združevanjem natančnosti klasičnega inženiringa in sodobnih digitalnih tehnologij pomagam spreminjati ideje v delujoče, učinkovite rešitve.
                         </p>
                     </div>
                 </div>
@@ -127,32 +142,31 @@
     <section id="kontakt" class="py-24 bg-slate-900/50 border-t border-slate-900">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold tracking-tight">Stopite v stik z mano</h2>
-                <p class="mt-4 text-slate-400">Pošljite povpraševanje za vaš naslednji digitalni projekt ali avtomatizacijo.</p>
+                <h2 class="text-3xl font-bold tracking-tight" data-i18n="contact-heading">Stopite v stik z mano</h2>
+                <p class="mt-4 text-slate-400" data-i18n="contact-subheading">Pošljite povpraševanje za vaš naslednji digitalni projekt ali avtomatizacijo.</p>
             </div>
             
-            <!-- Web3Forms obrazec z vstavljenim ključem -->
+            <!-- Web3Forms obrazec -->
             <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
                 
-                <!-- Tvoj unikatni Web3Forms access key -->
                 <input type="hidden" name="access_key" value="fefcbc53-50ed-4ab7-8e90-5d1e9d1b8101">
                 <input type="hidden" name="subject" value="Novo povpraševanje s spletne strani RF Digital!">
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2">Ime in priimek</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Ime in priimek</label>
                         <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2">E-poštni naslov</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">E-poštni naslov</label>
                         <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2">Sporočilo</label>
+                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Sporočilo</label>
                     <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
                 </div>
-                <button type="submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
+                <button type="submit" data-i18n="form-submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
                     Pošlji sporočilo
                 </button>
             </form>
@@ -161,8 +175,120 @@
 
     <!-- Noga -->
     <footer class="py-8 border-t border-slate-900 text-center text-sm text-slate-500">
-        <p>&copy; 2026 RF Digital | Vse pravice pridržane.</p>
+        <p>&copy; 2026 RF Digital | <span data-i18n="footer-rights">Vse pravice pridržane.</span></p>
     </footer>
 
+    <!-- Prevajalna skripta -->
+    <script>
+        const translations = {
+            sl: {
+                "nav-services": "Storitve",
+                "nav-about": "O meni",
+                "nav-contact-btn": "Kontakt",
+                "hero-badge": "Inženirski um. Digitalne rešitve.",
+                "hero-title-1": "Inženirski um za",
+                "hero-title-gradient": "digitalno prihodnost",
+                "hero-desc": "Povezujem natančnost strojništva z močjo sodobne programske opreme in AI avtomatizacije, da vaše podjetje raste hitreje.",
+                "hero-btn-contact": "Stopite v stik",
+                "hero-btn-explore": "Razišči storitve",
+                "services-heading": "Kaj ponujam",
+                "services-subheading": "Sodobne digitalne storitve za mala podjetja in optimizacijo procesov.",
+                "service-1-title": "Spletne strani in mini aplikacije",
+                "service-1-desc": "Hitre, odzivne in sodobne spletne rešitve ter namenske mini aplikacije, prilagojene specifičnim delovnim procesom vašega podjetja.",
+                "service-2-title": "AI avtomatizacija poslovanja",
+                "service-2-desc": "Vpeljava umetne inteligence in pametnih avtomatizacij v vsakodnevne procese za prihranek časa, zmanjšanje napak in večjo produktivnost.",
+                "service-3-title": "Digitalno svetovanje",
+                "service-3-desc": "Strokovni pregled vaših procesov in svetovanje pri digitalni preobrazbi ter izbiri pravih tehnoloških orodij za napredek.",
+                "about-badge": "O meni",
+                "about-heading": "Od konstrukcij do digitalne prihodnosti",
+                "about-subtitle": "Mechanical Design & AI Automation",
+                "about-text-1": "Sem <strong class=\"text-slate-200\">Robi</strong>, diplomirani strojnik iz Celja. Več let nabiram dragocene izkušnje kot <strong class=\"text-slate-200\">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od začetne ideje do končne realizacije.",
+                "about-text-2": "Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za marsikatero področje. Zato me poleg mehanike močno veseli tudi svet umetne inteligence.",
+                "about-text-3": "V prostem času z navdušenjem ustvarjam na področju <strong class=\"text-slate-200\">AI avtomatizacije in izdelave spletnih strani</strong>. Z združevanjem natančnosti klasičnega inženiringa in sodobnih digitalnih tehnologij pomagam spreminjati ideje v delujoče, učinkovite rešitve.",
+                "contact-heading": "Stopite v stik z mano",
+                "contact-subheading": "Pošljite povpraševanje za vaš naslednji digitalni projekt ali avtomatizacijo.",
+                "form-name": "Ime in priimek",
+                "form-email": "E-poštni naslov",
+                "form-message": "Sporočilo",
+                "form-submit": "Pošlji sporočilo",
+                "footer-rights": "Vse pravice pridržane."
+            },
+            en: {
+                "nav-services": "Services",
+                "nav-about": "About Me",
+                "nav-contact-btn": "Contact",
+                "hero-badge": "Engineering Mind. Digital Solutions.",
+                "hero-title-1": "An Engineering Mind for the",
+                "hero-title-gradient": "Digital Future",
+                "hero-desc": "Combining the precision of mechanical engineering with the power of modern software and AI automation to help your business grow faster.",
+                "hero-btn-contact": "Get in Touch",
+                "hero-btn-explore": "Explore Services",
+                "services-heading": "What I Offer",
+                "services-subheading": "Modern digital services for small businesses and process optimization.",
+                "service-1-title": "Websites & Mini Apps",
+                "service-1-desc": "Fast, responsive, and modern web solutions along with custom mini-apps tailored to your company's specific workflows.",
+                "service-2-title": "AI Business Automation",
+                "service-2-desc": "Integrating artificial intelligence and smart automations into daily operations to save time, reduce errors, and increase productivity.",
+                "service-3-title": "Digital Consulting",
+                "service-3-desc": "Expert review of your processes and guidance on digital transformation and choosing the right technological tools for progress.",
+                "about-badge": "About Me",
+                "about-heading": "From Mechanical Design to the Digital Future",
+                "about-subtitle": "Mechanical Design & AI Automation",
+                "about-text-1": "I am <strong class=\"text-slate-200\">Robi</strong>, a graduated mechanical engineer from Celje, Slovenia. For years, I have gathered valuable experience as a <strong class=\"text-slate-200\">designer of machinery, equipment, and robotic cells</strong>, while also successfully leading demanding engineering projects from initial concept to final realization.",
+                "about-text-2": "Through years of industrial experience, I realized that the engineering approach to problem-solving serves as a solid foundation for many fields. Therefore, alongside mechanics, I am deeply passionate about the world of artificial intelligence.",
+                "about-text-3": "In my free time, I enthusiastically create in the fields of <strong class=\"text-slate-200\">AI automation and web development</strong>. By blending the precision of classical engineering with modern digital technologies, I help turn ideas into working, efficient solutions.",
+                "contact-heading": "Get in Touch with Me",
+                "contact-subheading": "Send an inquiry for your next digital project or automation.",
+                "form-name": "Full Name",
+                "form-email": "Email Address",
+                "form-message": "Message",
+                "form-submit": "Send Message",
+                "footer-rights": "All rights reserved."
+            },
+            de: {
+                "nav-services": "Leistungen",
+                "nav-about": "Über mich",
+                "nav-contact-btn": "Kontakt",
+                "hero-badge": "Ingenieurgeist. Digitale Lösungen.",
+                "hero-title-1": "Ein Ingenieurgeist für die",
+                "hero-title-gradient": "digitale Zukunft",
+                "hero-desc": "Ich verbinde die Präzision des Maschinenbaus mit der Kraft moderner Software und KI-Automatisierung, damit Ihr Unternehmen schneller wächst.",
+                "hero-btn-contact": "Kontakt aufnehmen",
+                "hero-btn-explore": "Leistungen entdecken",
+                "services-heading": "Was ich anbiete",
+                "services-subheading": "Moderne digitale Dienstleistungen für kleine Unternehmen und Prozessoptimierung.",
+                "service-1-title": "Websites & Mini-Anwendungen",
+                "service-1-desc": "Schnelle, responsive und moderne Web-Lösungen sowie maßgeschneiderte Mini-Apps, angepasst an die spezifischen Arbeitsabläufe Ihres Unternehmens.",
+                "service-2-title": "KI-Geschäftsautomatisierung",
+                "service-2-desc": "Integration von künstlicher Intelligenz und intelligenten Automatisierungen in tägliche Prozesse, um Zeit zu sparen, Fehler zu reduzieren und die Produktivität zu steigern.",
+                "service-3-title": "Digitale Beratung",
+                "service-3-desc": "Fachkundige Überprüfung Ihrer Prozesse und Beratung bei der digitalen Transformation sowie der Auswahl der richtigen technologischen Werkzeuge.",
+                "about-badge": "Über mich",
+                "about-heading": "Vom Konstrukteur in die digitale Zukunft",
+                "about-subtitle": "Mechanical Design & AI Automation",
+                "about-text-1": "Ich bin <strong class=\"text-slate-200\">Robi</strong>, diplomierter Maschinenbauingenieur aus Celje. Seit Jahren sammle ich wertvolle Erfahrungen als <strong class=\"text-slate-200\">Konstrukteur von Maschinen, Anlagen und Roboterzellen</strong> und habe zudem anspruchsvolle Ingenieurprojekte von der ersten Idee bis zur finalen Umsetzung erfolgreich geleitet.",
+                "about-text-2": "Durch jahrelange Arbeit in der Industrie habe ich erkannt, dass der ingenieurmäßige Ansatz zur Problemlösung ein hervorragendes Fundament für viele Bereiche bildet. Daher begeistert mich neben der Mechanik auch die Welt der künstlichen Intelligenz.",
+                "about-text-3": "In meiner Freizeit beschäftige ich mich mit großer Begeisterung mit <strong class=\"text-slate-200\">KI-Automatisierung und Webentwicklung</strong>. Durch die Kombination der Präzision klassischer Ingenieurskunst mit modernen digitalen Technologien helfe ich dabei, Ideen in funktionierende, effiziente Lösungen umzusetzen.",
+                "contact-heading": "Kontaktieren Sie mich",
+                "contact-subheading": "Senden Sie eine Anfrage für Ihr nächstes digitales Projekt oder Ihre Automatisierung.",
+                "form-name": "Vor- und Nachname",
+                "form-email": "E-Mail-Adresse",
+                "form-message": "Nachricht",
+                "form-submit": "Nachricht senden",
+                "footer-rights": "Alle Rechte vorbehalten."
+            }
+        };
+
+        function changeLanguage(lang) {
+            document.getElementById('html-root').setAttribute('lang', lang);
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (translations[lang] && translations[lang][key]) {
+                    el.innerHTML = translations[lang][key];
+                }
+            });
+        }
+    </script>
 </body>
 </html>
