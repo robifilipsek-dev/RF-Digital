@@ -1,146 +1,601 @@
 <!DOCTYPE html>
-<html lang="sl" id="html-root">
+<html lang="sl" id="html-root" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RF Digital | Inženirski um & Digitalne rešitve</title>
+    
+    <!-- SEO & Metadata -->
+    <title>RF Digital | AI Automation for Business</title>
+    <meta name="description" content="RF Digital helps businesses automate repetitive processes, integrate AI into existing systems and build custom AI solutions.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="RF Digital | AI Automation for Business">
+    <meta property="og:description" content="RF Digital helps businesses automate repetitive processes, integrate AI into existing systems and build custom AI solutions.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS & FontAwesome -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#030712',
+                    }
+                }
+            }
+        }
+    </script>
 </head>
-<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
 
-    <!-- Navigacija -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/85 backdrop-blur-md border-b border-slate-800">
+    <!-- 17. NAVIGATION -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-950/80 backdrop-blur-md border-b border-slate-900">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <!-- Izboljšan profesionalni logotip -->
             <a href="#" class="flex items-center space-x-3.5 group">
                 <div class="relative">
                     <div class="absolute inset-0 bg-cyan-500 rounded-xl blur-md opacity-40 group-hover:opacity-75 transition"></div>
-                    <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-white font-black text-xl border border-cyan-400/30">
+                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg text-white font-black text-lg border border-cyan-400/30">
                         R<span class="text-slate-950">F</span>
                     </div>
                 </div>
                 <div class="flex flex-col">
                     <span class="text-xl font-extrabold tracking-tight text-white">RF<span class="text-cyan-400">Digital</span></span>
-                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Engineering & AI</span>
+                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold -mt-1" data-i18n="nav-subtitle">AI Automation</span>
                 </div>
             </a>
             
-            <div class="flex items-center space-x-6">
-                <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
-                    <a href="#storitve" data-i18n="nav-services" class="hover:text-cyan-400 transition">Storitve</a>
-                    <a href="#o-meni" data-i18n="nav-about" class="hover:text-cyan-400 transition">O meni</a>
-                    <a href="#kontakt" data-i18n="nav-contact-btn" class="px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-semibold shadow-lg shadow-cyan-500/20 transition">Kontakt</a>
-                </nav>
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#solutions" class="hover:text-cyan-400 transition" data-i18n="nav-solutions">Solutions</a>
+                <a href="#use-cases" class="hover:text-cyan-400 transition" data-i18n="nav-use-cases">Use Cases</a>
+                <a href="#how-it-works" class="hover:text-cyan-400 transition" data-i18n="nav-how-it-works">How It Works</a>
+                <a href="#roi-calculator" class="hover:text-cyan-400 transition" data-i18n="nav-roi">ROI</a>
+                <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav-faq">FAQ</a>
+                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav-about">About</a>
+            </nav>
 
-                <!-- Izbirnik jezika -->
-                <div class="relative">
-                    <select id="language-switcher" onchange="changeLanguage(this.value)" class="bg-slate-950 text-slate-300 text-sm font-medium border border-slate-800 rounded-xl px-3 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
-                        <option value="sl">🇸🇮 SLO</option>
-                        <option value="en">🇬🇧 ENG</option>
-                        <option value="de">🇩🇪 DEU</option>
-                        <option value="hr">🇭🇷 HRV</option>
-                    </select>
-                </div>
+            <div class="flex items-center space-x-4">
+                <a href="#contact" data-i18n="nav-cta" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition">
+                    Book a consultation
+                </a>
+                <!-- Jezikovni preklopnik -->
+                <select id="language-switcher" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
+                    <option value="en">🇬🇧 ENG</option>
+                    <option value="sl">🇸🇮 SLO</option>
+                    <option value="de">🇩🇪 DEU</option>
+                    <option value="hr">🇭🇷 HRV</option>
+                </select>
             </div>
         </div>
     </header>
 
-    <!-- Hero Sekcija -->
-    <section class="pt-32 pb-20 md:pt-48 md:py-32 relative overflow-hidden">
+    <!-- 1. HERO SECTION -->
+    <section class="pt-36 pb-20 md:pt-48 md:pb-32 relative overflow-hidden">
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
-        <div class="absolute top-20 left-10 text-slate-900/40 text-7xl pointer-events-none"><i class="fa-solid fa-gear fa-spin" style="animation-duration: 20s;"></i></div>
-        <div class="absolute bottom-10 right-10 text-slate-900/40 text-8xl pointer-events-none"><i class="fa-solid fa-gears"></i></div>
-        
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
-            <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
                 <i class="fa-solid fa-sparkles"></i>
-                <span data-i18n="hero-badge">Inženirski um. Digitalne rešitve.</span>
+                <span data-i18n="hero-badge">AI Automation & Custom Systems</span>
             </div>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
-                <span data-i18n="hero-title-1">Inženirski um za</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-i18n="hero-title-gradient">digitalno prihodnost</span>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight">
+                <span data-i18n="hero-title">Turn repetitive work into</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-i18n="hero-title-gradient">intelligent automation.</span>
             </h1>
-            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto" data-i18n="hero-desc">
-                Povezujem natančnost strojništva z močjo sodobne programske opreme in AI avtomatizacije, da vaše podjetje raste hitreje.
+            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed" data-i18n="hero-desc">
+                RF Digital helps businesses automate repetitive tasks, connect AI with existing systems, and develop solutions that save employees time.
             </p>
             <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-                <a href="#kontakt" data-i18n="hero-btn-contact" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
-                    Stopite v stik
+                <a href="#contact" data-i18n="hero-cta-primary" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
+                    Book a consultation
                 </a>
-                <a href="#storitve" data-i18n="hero-btn-explore" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
-                    Razišči storitve
+                <a href="#solutions" data-i18n="hero-cta-secondary" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
+                    Explore our solutions
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Storitve -->
-    <section id="storitve" class="py-24 bg-slate-900/50 border-t border-slate-900">
+    <!-- 2. TRUST / VALUE BAR -->
+    <section class="border-y border-slate-900 bg-slate-900/30 py-6">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold tracking-tight" data-i18n="services-heading">Kaj ponujam</h2>
-                <p class="mt-4 text-slate-400" data-i18n="services-subheading">Sodobne digitalne storitve za mala podjetja in optimizacijo procesov.</p>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
-                        <i class="fa-solid fa-code"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-1-title">Spletne strani in mini aplikacije</h3>
-                    <p class="text-slate-400 leading-relaxed" data-i18n="service-1-desc">Hitre, odzivne in sodobne spletne rešitve ter namenske mini aplikacije, prilagojene specifičnim delovnim procesom vašega podjetja.</p>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-bolt text-cyan-400"></i>
+                    <span data-i18n="tb-1">AI Automation</span>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
-                        <i class="fa-solid fa-brain"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-2-title">AI avtomatizacija poslovanja</h3>
-                    <p class="text-slate-400 leading-relaxed" data-i18n="service-2-desc">Vpeljava umetne inteligence in pametnih avtomatizacij v vsakodnevne procese za prihranek časa, zmanjšanje napak in večjo produktivnost.</p>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-wand-magic-sparkles text-cyan-400"></i>
+                    <span data-i18n="tb-2">Custom AI Solutions</span>
                 </div>
-                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition group">
-                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6 group-hover:bg-cyan-500 group-hover:text-slate-950 transition">
-                        <i class="fa-solid fa-gears"></i>
-                    </div>
-                    <h3 class="text-xl font-semibold mb-3" data-i18n="service-3-title">Digitalno svetovanje</h3>
-                    <p class="text-slate-400 leading-relaxed" data-i18n="service-3-desc">Strokovni pregled vaših procesov in svetovanje pri digitalni preobrazbi ter izbiri pravih tehnoloških orodij za napredek.</p>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-chart-line text-cyan-400"></i>
+                    <span data-i18n="tb-3">Business Process Optimization</span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-network-wired text-cyan-400"></i>
+                    <span data-i18n="tb-4">System Integration</span>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- O meni -->
-    <section id="o-meni" class="py-24 border-t border-slate-900">
+    <!-- 3. PROBLEM SECTION -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="prob-title">Your team shouldn't spend hours on work AI can handle.</h2>
+                <p class="mt-4 text-slate-400" data-i18n="prob-subtitle">Identify and eliminate bottlenecks slowing down your everyday operations.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-1-title">Repetitive administrative tasks</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-1-desc">Wasting valuable hours on manual routine procedures instead of core work.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-2-title">Manual data entry</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-2-desc">Typing the same data across multiple platforms prone to human error.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-envelope-open-text"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-3-title">Processing emails & documents</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-3-desc">Sifting through endless incoming requests, invoices, and files.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-file-excel"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-4-title">Manual reporting & data copying</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-4-desc">Building status reports and transferring data back and forth between systems.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-5-title">Searching internal info</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-5-desc">Hunting down specifications, instructions, and past company documents.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-shuffle"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-6-title">Inefficient workflows</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-6-desc">Slow handoffs and unstructured communication causing unnecessary delays.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. SOLUTION SECTION -->
+    <section class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="sol-title">AI that works inside your business.</h2>
+                <p class="mt-4 text-slate-400" data-i18n="sol-subtitle">We don't just sell generic chatbots. We build connected intelligent workflows.</p>
+                <div class="mt-6 inline-flex flex-wrap items-center justify-center gap-2 text-xs font-semibold bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-4 py-2 rounded-xl">
+                    <span data-i18n="tag-ai">AI</span> + <span data-i18n="tag-automation">Automation</span> + <span data-i18n="tag-data">Business Data</span> + <span data-i18n="tag-systems">Existing Systems</span>
+                </div>
+            </div>
+            
+            <!-- Flow Diagram -->
+            <div class="grid md:grid-cols-5 gap-4 items-center max-w-5xl mx-auto">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                    <div class="text-cyan-400 text-2xl mb-2"><i class="fa-solid fa-arrow-right-to-bracket"></i></div>
+                    <h4 class="font-bold text-sm mb-1" data-i18n="flow-h1">INPUT</h4>
+                    <p class="text-xs text-slate-400" data-i18n="flow-1">Emails, files, orders, customer queries</p>
+                </div>
+                <div class="hidden md:flex justify-center text-cyan-400"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                    <div class="text-cyan-400 text-2xl mb-2"><i class="fa-solid fa-brain"></i></div>
+                    <h4 class="font-bold text-sm mb-1" data-i18n="flow-h2">AI UNDERSTANDS</h4>
+                    <p class="text-xs text-slate-400" data-i18n="flow-2">Context, intent & document structure</p>
+                </div>
+                <div class="hidden md:flex justify-center text-cyan-400"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800 text-center">
+                    <div class="text-cyan-400 text-2xl mb-2"><i class="fa-solid fa-gears"></i></div>
+                    <h4 class="font-bold text-sm mb-1" data-i18n="flow-h3">AUTOMATION ACTS</h4>
+                    <p class="text-xs text-slate-400" data-i18n="flow-3">Updates CRM, ERP, prepares replies</p>
+                </div>
+            </div>
+            <div class="mt-6 max-w-xs mx-auto p-4 rounded-xl bg-slate-900 border border-slate-800 text-center">
+                <div class="text-cyan-400 text-xl mb-1"><i class="fa-solid fa-user-check"></i></div>
+                <h4 class="font-bold text-xs" data-i18n="flow-h4">HUMAN APPROVES WHEN NEEDED</h4>
+                <p class="text-[11px] text-slate-400 mt-1" data-i18n="flow-4">Full control over critical decisions</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. STORITVE (SERVICES) -->
+    <section id="solutions" class="py-24 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="srv-heading">What we do</h2>
+                <p class="mt-4 text-slate-400" data-i18n="srv-subheading">Comprehensive AI integration and workflow engineering tailored for modern enterprises.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 01 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">01</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-1-title">AI Process Automation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-1-desc">Automate repetitive business workflows securely and efficiently.</p>
+                </div>
+                <!-- 02 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">02</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-2-title">Custom AI Solutions</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-2-desc">Tailored AI applications built precisely for your unique operational requirements.</p>
+                </div>
+                <!-- 03 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">03</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-microchip"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-3-title">AI Agents</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-3-desc">Autonomous agents capable of executing multi-step business tasks.</p>
+                </div>
+                <!-- 04 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">04</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-file-invoice"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-4-title">Document & Data Automation</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-4-desc">Instant parsing, extraction, and classification of business documents.</p>
+                </div>
+                <!-- 05 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">05</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-book-bookmark"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-5-title">AI Knowledge Systems</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-5-desc">Internal AI search across your documentation, manuals, and databases.</p>
+                </div>
+                <!-- 06 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">06</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-puzzle-piece"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-6-title">System Integration</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-6-desc">Connecting AI securely with ERP, CRM, APIs, and custom software infrastructure.</p>
+                </div>
+                <!-- 07 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">07</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-sliders"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-7-title">Workflow Optimization</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-7-desc">Deep process analysis to discover high-impact automation opportunities.</p>
+                </div>
+                <!-- 08 -->
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition group">
+                    <div class="text-xs font-mono text-cyan-400 mb-3">08</div>
+                    <div class="w-10 h-10 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-lg mb-4 group-hover:bg-cyan-500 group-hover:text-slate-950 transition"><i class="fa-solid fa-compass-drafting"></i></div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="s-8-title">AI Consulting</h3>
+                    <p class="text-sm text-slate-400 leading-relaxed" data-i18n="s-8-desc">Strategic guidance, technology selection, and robust implementation roadmaps.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. USE CASES -->
+    <section id="use-cases" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="uc-heading">Where AI can make an impact</h2>
+                <p class="mt-4 text-slate-400" data-i18n="uc-subheading">Practical applications across different business departments.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-chart-pie"></i><span data-i18n="uc-1-cat">Sales</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-1-1">Automated offer preparation</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-1-2">Inbound lead qualification</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-1-3">Fast client response drafting</span></li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-gear"></i><span data-i18n="uc-2-cat">Operations</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-2-1">Workflow task automation</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-2-2">Automated data processing</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-2-3">Instant status reports</span></li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-wallet"></i><span data-i18n="uc-3-cat">Finance</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-3-1">Automated invoice handling</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-3-2">Data extraction & validation</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-3-3">Document control systems</span></li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-headset"></i><span data-i18n="uc-4-cat">Customer Support</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-4-1">Smart AI email replies</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-4-2">Inquiry classification</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-4-3">Knowledge-base querying</span></li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-users"></i><span data-i18n="uc-5-cat">HR</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-5-1">Candidate document processing</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-5-2">Employee onboarding flows</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-5-3">Internal policy assistant</span></li>
+                    </ul>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <div class="text-cyan-400 font-bold mb-3 flex items-center space-x-2"><i class="fa-solid fa-cogs"></i><span data-i18n="uc-6-cat">Engineering</span></div>
+                    <ul class="space-y-2 text-sm text-slate-400">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-6-1">Technical doc search</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-6-2">Requirement analysis support</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="uc-6-3">Specification drafting</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="hiw-heading">From idea to automation</h2>
+                <p class="mt-4 text-slate-400" data-i18n="hiw-subheading">A structured, engineering-grade implementation process.</p>
+            </div>
+            <div class="grid md:grid-cols-4 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">01</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t1">DISCOVER</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-1">We analyze your processes and pinpoint the highest ROI automation opportunities.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">02</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t2">DESIGN</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-2">We architect a custom solution tailored directly to your team's workflow.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">03</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t3">BUILD</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-3">We develop, test, and securely integrate the AI setup with your existing systems.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">04</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t4">OPTIMIZE</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-4">We monitor performance metrics and continuously refine the automated workflows.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. BEFORE / AFTER -->
+    <section class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="ba-heading">The Transformation</h2>
+                <p class="mt-4 text-slate-400" data-i18n="ba-subheading">See how tedious manual tasks turn into streamlined execution.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- BEFORE -->
+                <div class="p-8 rounded-2xl bg-red-950/20 border border-red-900/30">
+                    <div class="inline-block px-3 py-1 rounded-md bg-red-500/10 text-red-400 text-xs font-bold mb-6" data-i18n="ba-before-badge">BEFORE AI</div>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-b1">Employee receives email</span> <i class="fa-solid fa-arrow-down text-red-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-b2">Reads & interprets request</span> <i class="fa-solid fa-arrow-down text-red-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-b3">Copies data manually</span> <i class="fa-solid fa-arrow-down text-red-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-b4">Checks internal system</span> <i class="fa-solid fa-arrow-down text-red-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-b5">Sends manual response</span> <span class="text-red-400 text-xs" data-i18n="ba-b6">High Time Cost</span></div>
+                    </div>
+                </div>
+                <!-- AFTER -->
+                <div class="p-8 rounded-2xl bg-cyan-950/20 border border-cyan-900/30">
+                    <div class="inline-block px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold mb-6" data-i18n="ba-after-badge">AFTER AI AUTOMATION</div>
+                    <div class="space-y-3 text-sm text-slate-300">
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-a1">Email received</span> <i class="fa-solid fa-arrow-down text-cyan-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-a2">AI analyzes request context</span> <i class="fa-solid fa-arrow-down text-cyan-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-a3">Data extracted automatically</span> <i class="fa-solid fa-arrow-down text-cyan-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-a4">System checked & updated</span> <i class="fa-solid fa-arrow-down text-cyan-400"></i></div>
+                        <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 flex items-center justify-between"><span data-i18n="ba-a5">Human approves / Sent</span> <span class="text-cyan-400 text-xs font-bold" data-i18n="ba-a6">Instant & Accurate</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9. ROI / BUSINESS VALUE (Interaktivni kalkulator) -->
+    <section id="roi-calculator" class="py-24 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="roi-heading">Automation should create measurable value.</h2>
+                <p class="mt-4 text-slate-400" data-i18n="roi-subheading">Calculate your estimated monthly time and financial savings.</p>
+            </div>
+            
+            <div class="bg-slate-900 p-8 md:p-10 rounded-2xl border border-slate-800 shadow-xl">
+                <div class="space-y-6">
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-slate-300 font-medium" data-i18n="roi-l1">Hours spent on repetitive work per week:</span>
+                            <span id="hours-val" class="font-bold text-cyan-400">20 hrs</span>
+                        </div>
+                        <input type="range" id="hours-input" min="5" max="100" value="20" class="w-full accent-cyan-500 bg-slate-950 cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-slate-300 font-medium" data-i18n="roi-l2">Average employee hourly cost (€):</span>
+                            <span id="cost-val" class="font-bold text-cyan-400">25 €</span>
+                        </div>
+                        <input type="range" id="cost-input" min="10" max="100" value="25" class="w-full accent-cyan-500 bg-slate-950 cursor-pointer">
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-slate-300 font-medium" data-i18n="roi-l3">Estimated automation potential:</span>
+                            <span id="pct-val" class="font-bold text-cyan-400">70%</span>
+                        </div>
+                        <input type="range" id="pct-input" min="30" max="90" value="70" class="w-full accent-cyan-500 bg-slate-950 cursor-pointer">
+                    </div>
+                </div>
+
+                <div class="mt-10 pt-8 border-t border-slate-800 grid md:grid-cols-2 gap-6 text-center">
+                    <div class="p-6 rounded-xl bg-slate-950 border border-slate-800/80">
+                        <div class="text-sm text-slate-400 mb-1" data-i18n="roi-res1">Potential hours saved / month</div>
+                        <div id="result-hours" class="text-3xl font-extrabold text-cyan-400">240 h</div>
+                    </div>
+                    <div class="p-6 rounded-xl bg-slate-950 border border-slate-800/80">
+                        <div class="text-sm text-slate-400 mb-1" data-i18n="roi-res2">Estimated annual savings</div>
+                        <div id="result-money" class="text-3xl font-extrabold text-cyan-400">72.000 €</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. CASE STUDIES (Example workflow) -->
+    <section class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="cs-heading">AI Automation Examples</h2>
+                <p class="mt-4 text-slate-400" data-i18n="cs-subheading">Example workflow scenario demonstrating practical implementation.</p>
+            </div>
+            <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800">
+                <div class="inline-block px-3 py-1 rounded-md bg-cyan-500/10 text-cyan-400 text-xs font-bold mb-4" data-i18n="cs-badge">Example workflow scenario</div>
+                <h3 class="text-xl font-bold mb-4" data-i18n="cs-title">AI-Powered Document Processing</h3>
+                <div class="grid md:grid-cols-3 gap-6 mt-6">
+                    <div>
+                        <h4 class="font-bold text-sm text-red-400 mb-2" data-i18n="cs-col1-h">Problem:</h4>
+                        <p class="text-sm text-slate-400" data-i18n="cs-col1-p">Employees manually process incoming documents, entering fields into system databases one by one.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-cyan-400 mb-2" data-i18n="cs-col2-h">Solution:</h4>
+                        <p class="text-sm text-slate-400" data-i18n="cs-col2-p">AI extracts relevant information instantly and routes structured records straight into the business software.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-sm text-green-400 mb-2" data-i18n="cs-col3-h">Potential Impact:</h4>
+                        <p class="text-sm text-slate-400" data-i18n="cs-col3-p">Zero manual entry, ultra-fast processing speeds, and drastically reduced human errors.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. AI AGENTS -->
+    <section class="py-24 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="ag-heading">AI agents for real business workflows.</h2>
+                <p class="mt-4 text-slate-400" data-i18n="ag-subheading">Moving beyond basic chatbots into autonomous execution.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold text-lg mb-3 text-slate-300" data-i18n="ag-1-title">Traditional automation</h3>
+                    <p class="text-sm text-slate-400" data-i18n="ag-1-desc">If condition A happens, strictly execute action B. Rigid and limited to strict pre-coded paths.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold text-lg mb-3 text-cyan-400" data-i18n="ag-2-title">AI-powered automation</h3>
+                    <p class="text-sm text-slate-400" data-i18n="ag-2-desc">Understand incoming unstructured input, decide what needs to happen, and execute the workflow accordingly.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold text-lg mb-3 text-blue-400" data-i18n="ag-3-title">AI agent</h3>
+                    <p class="text-sm text-slate-400" data-i18n="ag-3-desc">Observe environment, reason through complex goals, use tools, execute, verify results, and continue autonomously.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. TECHNOLOGY -->
+    <section class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-i18n="tech-heading">Built around the technology your business already uses.</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12" data-i18n="tech-subheading">Seamless integration across modern tech stacks and platforms.</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-1">AI Models</span>
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-2">Automation Platforms</span>
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-3">APIs</span>
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-4">Databases</span>
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-5">CRM & ERP</span>
+                <span class="px-5 py-3 rounded-xl bg-slate-900 border border-slate-800 text-sm font-semibold" data-i18n="t-6">Cloud Tools</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. SECURITY -->
+    <section class="py-24 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold tracking-tight mb-4" data-i18n="sec-heading">AI that respects your data.</h2>
+            <p class="text-slate-400 max-w-2xl mx-auto mb-12" data-i18n="sec-subheading">Enterprise-grade security principles built into every solution.</p>
+            <div class="grid md:grid-cols-3 gap-6 text-left">
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold mb-2" data-i18n="sec-1-title">Data Privacy</h3>
+                    <p class="text-sm text-slate-400" data-i18n="sec-1-desc">Strict handling ensuring corporate information remains protected.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold mb-2" data-i18n="sec-2-title">Controlled Access</h3>
+                    <p class="text-sm text-slate-400" data-i18n="sec-2-desc">Least-privilege permission models aligned with your company roles.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900 border border-slate-800">
+                    <h3 class="font-bold mb-2" data-i18n="sec-3-title">Human Approval</h3>
+                    <p class="text-sm text-slate-400" data-i18n="sec-3-desc">Configurable checkpoints requiring human sign-off on vital actions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. FAQ -->
+    <section id="faq" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="faq-heading">Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q1">What is AI automation?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">AI automation combines machine learning intelligence with automated workflows to handle complex, repetitive tasks without manual intervention.</p>
+                </details>
+                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q2">How can AI help my business?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a2">It saves employee hours, cuts operational errors, accelerates response times, and allows your team to focus on high-value strategy.</p>
+                </details>
+                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q3">Do I need to replace my existing software?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a3">No. We connect AI directly into the CRM, ERP, and communication tools your company already relies on every day.</p>
+                </details>
+                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q4">Can AI integrate with our ERP or CRM?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Yes, custom API integrations enable smooth data flow between AI systems and your primary enterprise databases.</p>
+                </details>
+                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q5">Is our company data safe?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">We implement rigorous security practices, data privacy controls, and role-based permissions tailored for business environments.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- O MENI -->
+    <section id="about" class="py-24 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-6">
             <div class="grid md:grid-cols-12 gap-12 items-center">
                 <div class="md:col-span-5 flex flex-col items-center text-center">
                     <div class="relative mb-6">
                         <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-30"></div>
-                        <img src="1785750119545.jfif" alt="Robi" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl">
+                        <img src="1785750119545.jfif" alt="Robert Filipšek" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl">
                     </div>
                     <h3 class="text-xl font-bold text-slate-100">Robert Filipšek</h3>
-                    <p class="text-slate-300 text-sm font-medium mt-1" data-i18n="about-degree">Diplomirani inženir strojništva</p>
-                    <p class="text-cyan-400 text-sm font-medium mt-0.5" data-i18n="about-subtitle">Mechanical Design & AI Automation</p>
+                    <p class="text-slate-300 text-sm font-medium mt-1" data-i18n="about-role1">Diplomirani inženir strojništva</p>
+                    <p class="text-cyan-400 text-sm font-medium mt-0.5" data-i18n="about-role2">Mechanical Design & AI Automation</p>
                     
-                    <!-- LinkedIn povezava -->
                     <a href="https://www.linkedin.com/in/robert-filip%C5%A1ek-88baaa221/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center space-x-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 bg-slate-900 border border-slate-800 hover:border-cyan-500/40 px-4 py-2 rounded-xl transition">
                         <i class="fa-brands fa-linkedin text-cyan-400 text-sm"></i>
-                        <span>LinkedIn Profil</span>
+                        <span data-i18n="about-linkedin">LinkedIn Profile</span>
                     </a>
                 </div>
                 
                 <div class="md:col-span-7">
                     <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
-                        <span data-i18n="about-badge">O meni</span>
+                        <span data-i18n="about-badge">About Founder</span>
                     </div>
-                    <h2 class="text-3xl font-bold tracking-tight mb-6" data-i18n="about-heading">Od konstrukcij do digitalne prihodnosti</h2>
-                    <div class="space-y-4 text-slate-400 leading-relaxed">
-                        <p data-i18n="about-text-1">
-                            Sem <strong class="text-slate-200">Robi</strong>, diplomirani strojnik iz Celja, Slovenije. Več let nabiram dragocene izkušnje kot <strong class="text-slate-200">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od začetne ideje do končne realizacije.
+                    <h2 class="text-3xl font-bold tracking-tight mb-6" data-i18n="about-title">From Mechanical Design to AI Engineering</h2>
+                    <div class="space-y-4 text-slate-400 leading-relaxed text-sm md:text-base">
+                        <p data-i18n="about-p1">
+                            Sem <strong class="text-slate-200">Robi</strong>, diplomirani strojnik iz Celja. Več let nabiram dragocene izkušnje kot <strong class="text-slate-200">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od ideje do realizacije.
                         </p>
-                        <p data-i18n="about-text-2">
-                            Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za marsikatero področje. Zato me poleg mehanike močno veseli tudi svet umetne inteligence.
+                        <p data-i18n="about-p2">
+                            Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za avtomatizacijo in digitalne sisteme.
                         </p>
-                        <p data-i18n="about-text-3">
-                            Moje delo na področju <strong class="text-slate-200">AI avtomatizacije in izdelave spletnih strani</strong> temelji na profesionalnem pristopu. Z združevanjem natančnosti klasičnega inženiringa in sodobnih digitalnih tehnologij pomagam spreminjati ideje v delujoče, učinkovite rešitve.
+                        <p data-i18n="about-p3">
+                            Z združevanjem natančnosti klasičnega inženiringa in sodobnih tehnologij pomagam podjetjem spreminjati zapletene procese v učinkovite, delujoče rešitve.
                         </p>
                     </div>
                 </div>
@@ -148,118 +603,513 @@
         </div>
     </section>
 
-    <!-- Kontakt -->
-    <section id="kontakt" class="py-24 bg-slate-900/50 border-t border-slate-900">
+    <!-- 15. CTA & 16. CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-slate-900/50 border-t border-slate-900">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold tracking-tight" data-i18n="contact-heading">Stopite v stik z mano</h2>
-                <p class="mt-4 text-slate-400" data-i18n="contact-subheading">Pošljite povpraševanje za vaš naslednji digitalni projekt ali avtomatizacijo.</p>
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="contact-heading">Ready to automate your business?</h2>
+                <p class="mt-4 text-slate-400" data-i18n="contact-subheading">Let's identify the processes where AI can create the biggest impact.</p>
                 <div class="mt-4 inline-flex items-center space-x-2 text-sm text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-4 py-2 rounded-xl">
                     <i class="fa-solid fa-envelope"></i>
                     <a href="mailto:robi.filipsek@gmail.com" class="hover:underline font-medium">robi.filipsek@gmail.com</a>
                 </div>
             </div>
             
-            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-slate-900 p-8 rounded-2xl border border-slate-800 shadow-2xl">
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-slate-900 p-8 md:p-10 rounded-2xl border border-slate-800 shadow-2xl">
                 <input type="hidden" name="access_key" value="fefcbc53-50ed-4ab7-8e90-5d1e9d1b8101">
                 <input type="hidden" name="subject" value="Novo povpraševanje s spletne strani RF Digital!">
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Ime in priimek</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Name</label>
                         <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">E-poštni naslov</label>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-company">Company</label>
+                        <input type="text" name="company" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">Email</label>
                         <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-activity">What does your company do?</label>
+                        <input type="text" name="company_activity" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-process">Which process would you like to automate?</label>
+                        <input type="text" name="process_to_automate" placeholder="e.g. Invoices, support, reporting..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-tools">What tools/systems do you currently use?</label>
+                        <input type="text" name="current_tools" placeholder="e.g. Excel, Outlook, ERP..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Sporočilo</label>
-                    <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Message</label>
+                    <textarea name="message" rows="4" placeholder="Tell us about your challenge or write 'I don't know where to start'..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                </div>
+                <div class="flex items-center space-x-2 text-sm text-slate-400">
+                    <input type="checkbox" id="dont-know" onclick="document.querySelector('textarea[name=message]').value = 'I don\'t know where to start, let\'s discuss options.'" class="accent-cyan-500 rounded">
+                    <label for="dont-know" class="cursor-pointer" data-i18n="form-checkbox">I don't know where to start</label>
                 </div>
                 <button type="submit" data-i18n="form-submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
-                    Pošlji sporočilo
+                    Book a consultation
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Noga -->
+    <!-- Footer -->
     <footer class="py-8 border-t border-slate-900 text-center text-sm text-slate-500">
-        <p>&copy; 2026 RF Digital | <span data-i18n="footer-rights">Vse pravice pridržane.</span></p>
+        <p data-i18n="footer-rights">&copy; 2026 RF Digital | All rights reserved.</p>
     </footer>
 
-    <!-- Prevajalna skripta -->
+    <!-- Skripte za kalkulator in jezik -->
     <script>
+        // ROI Kalkulator logika
+        const hoursInput = document.getElementById('hours-input');
+        const costInput = document.getElementById('cost-input');
+        const pctInput = document.getElementById('pct-input');
+
+        const hoursVal = document.getElementById('hours-val');
+        const costVal = document.getElementById('cost-val');
+        const pctVal = document.getElementById('pct-val');
+
+        const resultHours = document.getElementById('result-hours');
+        const resultMoney = document.getElementById('result-money');
+
+        function updateROI() {
+            const h = parseInt(hoursInput.value);
+            const c = parseInt(costInput.value);
+            const p = parseInt(pctInput.value) / 100;
+
+            hoursVal.textContent = h + ' hrs';
+            costVal.textContent = c + ' €';
+            pctVal.textContent = Math.round(p * 100) + '%';
+
+            const savedMonthlyHours = Math.round(h * 4.33 * p);
+            const savedAnnualMoney = Math.round(savedMonthlyHours * 12 * c);
+
+            resultHours.textContent = savedMonthlyHours + ' h';
+            resultMoney.textContent = savedAnnualMoney.toLocaleString('sl-SI') + ' €';
+        }
+
+        [hoursInput, costInput, pctInput].forEach(el => {
+            el.addEventListener('input', updateROI);
+        });
+
+        updateROI();
+
+        // Celoviti jezikovni prevodi (EN, SL, DE, HR)
         const translations = {
-            sl: {
-                "nav-services": "Storitve", "nav-about": "O meni", "nav-contact-btn": "Kontakt",
-                "hero-badge": "Inženirski um. Digitalne rešitve.", "hero-title-1": "Inženirski um za", "hero-title-gradient": "digitalno prihodnost",
-                "hero-desc": "Povezujem natančnost strojništva z močjo sodobne programske opreme in AI avtomatizacije, da vaše podjetje raste hitreje.",
-                "hero-btn-contact": "Stopite v stik", "hero-btn-explore": "Razišči storitve",
-                "services-heading": "Kaj ponujam", "services-subheading": "Sodobne digitalne storitve za mala podjetja in optimizacijo procesov.",
-                "service-1-title": "Spletne strani in mini aplikacije", "service-1-desc": "Hitre, odzivne in sodobne spletne rešitve ter namenske mini aplikacije, prilagojene specifičnim delovnim procesom vašega podjetja.",
-                "service-2-title": "AI avtomatizacija poslovanja", "service-2-desc": "Vpeljava umetne inteligence in pametnih avtomatizacij v vsakodnevne procese za prihranek časa, zmanjšanje napak in večjo produktivnost.",
-                "service-3-title": "Digitalno svetovanje", "service-3-desc": "Strokovni pregled vaših procesov in svetovanje pri digitalni preobrazbi ter izbiri pravih tehnoloških orodij za napredek.",
-                "about-badge": "O meni", "about-heading": "Od konstrukcij do digitalne prihodnosti", 
-                "about-degree": "Diplomirani inženir strojništva", "about-subtitle": "Mechanical Design & AI Automation",
-                "about-text-1": "Sem <strong class=\"text-slate-200\">Robi</strong>, diplomirani strojnik iz Celja, Slovenije. Več let nabiram dragocene izkušnje kot <strong class=\"text-slate-200\">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od začetne ideje do končne realizacije.",
-                "about-text-2": "Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za marsikatero področje. Zato me poleg mehanike močno veseli tudi svet umetne inteligence.",
-                "about-text-3": "Moje delo na področju <strong class=\"text-slate-200\">AI avtomatizacije in izdelave spletnih strani</strong> temelji na profesionalnem pristopu. Z združevanjem natančnosti klasičnega inženiringa in sodobnih digitalnih tehnologij pomagam spreminjati ideje v delujoče, učinkovite rešitve.",
-                "contact-heading": "Stopite v stik z mano", "contact-subheading": "Pošljite povpraševanje za vaš naslednji digitalni projekt ali avtomatizacijo.",
-                "form-name": "Ime in priimek", "form-email": "E-poštni naslov", "form-message": "Sporočilo", "form-submit": "Pošlji sporočilo", "footer-rights": "Vse pravice pridržane."
-            },
             en: {
-                "nav-services": "Services", "nav-about": "About Me", "nav-contact-btn": "Contact",
-                "hero-badge": "Engineering Mind. Digital Solutions.", "hero-title-1": "An Engineering Mind for the", "hero-title-gradient": "Digital Future",
-                "hero-desc": "Combining the precision of mechanical engineering with the power of modern software and AI automation to help your business grow faster.",
-                "hero-btn-contact": "Get in Touch", "hero-btn-explore": "Explore Services",
-                "services-heading": "What I Offer", "services-subheading": "Modern digital services for small businesses and process optimization.",
-                "service-1-title": "Websites & Mini Apps", "service-1-desc": "Fast, responsive, and modern web solutions along with custom mini-apps tailored to your company's specific workflows.",
-                "service-2-title": "AI Business Automation", "service-2-desc": "Integrating artificial intelligence and smart automations into daily operations to save time, reduce errors, and increase productivity.",
-                "service-3-title": "Digital Consulting", "service-3-desc": "Expert review of your processes and guidance on digital transformation and choosing the right technological tools for progress.",
-                "about-badge": "About Me", "about-heading": "From Mechanical Design to the Digital Future", 
-                "about-degree": "Mechanical Engineering Graduate", "about-subtitle": "Mechanical Design & AI Automation",
-                "about-text-1": "I am <strong class=\"text-slate-200\">Robi</strong>, a mechanical engineering graduate from Celje, Slovenia. For years, I have gathered valuable experience as a <strong class=\"text-slate-200\">designer of machinery, equipment, and robotic cells</strong>, while also successfully leading demanding engineering projects from initial concept to final realization.",
-                "about-text-2": "Through years of industrial experience, I realized that the engineering approach to problem-solving serves as a solid foundation for many fields. Therefore, alongside mechanics, I am deeply passionate about the world of artificial intelligence.",
-                "about-text-3": "My work in <strong class=\"text-slate-200\">AI automation and web development</strong> is based on a professional approach. By blending the precision of classical engineering with modern digital technologies, I help turn ideas into working, efficient solutions.",
-                "contact-heading": "Get in Touch with Me", "contact-subheading": "Send an inquiry for your next digital project or automation.",
-                "form-name": "Full Name", "form-email": "Email Address", "form-message": "Message", "form-submit": "Send Message", "footer-rights": "All rights reserved."
+                "nav-subtitle": "AI Automation",
+                "nav-solutions": "Solutions", "nav-use-cases": "Use Cases", "nav-how-it-works": "How It Works", "nav-roi": "ROI", "nav-faq": "FAQ", "nav-about": "About", "nav-cta": "Book a consultation",
+                "hero-badge": "AI Automation & Custom Systems",
+                "hero-title": "Turn repetitive work into",
+                "hero-title-gradient": "intelligent automation.",
+                "hero-desc": "RF Digital helps businesses automate repetitive tasks, connect AI with existing systems, and develop solutions that save employees time.",
+                "hero-cta-primary": "Book a consultation",
+                "hero-cta-secondary": "Explore our solutions",
+                "tb-1": "AI Automation", "tb-2": "Custom AI Solutions", "tb-3": "Business Process Optimization", "tb-4": "System Integration",
+                "prob-title": "Your team shouldn't spend hours on work AI can handle.",
+                "prob-subtitle": "Identify and eliminate bottlenecks slowing down your everyday operations.",
+                "p-1-title": "Repetitive administrative tasks", "p-1-desc": "Wasting valuable hours on manual routine procedures instead of core work.",
+                "p-2-title": "Manual data entry", "p-2-desc": "Typing the same data across multiple platforms prone to human error.",
+                "p-3-title": "Processing emails & documents", "p-3-desc": "Sifting through endless incoming requests, invoices, and files.",
+                "p-4-title": "Manual reporting & data copying", "p-4-desc": "Building status reports and transferring data back and forth between systems.",
+                "p-5-title": "Searching internal info", "p-5-desc": "Hunting down specifications, instructions, and past company documents.",
+                "p-6-title": "Inefficient workflows", "p-6-desc": "Slow handoffs and unstructured communication causing unnecessary delays.",
+                "sol-title": "AI that works inside your business.",
+                "sol-subtitle": "We don't just sell generic chatbots. We build connected intelligent workflows.",
+                "tag-ai": "AI", "tag-automation": "Automation", "tag-data": "Business Data", "tag-systems": "Existing Systems",
+                "flow-h1": "INPUT", "flow-1": "Emails, files, orders, customer queries",
+                "flow-h2": "AI UNDERSTANDS", "flow-2": "Context, intent & document structure",
+                "flow-h3": "AUTOMATION ACTS", "flow-3": "Updates CRM, ERP, prepares replies",
+                "flow-h4": "HUMAN APPROVES WHEN NEEDED", "flow-4": "Full control over critical decisions",
+                "srv-heading": "What we do",
+                "srv-subheading": "Comprehensive AI integration and workflow engineering tailored for modern enterprises.",
+                "s-1-title": "AI Process Automation", "s-1-desc": "Automate repetitive business workflows securely and efficiently.",
+                "s-2-title": "Custom AI Solutions", "s-2-desc": "Tailored AI applications built precisely for your unique operational requirements.",
+                "s-3-title": "AI Agents", "s-3-desc": "Autonomous agents capable of executing multi-step business tasks.",
+                "s-4-title": "Document & Data Automation", "s-4-desc": "Instant parsing, extraction, and classification of business documents.",
+                "s-5-title": "AI Knowledge Systems", "s-5-desc": "Internal AI search across your documentation, manuals, and databases.",
+                "s-6-title": "System Integration", "s-6-desc": "Connecting AI securely with ERP, CRM, APIs, and custom software infrastructure.",
+                "s-7-title": "Workflow Optimization", "s-7-desc": "Deep process analysis to discover high-impact automation opportunities.",
+                "s-8-title": "AI Consulting", "s-8-desc": "Strategic guidance, technology selection, and robust implementation roadmaps.",
+                "uc-heading": "Where AI can make an impact",
+                "uc-subheading": "Practical applications across different business departments.",
+                "uc-1-cat": "Sales", "uc-1-1": "Automated offer preparation", "uc-1-2": "Inbound lead qualification", "uc-1-3": "Fast client response drafting",
+                "uc-2-cat": "Operations", "uc-2-1": "Workflow task automation", "uc-2-2": "Automated data processing", "uc-2-3": "Instant status reports",
+                "uc-3-cat": "Finance", "uc-3-1": "Automated invoice handling", "uc-3-2": "Data extraction & validation", "uc-3-3": "Document control systems",
+                "uc-4-cat": "Customer Support", "uc-4-1": "Smart AI email replies", "uc-4-2": "Inquiry classification", "uc-4-3": "Knowledge-base querying",
+                "uc-5-cat": "HR", "uc-5-1": "Candidate document processing", "uc-5-2": "Employee onboarding flows", "uc-5-3": "Internal policy assistant",
+                "uc-6-cat": "Engineering", "uc-6-1": "Technical doc search", "uc-6-2": "Requirement analysis support", "uc-6-3": "Specification drafting",
+                "hiw-heading": "From idea to automation",
+                "hiw-subheading": "A structured, engineering-grade implementation process.",
+                "hiw-t1": "DISCOVER", "hiw-1": "We analyze your processes and pinpoint the highest ROI automation opportunities.",
+                "hiw-t2": "DESIGN", "hiw-2": "We architect a custom solution tailored directly to your team's workflow.",
+                "hiw-t3": "BUILD", "hiw-3": "We develop, test, and securely integrate the AI setup with your existing systems.",
+                "hiw-t4": "OPTIMIZE", "hiw-4": "We monitor performance metrics and continuously refine the automated workflows.",
+                "ba-heading": "The Transformation",
+                "ba-subheading": "See how tedious manual tasks turn into streamlined execution.",
+                "ba-before-badge": "BEFORE AI",
+                "ba-b1": "Employee receives email", "ba-b2": "Reads & interprets request", "ba-b3": "Copies data manually", "ba-b4": "Checks internal system", "ba-b5": "Sends manual response", "ba-b6": "High Time Cost",
+                "ba-after-badge": "AFTER AI AUTOMATION",
+                "ba-a1": "Email received", "ba-a2": "AI analyzes request context", "ba-a3": "Data extracted automatically", "ba-a4": "System checked & updated", "ba-a5": "Human approves / Sent", "ba-a6": "Instant & Accurate",
+                "roi-heading": "Automation should create measurable value.",
+                "roi-subheading": "Calculate your estimated monthly time and financial savings.",
+                "roi-l1": "Hours spent on repetitive work per week:",
+                "roi-l2": "Average employee hourly cost (€):",
+                "roi-l3": "Estimated automation potential:",
+                "roi-res1": "Potential hours saved / month",
+                "roi-res2": "Estimated annual savings",
+                "cs-heading": "AI Automation Examples",
+                "cs-subheading": "Example workflow scenario demonstrating practical implementation.",
+                "cs-badge": "Example workflow scenario",
+                "cs-title": "AI-Powered Document Processing",
+                "cs-col1-h": "Problem:", "cs-col1-p": "Employees manually process incoming documents, entering fields into system databases one by one.",
+                "cs-col2-h": "Solution:", "cs-col2-p": "AI extracts relevant information instantly and routes structured records straight into the business software.",
+                "cs-col3-h": "Potential Impact:", "cs-col3-p": "Zero manual entry, ultra-fast processing speeds, and drastically reduced human errors.",
+                "ag-heading": "AI agents for real business workflows.",
+                "ag-subheading": "Moving beyond basic chatbots into autonomous execution.",
+                "ag-1-title": "Traditional automation", "ag-1-desc": "If condition A happens, strictly execute action B. Rigid and limited to strict pre-coded paths.",
+                "ag-2-title": "AI-powered automation", "ag-2-desc": "Understand incoming unstructured input, decide what needs to happen, and execute the workflow accordingly.",
+                "ag-3-title": "AI agent", "ag-3-desc": "Observe environment, reason through complex goals, use tools, execute, verify results, and continue autonomously.",
+                "tech-heading": "Built around the technology your business already uses.",
+                "tech-subheading": "Seamless integration across modern tech stacks and platforms.",
+                "t-1": "AI Models", "t-2": "Automation Platforms", "t-3": "APIs", "t-4": "Databases", "t-5": "CRM & ERP", "t-6": "Cloud Tools",
+                "sec-heading": "AI that respects your data.",
+                "sec-subheading": "Enterprise-grade security principles built into every solution.",
+                "sec-1-title": "Data Privacy", "sec-1-desc": "Strict handling ensuring corporate information remains protected.",
+                "sec-2-title": "Controlled Access", "sec-2-desc": "Least-privilege permission models aligned with your company roles.",
+                "sec-3-title": "Human Approval", "sec-3-desc": "Configurable checkpoints requiring human sign-off on vital actions.",
+                "faq-heading": "Frequently Asked Questions",
+                "faq-q1": "What is AI automation?", "faq-a1": "AI automation combines machine learning intelligence with automated workflows to handle complex, repetitive tasks without manual intervention.",
+                "faq-q2": "How can AI help my business?", "faq-a2": "It saves employee hours, cuts operational errors, accelerates response times, and allows your team to focus on high-value strategy.",
+                "faq-q3": "Do I need to replace my existing software?", "faq-a3": "No. We connect AI directly into the CRM, ERP, and communication tools your company already relies on every day.",
+                "faq-q4": "Can AI integrate with our ERP or CRM?", "faq-a4": "Yes, custom API integrations enable smooth data flow between AI systems and your primary enterprise databases.",
+                "faq-q5": "Is our company data safe?", "faq-a5": "We implement rigorous security practices, data privacy controls, and role-based permissions tailored for business environments.",
+                "about-role1": "Diplomirani inženir strojništva", "about-role2": "Mechanical Design & AI Automation", "about-linkedin": "LinkedIn Profile",
+                "about-badge": "About Founder",
+                "about-title": "From Mechanical Design to AI Engineering",
+                "about-p1": "Sem <strong class=\"text-slate-200\">Robi</strong>, diplomirani strojnik iz Celja. Več let nabiram dragocene izkušnje kot <strong class=\"text-slate-200\">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od ideje do realizacije.",
+                "about-p2": "Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za avtomatizacijo in digitalne sisteme.",
+                "about-p3": "Z združevanjem natančnosti klasičnega inženiringa in sodobnih tehnologij pomagam podjetjem spreminjati zapletene procese v učinkovite, delujoče rešitve.",
+                "contact-heading": "Ready to automate your business?",
+                "contact-subheading": "Let's identify the processes where AI can create the biggest impact.",
+                "form-name": "Name", "form-company": "Company", "form-email": "Email", "form-activity": "What does your company do?",
+                "form-process": "Which process would you like to automate?", "form-tools": "What tools/systems do you currently use?",
+                "form-message": "Message", "form-checkbox": "I don't know where to start", "form-submit": "Book a consultation",
+                "footer-rights": "&copy; 2026 RF Digital | All rights reserved."
+            },
+            sl: {
+                "nav-subtitle": "AI Avtomatizacija",
+                "nav-solutions": "Rešitve", "nav-use-cases": "Primeri uporabe", "nav-how-it-works": "Kako deluje", "nav-roi": "ROI", "nav-faq": "FAQ", "nav-about": "O meni", "nav-cta": "Rezervirajte posvet",
+                "hero-badge": "AI Avtomatizacija in Sistemi",
+                "hero-title": "Spremenite ponavljajoče delo v",
+                "hero-title-gradient": "inteligentno avtomatizacijo.",
+                "hero-desc": "RF Digital pomaga podjetjem avtomatizirati ponavljajoča se opravila, povezati AI z obstoječimi sistemi in razviti rešitve, ki zaposlenim prihranijo čas.",
+                "hero-cta-primary": "Rezervirajte posvet",
+                "hero-cta-secondary": "Raziščite rešitve",
+                "tb-1": "AI Avtomatizacija", "tb-2": "AI Rešitve po meri", "tb-3": "Optimizacija procesov", "tb-4": "Integracija sistemov",
+                "prob-title": "Vaša ekipa ne bi smela tratiti ur na delo, ki ga lahko opravi AI.",
+                "prob-subtitle": "Prepoznajte in odpravite ozka grla, ki upočasnjujejo vaše vsakodnevno delovanje.",
+                "p-1-title": "Ponavljajoče se administrativne naloge", "p-1-desc": "Zapravljanje dragocenih ur za ročne rutinske postopke namesto osredotočanja na jedro posla.",
+                "p-2-title": "Ročni vnos podatkov", "p-2-desc": "Tipkanje istih podatkov v več platform, kar vodi do človeških napak.",
+                "p-3-title": "Obdelava e-pošte in dokumentov", "p-3-desc": "Prebiranje neskončnih vhodnih zahtevkov, računov in datotek.",
+                "p-4-title": "Ročno poročanje in kopiranje podatkov", "p-4-desc": "Priprava poročil o stanju in prenašanje podatkov sem ter tja med sistemi.",
+                "p-5-title": "Iskanje internih informacij", "p-5-desc": "Iskanje specifikacij, navodil in preteklih dokumentov podjetja.",
+                "p-6-title": "Neučinkoviti delovni procesi", "p-6-desc": "Počasne predaje nalog in nestrukturirana komunikacija povzročajo zamude.",
+                "sol-title": "AI, ki deluje znotraj vašega podjetja.",
+                "sol-subtitle": "Ne prodajamo le splošnih klepetalnih botov. Gradimo povezane inteligentne delovne procese.",
+                "tag-ai": "AI", "tag-automation": "Avtomatizacija", "tag-data": "Poslovni podatki", "tag-systems": "Obstoječi sistemi",
+                "flow-h1": "VHOD", "flow-1": "E-pošta, datoteke, naročila, povpraševanja",
+                "flow-h2": "AI RAZUME", "flow-2": "Kontekst, namen in strukturo dokumenta",
+                "flow-h3": "AVTOMATIZACIJA DELUJE", "flow-3": "Posodobi CRM, ERP, pripravi odgovore",
+                "flow-h4": "ČLOVEK POTRDI, KO JE POTREBNO", "flow-4": "Popoln nadzor nad ključnimi odločitvami",
+                "srv-heading": "Kaj počnemo",
+                "srv-subheading": "Celovita integracija umetne inteligence in inženiring delovnih procesov za sodobna podjetja.",
+                "s-1-title": "AI avtomatizacija procesov", "s-1-desc": "Varno in učinkovito avtomatizirajte ponavljajoče se poslovne procese.",
+                "s-2-title": "AI rešitve po meri", "s-2-desc": "Aplikacije z umetno inteligenco, zgrajene natančno za vaše operativne zahteve.",
+                "s-3-title": "AI agenti", "s-3-desc": "Avtonomni agenti, sposobni izvajanja večstopenjskih poslovnih nalog.",
+                "s-4-title": "Avtomatizacija dokumentov in podatkov", "s-4-desc": "Takojšnje razčlenjevanje, ekstrakcija in klasifikacija poslovnih dokumentov.",
+                "s-5-title": "AI sistemi znanja", "s-5-desc": "Interno iskanje z AI po vaši dokumentaciji, priročnikih in bazah podatkov.",
+                "s-6-title": "Integracija sistemov", "s-6-desc": "Varno povezovanje AI z ERP, CRM, API-ji in prilagojeno programsko opremo.",
+                "s-7-title": "Optimizacija procesov", "s-7-desc": "Poglobljena analiza procesov za odkritje priložnosti z visokim donosom.",
+                "s-8-title": "AI svetovanje", "s-8-desc": "Strateško usmerjanje, izbira tehnologije in robustni načrti uvajanja.",
+                "uc-heading": "Kje lahko AI ustvari dodano vrednost",
+                "uc-subheading": "Praktične uporabe v različnih poslovnih oddelkih.",
+                "uc-1-cat": "Prodaja", "uc-1-1": "Avtomatizirana priprava ponudb", "uc-1-2": "Kvalifikacija vhodnih povpraševanj", "uc-1-3": "Hitro osnutek odgovorov strankam",
+                "uc-2-cat": "Operativa", "uc-2-1": "Avtomatizacija nalog v poteku dela", "uc-2-2": "Avtomatizirana obdelava podatkov", "uc-2-3": "Takojšnja poročila o stanju",
+                "uc-3-cat": "Finance", "uc-3-1": "Avtomatizirano obravnavanje računov", "uc-3-2": "Ekstrakcija in preverjanje podatkov", "uc-3-3": "Sistemi za nadzor dokumentov",
+                "uc-4-cat": "Podpora strankam", "uc-4-1": "Pametni AI odgovori na e-pošto", "uc-4-2": "Klasifikacija povpraševanj", "uc-4-3": "Poizvedovanje po bazi znanja",
+                "uc-5-cat": "Kadri (HR)", "uc-5-1": "Obdelava dokumentacije kandidatov", "uc-5-2": "Postopki uvajanja zaposlenih", "uc-5-3": "Notranji pomočnik za pravilnike",
+                "uc-6-cat": "Inženiring", "uc-6-1": "Iskanje tehnične dokumentacije", "uc-6-2": "Podpora analizi zahtev", "uc-6-3": "Priprava specifikacij",
+                "hiw-heading": "Od ideje do avtomatizacije",
+                "hiw-subheading": "Strukturiran inženirski postopek izvedbe.",
+                "hiw-t1": "ANALIZA", "hiw-1": "Analiziramo vaše procese in določimo priložnosti z največjim donosom (ROI).",
+                "hiw-t2": "NAČRTOVANJE", "hiw-2": "Zasnujemo rešitev po meri, prilagojeno delovnemu procesu vaše ekipe.",
+                "hiw-t3": "GRADNJA", "hiw-3": "Razvijemo, testiramo in varno vključimo AI sistem v vaše obstoječe okolje.",
+                "hiw-t4": "OPTIMIZACIJA", "hiw-4": "Spremljamo kazalnike delovanja in nenehno izboljšujemo avtomatizirane tokove.",
+                "ba-heading": "Preobrazba",
+                "ba-subheading": "Oglejte si, kako se naporna ročna opravila spremenijo v tekočo izvedbo.",
+                "ba-before-badge": "PRED AI",
+                "ba-b1": "Zaposleni prejme e-pošto", "ba-b2": "Prebere in razume zahtevek", "ba-b3": "Ročno kopira podatke", "ba-b4": "Preveri notranji sistem", "ba-b5": "Pošlje ročni odgovor", "ba-b6": "Visok časovni strošek",
+                "ba-after-badge": "PO AI AVTOMATIZACIJI",
+                "ba-a1": "E-pošta prejeta", "ba-a2": "AI analizira kontekst zahtevka", "ba-a3": "Podatki izvlečeni samodejno", "ba-a4": "Sistem preverjen in posodobljen", "ba-a5": "Človek potrdi / Poslano", "ba-a6": "Takojšnje in natančno",
+                "roi-heading": "Avtomatizacija mora ustvariti merljivo vrednost.",
+                "roi-subheading": "Izračunajte predvidene mesečne prihranke časa in denarja.",
+                "roi-l1": "Ure, porabljene za ponavljajoče delo na teden:",
+                "roi-l2": "Povprečni urni strošek zaposlenega (€):",
+                "roi-l3": "Ocenjeni potencial avtomatizacije:",
+                "roi-res1": "Potencialno prihranjene ure / mesec",
+                "roi-res2": "Ocenjeni letni prihranki",
+                "cs-heading": "Primeri AI avtomatizacije",
+                "cs-subheading": "Primer delovnega procesa za prikaz praktične izvedbe.",
+                "cs-badge": "Primer delovnega procesa",
+                "cs-title": "Obdelava dokumentov s pomočjo AI",
+                "cs-col1-h": "Problem:", "cs-col1-p": "Zaposleni ročno obdelujejo prejete dokumente in vnašajo polja v podatkovne baze sistema enega za drugim.",
+                "cs-col2-h": "Rešitev:", "cs-col2-p": "AI takoj izvleče ustrezne podatke in strukturirane zapise neposredno usmeri v poslovno programsko opremo.",
+                "cs-col3-h": "Potencialni učinek:", "cs-col3-p": "Nič ročnega vnosa, izjemno hitra obdelava in drastično zmanjšano število človeških napak.",
+                "ag-heading": "AI agenti za resnične poslovne procese.",
+                "ag-subheading": "Prehod prek osnovnih klepetalnih botov v avtonomno izvajanje.",
+                "ag-1-title": "Tradicionalna avtomatizacija", "ag-1-desc": "Če se zgodi pogoj A, strogo izvedi dejanje B. Trito in omejeno na vnaprej spisane poti.",
+                "ag-2-title": "AI-podprta avtomatizacija", "ag-2-desc": "Razume vhodne nestrukturirane podatke, se odloči, kaj je treba storiti, in ustrezno izvede proces.",
+                "ag-3-title": "AI agent", "ag-3-desc": "Opazuje okolje, premisli o zapletenih ciljih, uporablja orodja, izvede, preveri rezultate in avtonomno nadaljuje.",
+                "tech-heading": "Zgrajeno okoli tehnologije, ki jo vaše podjetje že uporablja.",
+                "tech-subheading": "Brezšivna integracija v sodobne tehnološke sklade in platforme.",
+                "t-1": "AI modeli", "t-2": "Platforme za avtomatizacijo", "t-3": "API-ji", "t-4": "Baze podatkov", "t-5": "CRM & ERP", "t-6": "Orodja v oblaku",
+                "sec-heading": "AI, ki spoštuje vaše podatke.",
+                "sec-subheading": "Varnostni načela korporativnega razreda vgrajena v vsako rešitev.",
+                "sec-1-title": "Zasebnost podatkov", "sec-1-desc": "Strogo ravnanje, ki zagotavlja zaščito poslovnih informacij.",
+                "sec-2-title": "Nadzorovan dostop", "sec-2-desc": "Modeli dovoljenj z najmanjšimi privilegiji, prilagojeni vlogam v podjetju.",
+                "sec-3-title": "Človeška potrditev", "sec-3-desc": "Nastavljive točke preverjanja, ki zahtevajo potrditev človeka pri ključnih dejanjih.",
+                "faq-heading": "Pogosto zastavljena vprašanja",
+                "faq-q1": "Kaj je AI avtomatizacija?", "faq-a1": "AI avtomatizacija združuje inteligenco strojnega učenja in avtomatizirane delovne tokove za obvladovanje zapletenih, ponavljajočih se nalog brez ročnega posega.",
+                "faq-q2": "Kako lahko AI pomaga mojemu podjetju?", "faq-a2": "Prihrani ure zaposlenih, zmanjšuje operativne napake, pospešuje odzivne čase in vaši ekipi omogoča osredotočenost na strategijo.",
+                "faq-q3": "Ali moram zamenjati obstoječo programsko opremo?", "faq-a3": "Ne. AI povežemo neposredno v CRM, ERP in komunikacijska orodja, na katera se vaše podjetje že zanaša vsak dan.",
+                "faq-q4": "Se lahko AI integrira z našim ERP ali CRM?", "faq-a4": "Da, integracije API po meri omogočajo gladek pretok podatkov med AI sistemi in vašimi osrednjimi poslovnimi bazami podatkov.",
+                "faq-q5": "Ali so podatki našega podjetja varni?", "faq-a5": "Izvajamo stroge varnostne prakse, nadzor nad zasebnostjo podatkov in dovoljenja glede na vloge, prilagojena poslovnim okoljem.",
+                "about-role1": "Diplomirani inženir strojništva", "about-role2": "Mechanical Design & AI Automation", "about-linkedin": "LinkedIn profil",
+                "about-badge": "O ustanovitelju",
+                "about-title": "Od konstrukcije strojev do AI inženiringa",
+                "about-p1": "Sem <strong class=\"text-slate-200\">Robi</strong>, diplomirani strojnik iz Celja. Več let nabiram dragocene izkušnje kot <strong class=\"text-slate-200\">konstrukter strojev, naprav in robotskih celic</strong>, ob tem pa sem uspešno vodil tudi zahtevne inženirske projekte od ideje do realizacije.",
+                "about-p2": "Skozi dolgoletno delo v industriji sem spoznal, da inženirski pristop k reševanju problemov predstavlja odličen temelj za avtomatizacijo in digitalne sisteme.",
+                "about-p3": "Z združevanjem natančnosti klasičnega inženiringa in sodobnih tehnologij pomagam podjetjem spreminjati zapletene procese v učinkovite, delujoče rešitve.",
+                "contact-heading": "Ste pripravljeni na avtomatizacijo poslovanja?",
+                "contact-subheading": "Poiščimo procese, kjer lahko umetna inteligenca ustvari največji učinek.",
+                "form-name": "Ime", "form-company": "Podjetje", "form-email": "E-pošta", "form-activity": "Kaj počne vaše podjetje?",
+                "form-process": "Kateri proces bi želeli avtomatizirati?", "form-tools": "Katere orodje/sisteme trenutno uporabljate?",
+                "form-message": "Sporočilo", "form-checkbox": "Ne vem, kje začeti", "form-submit": "Rezervirajte posvet",
+                "footer-rights": "&copy; 2026 RF Digital | Vse pravice pridržane."
             },
             de: {
-                "nav-services": "Leistungen", "nav-about": "Über mich", "nav-contact-btn": "Kontakt",
-                "hero-badge": "Ingenieurgeist. Digitale Lösungen.", "hero-title-1": "Ein Ingenieurgeist für die", "hero-title-gradient": "digitale Zukunft",
-                "hero-desc": "Ich verbinde die Präzision des Maschinenbaus mit der Kraft moderner Software und KI-Automatisierung, damit Ihr Unternehmen schneller wächst.",
-                "hero-btn-contact": "Kontakt aufnehmen", "hero-btn-explore": "Leistungen entdecken",
-                "services-heading": "Was ich anbiete", "services-subheading": "Moderne digitale Dienstleistungen für kleine Unternehmen und Prozessoptimierung.",
-                "service-1-title": "Websites & Mini-Anwendungen", "service-1-desc": "Schnelle, responsive und moderne Web-Lösungen sowie maßgeschneiderte Mini-Apps, angepasst an die spezifischen Arbeitsabläufe Ihres Unternehmens.",
-                "service-2-title": "KI-Geschäftsautomatisierung", "service-2-desc": "Integration von künstlicher Intelligenz und intelligenten Automatisierungen in tägliche Prozesse, um Zeit zu sparen, Fehler zu reduzieren und die Produktivität zu steigern.",
-                "service-3-title": "Digitale Beratung", "service-3-desc": "Fachkundige Überprüfung Ihrer Prozesse und Beratung bei der digitalen Transformation sowie der Auswahl der richtigen technologischen Werkzeuge.",
-                "about-badge": "Über mich", "about-heading": "Vom Konstrukteur in die digitale Zukunft", 
-                "about-degree": "Diplom-Maschinenbauingenieur", "about-subtitle": "Mechanical Design & AI Automation",
-                "about-text-1": "Ich bin <strong class=\"text-slate-200\">Robi</strong>, diplomierter Maschinenbauingenieur aus Celje, Slowenien. Seit Jahren sammle ich wertvolle Erfahrungen als <strong class=\"text-slate-200\">Konstrukteur von Maschinen, Anlagen und Roboterzellen</strong> und habe zudem anspruchsvolle Ingenieurprojekte von der ersten Idee bis zur finalen Umsetzung erfolgreich geleitet.",
-                "about-text-2": "Durch jahrelange Arbeit in der Industrie habe ich erkannt, dass der ingenieurmäßige Ansatz zur Problemlösung ein hervorragendes Fundament für viele Bereiche bildet. Daher begeistert mich neben der Mechanik auch die Welt der künstlichen Intelligenz.",
-                "about-text-3": "Meine Arbeit im Bereich <strong class=\"text-slate-200\">KI-Automatisierung und Webentwicklung</strong> basiert auf einem professionellen Ansatz. Durch die Kombination der Präzision klassischer Ingenieurskunst mit modernen digitalen Technologien helfe ich dabei, Ideen in funktionierende, effiziente Lösungen umzusetzen.",
-                "contact-heading": "Kontaktieren Sie mich", "contact-subheading": "Senden Sie eine Anfrage für Ihr nächstes digitales Projekt oder Ihre Automatisierung.",
-                "form-name": "Vor- und Nachname", "form-email": "E-Mail-Adresse", "form-message": "Nachricht", "form-submit": "Nachricht senden", "footer-rights": "Alle Rechte vorbehalten."
+                "nav-subtitle": "KI-Automatisierung",
+                "nav-solutions": "Lösungen", "nav-use-cases": "Anwendungsfälle", "nav-how-it-works": "Wie es funktioniert", "nav-roi": "ROI", "nav-faq": "FAQ", "nav-about": "Über mich", "nav-cta": "Beratung buchen",
+                "hero-badge": "KI-Automatisierung & Systeme",
+                "hero-title": "Verwandeln Sie monotone Arbeit in",
+                "hero-title-gradient": "intelligente Automatisierung.",
+                "hero-desc": "RF Digital hilft Unternehmen, repetitive Aufgaben zu automatisieren, KI mit bestehenden Systemen zu verknüpfen und effiziente Lösungen zu entwickeln.",
+                "hero-cta-primary": "Beratung buchen",
+                "hero-cta-secondary": "Lösungen entdecken",
+                "tb-1": "KI-Automatisierung", "tb-2": "Maßgeschneiderte KI", "tb-3": "Prozessoptimierung", "tb-4": "Systemintegration",
+                "prob-title": "Ihr Team sollte keine Stunden mit Arbeit verschwenden, die KI erledigen kann.",
+                "prob-subtitle": "Identifizieren und beseitigen Sie Engpässe, die Ihren täglichen Betrieb verlangsamen.",
+                "p-1-title": "Repetitive administrative Aufgaben", "p-1-desc": "Wertvolle Stunden mit manuellen Routinen statt Kernarbeit verschwenden.",
+                "p-2-title": "Manuelle Dateneingabe", "p-2-desc": "Dieselbe Daten in mehrere Plattformen tippen – anfällig für menschliche Fehler.",
+                "p-3-title": "E-Mail- & Dokumentenverarbeitung", "p-3-desc": "Das Durchsuchen endloser eingehender Anfragen, Rechnungen und Dateien.",
+                "p-4-title": "Manuelle Berichte & Datenkopieren", "p-4-desc": "Statusberichte erstellen und Daten hin und her zwischen Systemen übertragen.",
+                "p-5-title": "Suche nach internen Infos", "p-5-desc": "Das Suchen nach Spezifikationen, Anleitungen und früheren Unternehmensdokumenten.",
+                "p-6-title": "Ineffiziente Arbeitsabläufe", "p-6-desc": "Langsame Übergaben und unstrukturierte Kommunikation verursachen Verzögerungen.",
+                "sol-title": "KI, die in Ihrem Unternehmen funktioniert.",
+                "sol-subtitle": "Wir verkaufen nicht nur generische Chatbots. Wir bauen vernetzte intelligente Workflows.",
+                "tag-ai": "KI", "tag-automation": "Automatisierung", "tag-data": "Geschäftsdaten", "tag-systems": "Bestehende Systeme",
+                "flow-h1": "EINGABE", "flow-1": "E-Mails, Dateien, Bestellungen, Kundenanfragen",
+                "flow-h2": "KI VERSTEHT", "flow-2": "Kontext, Absicht & Dokumentstruktur",
+                "flow-h3": "AUTOMATISIERUNG HANDELT", "flow-3": "Aktualisiert CRM, ERP, bereitet Antworten vor",
+                "flow-h4": "MENSCH GENEHMIGT WENN NÖTIG", "flow-4": "Volle Kontrolle über kritische Entscheidungen",
+                "srv-heading": "Was wir tun",
+                "srv-subheading": "Umfassende KI-Integration und Workflow-Engineering für moderne Unternehmen.",
+                "s-1-title": "KI-Prozessautomatisierung", "s-1-desc": "Automatisieren Sie repetitive Geschäftsworkflows sicher und effizient.",
+                "s-2-title": "Maßgeschneiderte KI-Lösungen", "s-2-desc": "Auf Ihre individuellen betrieblichen Anforderungen zugeschnittene KI-Anwendungen.",
+                "s-3-title": "KI-Agenten", "s-3-desc": "Autonome Agenten, die mehrstufige Geschäftsaufgaben ausführen können.",
+                "s-4-title": "Dokumenten- & Datenautomatisierung", "s-4-desc": "Sofortiges Parsen, Extrahieren und Klassifizieren von Geschäftsdokumenten.",
+                "s-5-title": "KI-Wissenssysteme", "s-5-desc": "Interne KI-Suche in Ihrer Dokumentation, Handbüchern und Datenbanken.",
+                "s-6-title": "Systemintegration", "s-6-desc": "Sichere Verbindung von KI mit ERP, CRM, APIs und maßgeschneiderter Software.",
+                "s-7-title": "Workflow-Optimierung", "s-7-desc": "Tiefgehende Prozessanalyse zur Entdeckung wirkungsvoller Automatisierungschancen.",
+                "s-8-title": "KI-Beratung", "s-8-desc": "Strategische Beratung, Technologikauswahl und robuste Implementierungsfahrpläne.",
+                "uc-heading": "Wo KI einen Unterschied machen kann",
+                "uc-subheading": "Praktische Anwendungen in verschiedenen Unternehmensbereichen.",
+                "uc-1-cat": "Vertrieb", "uc-1-1": "Automatisierte Angebotserstellung", "uc-1-2": "Qualifizierung eingehender Leads", "uc-1-3": "Schneller Entwurf von Kundenantworten",
+                "uc-2-cat": "Betrieb", "uc-2-1": "Workflow-Aufgabenautomatisierung", "uc-2-2": "Automatisierte Datenverarbeitung", "uc-2-3": "Sofortige Statusberichte",
+                "uc-3-cat": "Finanzen", "uc-3-1": "Automatisierte Rechnungsverarbeitung", "uc-3-2": "Datenextraktion & Validierung", "uc-3-3": "Dokumentenkontrollsysteme",
+                "uc-4-cat": "Kundensupport", "uc-4-1": "Intelligente KI-E-Mail-Antworten", "uc-4-2": "Anfrageklassifizierung", "uc-4-3": "Wissensdatenbank-Abfrage",
+                "uc-5-cat": "Personalwesen (HR)", "uc-5-1": "Kandidatendokumentenverarbeitung", "uc-5-2": "Onboarding-Abläufe für Mitarbeiter", "uc-5-3": "Interner Richtlinien-Assistent",
+                "uc-6-cat": "Engineering", "uc-6-1": "Suche nach technischen Dokumenten", "uc-6-2": "Unterstützung bei der Anforderungsanalyse", "uc-6-3": "Spezifikationsentwurf",
+                "hiw-heading": "Von der Idee zur Automatisierung",
+                "hiw-subheading": "Ein strukturierter, ingenieurmäßiger Implementierungsprozess.",
+                "hiw-t1": "ENTDECKEN", "hiw-1": "Wir analysieren Ihre Prozesse und identifizieren die Automatisierungschancen mit dem höchsten ROI.",
+                "hiw-t2": "ENTWERFEN", "hiw-2": "Wir entwerfen eine maßgeschneiderte Lösung direkt für den Workflow Ihres Teams.",
+                "hiw-t3": "BAUEN", "hiw-3": "Wir entwickeln, testen und integrieren die KI-Einrichtung sicher in Ihre bestehenden Systeme.",
+                "hiw-t4": "OPTIMIEREN", "hiw-4": "Wir überwachen Leistungsmetriken und verfeinern kontinuierlich die automatisierten Workflows.",
+                "ba-heading": "Die Transformation",
+                "ba-subheading": "Sehen Sie, wie mühsame manuelle Aufgaben zu reibungsloser Ausführung werden.",
+                "ba-before-badge": "VOR KI",
+                "ba-b1": "Mitarbeiter erhält E-Mail", "ba-b2": "Liest und interpretiert Anfrage", "ba-b3": "Kopiert Daten manuell", "ba-b4": "Prüft internes System", "ba-b5": "Sendet manuelle Antwort", "ba-b6": "Hoher Zeitaufwand",
+                "ba-after-badge": "NACH KI-AUTOMATISIERUNG",
+                "ba-a1": "E-Mail empfangen", "ba-a2": "KI analysiert Anfragekontext", "ba-a3": "Daten automatisch extrahiert", "ba-a4": "System geprüft & aktualisiert", "ba-a5": "Mensch genehmigt / Gesendet", "ba-a6": "Sofort & Präzise",
+                "roi-heading": "Automatisierung sollte messbaren Wert schaffen.",
+                "roi-subheading": "Berechnen Sie Ihre geschätzten monatlichen Zeit- und Finanzersparnisse.",
+                "roi-l1": "Stunden für repetitive Arbeit pro Woche:",
+                "roi-l2": "Durchschnittliche Mitarbeiterkosten pro Stunde (€):",
+                "roi-l3": "Geschätztes Automatisierungspotenzial:",
+                "roi-res1": "Mögliche eingesparte Stunden / Monat",
+                "roi-res2": "Geschätzte jährliche Einsparungen",
+                "cs-heading": "KI-Automatisierungsbeispiele",
+                "cs-subheading": "Beispiel-Workflow-Szenario zur Veranschaulichung der praktischen Umsetzung.",
+                "cs-badge": "Beispiel-Workflow-Szenario",
+                "cs-title": "KI-gestützte Dokumentenverarbeitung",
+                "cs-col1-h": "Problem:", "cs-col1-p": "Mitarbeiter verarbeiten eingehende Dokumente manuell und tragen Felder nacheinander in Systemdatenbanken ein.",
+                "cs-col2-h": "Lösung:", "cs-col2-p": "KI extrahiert relevante Informationen sofort und leitet strukturierte Datensätze direkt in die Unternehmenssoftware weiter.",
+                "cs-col3-h": "Potenzielle Auswirkung:", "cs-col3-p": "Keine manuelle Dateneingabe, ultraschnelle Verarbeitungsgeschwindigkeiten und drastisch reduzierte menschliche Fehler.",
+                "ag-heading": "KI-Agenten für echte Geschäftsworkflows.",
+                "ag-subheading": "Der Schritt über einfache Chatbots hinaus zur autonomen Ausführung.",
+                "ag-1-title": "Traditionelle Automatisierung", "ag-1-desc": "Wenn Bedingung A eintritt, führe strikt Aktion B aus. Starre und auf vorgegebene Pfade beschränkte Abläufe.",
+                "ag-2-title": "KI-gestützte Automatisierung", "ag-2-desc": "Eingehende unstrukturierte Eingaben verstehen, entscheiden, was geschehen muss, und den Workflow entsprechend ausführen.",
+                "ag-3-title": "KI-Agent", "ag-3-desc": "Umgebung beobachten, komplexe Ziele überlegen, Werkzeuge nutzen, ausführen, Ergebnisse verifizieren und autonom fortfahren.",
+                "tech-heading": "Aufgebaut um die Technologie, die Ihr Unternehmen bereits nutzt.",
+                "tech-subheading": "Nahtlose Integration über moderne Tech-Stacks und Plattformen hinweg.",
+                "t-1": "KI-Modelle", "t-2": "Automatisierungsplattformen", "t-3": "APIs", "t-4": "Datenbanken", "t-5": "CRM & ERP", "t-6": "Cloud-Tools",
+                "sec-heading": "KI, die Ihre Daten respektiert.",
+                "sec-subheading": "Sicherheitsprinzipien auf Unternehmensebene in jeder Lösung verankert.",
+                "sec-1-title": "Datenschutz", "sec-1-desc": "Strikte Handhabung zur Gewährleistung des Schutzes von Unternehmensinformationen.",
+                "sec-2-title": "Kontrollierter Zugriff", "sec-2-desc": "Berechtigungsmodelle mit geringsten Privilegien, abgestimmt auf Ihre Unternehmensrollen.",
+                "sec-3-title": "Menschliche Freigabe", "sec-3-desc": "Konfigurierbare Kontrollpunkte, die eine menschliche Freigabe für wichtige Aktionen erfordern.",
+                "faq-heading": "Häufig gestellte Fragen",
+                "faq-q1": "Was ist KI-Automatisierung?", "faq-a1": "KI-Automatisierung kombiniert Intelligenz des maschinellen Lernens mit automatisierten Workflows, um komplexe, repetitive Aufgaben ohne manuellen Eingriff zu bewältigen.",
+                "faq-q2": "Wie kann KI meinem Unternehmen helfen?", "faq-a2": "Sie spart Mitarbeiterstunden, reduziert operative Fehler, beschleunigt Reaktionszeiten und ermöglicht Ihrem Team, sich auf wertvolle Strategien zu konzentrieren.",
+                "faq-q3": "Muss ich meine bestehende Software ersetzen?", "faq-a3": "Nein. Wir binden KI direkt in die CRM-, ERP- und Kommunikationstools ein, auf die sich Ihr Unternehmen ohnehin täglich verlässt.",
+                "faq-q4": "Kann sich KI in unser ERP oder CRM integrieren?", "faq-a4": "Ja, maßgeschneiderte API-Integrationen ermöglichen einen reibungslosen Datenfluss zwischen KI-Systemen und Ihren primären Unternehmensdatenbanken.",
+                "faq-q5": "Sind unsere Unternehmensdaten sicher?", "faq-a5": "Wir implementieren strenge Sicherheitspraktiken, Datenschutzkontrollen und rollenbasierte Berechtigungen, die auf Geschäftsumgebungen zugeschnitten sind.",
+                "about-role1": "Diplom-Ingenieur für Maschinenbau", "about-role2": "Mechanical Design & AI Automation", "about-linkedin": "LinkedIn-Profil",
+                "about-badge": "Über den Gründer",
+                "about-title": "Vom Maschinenbau zur KI-Entwicklung",
+                "about-p1": "Ich bin <strong class=\"text-slate-200\">Robi</strong>, Maschinenbauingenieur aus Celje. Seit mehreren Jahren sammle ich wertvolle Erfahrungen als <strong class=\"text-slate-200\">Konstrukteur von Maschinen, Vorrichtungen und Roboterzellen</strong> und habe dabei anspruchsvolle Ingenieurprojekte von der Idee bis zur Realisierung geleitet.",
+                "about-p2": "Durch meine langjährige Tätigkeit in der Industrie habe ich erkannt, dass der ingenieurmäßige Ansatz zur Problemlösung eine hervorragende Grundlage für Automatisierung und digitale Systeme bietet.",
+                "about-p3": "Durch die Kombination der Präzision des klassischen Engineerings mit modernen Technologien helfe ich Unternehmen, komplexe Prozesse in effiziente, funktionierende Lösungen umzuwandeln.",
+                "contact-heading": "Bereit, Ihr Unternehmen zu automatisieren?",
+                "contact-subheading": "Lassen Sie uns die Prozesse identifizieren, bei denen KI die größte Wirkung erzielen kann.",
+                "form-name": "Name", "form-company": "Unternehmen", "form-email": "E-Mail", "form-activity": "Was macht Ihr Unternehmen?",
+                "form-process": "Welchen Prozess möchten Sie automatisieren?", "form-tools": "Welche Werkzeuge/Systeme nutzen Sie derzeit?",
+                "form-message": "Nachricht", "form-checkbox": "Ich weiß nicht, wo ich anfangen soll", "form-submit": "Beratung buchen",
+                "footer-rights": "&copy; 2026 RF Digital | Alle Rechte vorbehalten."
             },
             hr: {
-                "nav-services": "Usluge", "nav-about": "O meni", "nav-contact-btn": "Kontakt",
-                "hero-badge": "Inženirski um. Digitalna rješenja.", "hero-title-1": "Inženirski um za", "hero-title-gradient": "digitalnu budućnost",
-                "hero-desc": "Povezujem preciznost strojarstva s moći suvremenog softvera i AI automatizacije kako bi vaše poslovanje brže raslo.",
-                "hero-btn-contact": "Stupite u kontakt", "hero-btn-explore": "Istražite usluge",
-                "services-heading": "Što nudim", "services-subheading": "Suvremene digitalne usluge za male tvrtke i optimizaciju procesa.",
-                "service-1-title": "Web stranice i mini aplikacije", "service-1-desc": "Brza, responzivna i moderna web rješenja te namjenske mini aplikacije prilagođene specifičnim radnim procesima vaše tvrtke.",
-                "service-2-title": "AI automatizacija poslovanja", "service-2-desc": "Uvođenje umjetne inteligencije i pametnih automatizacija u svakodnevne procese radi uštede vremena, smanjenja pogrešaka i povećanja produktivnosti.",
-                "service-3-title": "Digitalno savjetovanje", "service-3-desc": "Stručni pregled vaših procesa i savjetovanje o digitalnoj transformaciji te odabiru pravih tehnoloških alata za napredak.",
-                "about-badge": "O meni", "about-heading": "Od konstrukcija do digitalne budućnosti", 
-                "about-degree": "Diplomirani inženjer strojarstva", "about-subtitle": "Mechanical Design & AI Automation",
-                "about-text-1": "Ja sam <strong class=\"text-slate-200\">Robi</strong>, diplomirani inženjer strojarstva iz Celja, Slovenije. Godinama stječem dragocjeno iskustvo kao <strong class=\"text-slate-200\">konstruktor strojeva, uređaja i robotskih ćelija</strong>, uz uspješno vođenje zahtjevnih inženjerskih projekata od početne ideje do konačne realizacije.",
-                "about-text-2": "Kroz dugogodišnji rad u industriji shvatio sam da inženjerski pristup rješavanju problema predstavlja odličan temelj za mnoga područja. Stoga me, uz strojarstvo, snažno veseli i svijet umjetne inteligencije.",
-                "about-text-3": "Moj rad na području <strong class=\"text-slate-200\">AI automatizacije i izrade web stranica</strong> temelji se na profesionalnom pristupu. Spajanjem preciznosti klasičnog inženjerstva i suvremenih digitalnih tehnologija pomažem pretvoriti ideje u funkcionalna i učinkovita rješenja.",
-                "contact-heading": "Stupite u kontakt sa mnom", "contact-subheading": "Pošaljite upit za vaš sljedeći digitalni projekt ili automatizaciju.",
-                "form-name": "Ime i prezime", "form-email": "E-mail adresa", "form-message": "Poruka", "form-submit": "Pošalji poruku", "footer-rights": "Sva prava pridržana."
+                "nav-subtitle": "AI Automatizacija",
+                "nav-solutions": "Rješenja", "nav-use-cases": "Slučajevi upotrebe", "nav-how-it-works": "Kako radi", "nav-roi": "ROI", "nav-faq": "FAQ", "nav-about": "O meni", "nav-cta": "Rezervirajte konzultacije",
+                "hero-badge": "AI Automatizacija i Sustavi",
+                "hero-title": "Pretvorite ponavljajući rad u",
+                "hero-title-gradient": "inteligentnu automatizaciju.",
+                "hero-desc": "RF Digital pomaže tvrtkama automatizirati zadatke, povezati AI s postojećim sustavima i razviti rješenja koja štede vrijeme zaposlenicima.",
+                "hero-cta-primary": "Rezervirajte konzultacije",
+                "hero-cta-secondary": "Istražite rješenja",
+                "tb-1": "AI Automatizacija", "tb-2": "AI Rješenja po mjeri", "tb-3": "Optimizacija procesa", "tb-4": "Integracija sustava",
+                "prob-title": "Vaš tim ne bi trebao trošiti sate na posao koji AI može obaviti.",
+                "prob-subtitle": "Prepoznajte i uklonite uska grla koja usporavaju vaše svakodnevno poslovanje.",
+                "p-1-title": "Ponavljajući administrativni zadaci", "p-1-desc": "Gubljenje dragocjenih sati na ručne rutinske postupke umjesto na temeljni rad.",
+                "p-2-title": "Ručni unos podataka", "p-2-desc": "Tipkanje istih podataka na više platformi, što dovodi do ljudskih pogrešaka.",
+                "p-3-title": "Obrada e-pošte i dokumenata", "p-3-desc": "Pregledavanje beskrajnih dolaznih zahtjeva, računa i datoteka.",
+                "p-4-title": "Ručno izvještavanje i kopiranje podataka", "p-4-desc": "Izrada izvješća o stanju i prijenos podataka amo-tamo između sustava.",
+                "p-5-title": "Pretraživanje internih informacija", "p-5-desc": "Traženje specifikacija, uputa i prošlih dokumenata tvrtke.",
+                "p-6-title": "Neučinkoviti tijekovi rada", "p-6-desc": "Spore predaje zadataka i nestrukturirana komunikacija koja uzrokuje kašnjenja.",
+                "sol-title": "AI koji radi unutar vašeg poslovanja.",
+                "sol-subtitle": "Ne prodajemo samo generičke chatbote. Gradimo povezane inteligentne radne procese.",
+                "tag-ai": "AI", "tag-automation": "Automatizacija", "tag-data": "Poslovni podaci", "tag-systems": "Postojeći sustavi",
+                "flow-h1": "ULAZ", "flow-1": "E-pošta, datoteke, narudžbe, upiti kupaca",
+                "flow-h2": "AI RAZUMIJE", "flow-2": "Kontekst, namjeru i strukturu dokumenta",
+                "flow-h3": "AUTOMATIZACIJA DJELUJE", "flow-3": "Ažurira CRM, ERP, priprema odgovore",
+                "flow-h4": "ČOVJEK ODOBRAVA KADA JE POTREBNO", "flow-4": "Potpuna kontrola nad kritičnim odlukama",
+                "srv-heading": "Što radimo",
+                "srv-subheading": "Sveobuhvatna integracija umjetne inteligencije i inženjering radnih procesa prilagođeni modernim poduzećima.",
+                "s-1-title": "AI automatizacija procesa", "s-1-desc": "Sigurno i učinkovito automatizirajte ponavljajuće poslovne procese.",
+                "s-2-title": "AI rješenja po mjeri", "s-2-desc": "Prilagođene aplikacije umjetne inteligencije građene točno za vaše operativne zahtjeve.",
+                "s-3-title": "AI agenti", "s-3-desc": "Autonomni agenti sposobni za izvršavanje višestupanjskih poslovnih zadataka.",
+                "s-4-title": "Automatizacija dokumenata i podataka", "s-4-desc": "Trenutno raščlanjivanje, ekstrakcija i klasifikacija poslovnih dokumenata.",
+                "s-5-title": "AI sustavi znanja", "s-5-desc": "Interno pretraživanje putem AI-ja po vašoj dokumentaciji, priručnicima i bazama podataka.",
+                "s-6-title": "Integracija sustava", "s-6-desc": "Sigurno povezivanje AI-ja s ERP-om, CRM-om, API-jevima i prilagođenom softverskom infrastrukturom.",
+                "s-7-title": "Optimizacija tijeka rada", "s-7-desc": "Duboka analiza procesa za otkrivanje mogućnosti automatizacije s visokim povratom.",
+                "s-8-title": "AI savjetovanje", "s-8-desc": "Strateško usmjeravanje, odabir tehnologije i robusni planovi implementacije.",
+                "uc-heading": "Gdje AI može ostvariti utjecaj",
+                "uc-subheading": "Praktične primjene u različitim poslovnim odjelima.",
+                "uc-1-cat": "Prodaja", "uc-1-1": "Automatizirana priprema ponuda", "uc-1-2": "Kvalifikacija dolaznih potencijalnih klijenata", "uc-1-3": "Brzo sastavljanje odgovora klijentima",
+                "uc-2-cat": "Operativa", "uc-2-1": "Automatizacija zadataka u tijeku rada", "uc-2-2": "Automatizirana obrada podataka", "uc-2-3": "Trenutna izvješća o stanju",
+                "uc-3-cat": "Financije", "uc-3-1": "Automatizirano upravljanje računima", "uc-3-2": "Ekstrakcija i provjera podataka", "uc-3-3": "Sustavi kontrole dokumenata",
+                "uc-4-cat": "Podrška korisnicima", "uc-4-1": "Pametni AI odgovori na e-poštu", "uc-4-2": "Klasifikacija upita", "uc-4-3": "Pretraživanje baze znanja",
+                "uc-5-cat": "Ljudski resursi (HR)", "uc-5-1": "Obrada dokumenata kandidata", "uc-5-2": "Tijekovi uvođenja zaposlenika u posao", "uc-5-3": "Interni pomoćnik za pravilnike",
+                "uc-6-cat": "Inženjering", "uc-6-1": "Pretraživanje tehničke dokumentacije", "uc-6-2": "Podrška analizi zahtjeva", "uc-6-3": "Izrada specifikacija",
+                "hiw-heading": "Od ideje do automatizacije",
+                "hiw-subheading": "Strukturiran inženjerski proces implementacije.",
+                "hiw-t1": "OTKRIVANJE", "hiw-1": "Analiziramo vaše procese i lociramo prilagodbene prilike s najvećim ROI-jem.",
+                "hiw-t2": "DIZAJNIRANJE", "hiw-2": "Arhitektonski osmišljavamo prilagođeno rješenje točno za radni proces vašeg tima.",
+                "hiw-t3": "IZGRADNJA", "hiw-3": "Razvijamo, testiramo i sigurno integriramo AI postavke s vašim postojećim sustavima.",
+                "hiw-t4": "OPTIMIZACIJA", "hiw-4": "Pratimo metrike performansi i kontinuirano usavršavamo automatizirane procese.",
+                "ba-heading": "Transformacija",
+                "ba-subheading": "Pogledajte kako se naporan ručni rad pretvara u učinkovito izvršavanje.",
+                "ba-before-badge": "PRIJE AI",
+                "ba-b1": "Zaposlenik prima e-poštu", "ba-b2": "Čita i tumači zahtjev", "ba-b3": "Ručno kopira podatke", "ba-b4": "Provjerava interni sustav", "ba-b5": "Šalje ručni odgovor", "ba-b6": "Visok trošak vremena",
+                "ba-after-badge": "NAKON AI AUTOMATIZACIJE",
+                "ba-a1": "E-pošta primljena", "ba-a2": "AI analizira kontekst zahtjeva", "ba-a3": "Podaci izvučeni automatski", "ba-a4": "Sustav provjeren i ažuriran", "ba-a5": "Čovjek odobrava / Poslano", "ba-a6": "Trenutno i točno",
+                "roi-heading": "Automatizacija treba stvoriti mjerljivu vrijednost.",
+                "roi-subheading": "Izračunajte svoje procijenjene mjesečne uštede vremena i novca.",
+                "roi-l1": "Sati utrošeni na ponavljajući rad tjedno:",
+                "roi-l2": "Prosječan satni trošak zaposlenika (€):",
+                "roi-l3": "Procijenjeni potencijal automatizacije:",
+                "roi-res1": "Potencijalno uštedeni sati / mjesec",
+                "roi-res2": "Procijenjena godišnja ušteda",
+                "cs-heading": "Primjeri AI automatizacije",
+                "cs-subheading": "Primjer scenarija tijeka rada koji prikazuje praktičnu primjenu.",
+                "cs-badge": "Primjer scenarija tijeka rada",
+                "cs-title": "Obrada dokumenata pomoću umjetne inteligencije",
+                "cs-col1-h": "Problem:", "cs-col1-p": "Zaposlenici ručno obrađuju dolazne dokumente, unoseći polja u baze podataka sustava jedno po jedno.",
+                "cs-col2-h": "Rješenje:", "cs-col2-p": "AI trenutno izdvaja relevantne informacije i usmjerava strukturirane zapise ravno u poslovni softver.",
+                "cs-col3-h": "Potencijalni utjecaj:", "cs-col3-p": "Nula ručnog unosa, iznimno brza brzina obrade i drastično smanjene ljudske pogreške.",
+                "ag-heading": "AI agenti za stvarne poslovne procese.",
+                "ag-subheading": "Prelazak s osnovnih chatbota na autonomno izvršavanje.",
+                "ag-1-title": "Tradicionalna automatizacija", "ag-1-desc": "Ako se dogodi uvjet A, strogo izvrši radnju B. Kruto i ograničeno na stroge unaprijed kodirane staze.",
+                "ag-2-title": "AI-pokretana automatizacija", "ag-2-desc": "Razumije dolazne nestrukturirane podatke, odlučuje što se treba dogoditi i u skladu s tim izvršava tijek rada.",
+                "ag-3-title": "AI agent", "ag-3-desc": "Promatra okolinu, razmišlja o složenim ciljevima, koristi alate, izvršava, provjerava rezultate i nastavlja autonomno.",
+                "tech-heading": "Izgrađeno oko tehnologije koju vaše poduzeće već koristi.",
+                "tech-subheading": "Besprijekorna integracija preko modernih tehnoloških slojeva i platformi.",
+                "t-1": "AI modeli", "t-2": "Platforme za automatizaciju", "t-3": "API-ji", "t-4": "Baze podataka", "t-5": "CRM & ERP", "t-6": "Cloud alati",
+                "sec-heading": "AI koji poštuje vaše podatke.",
+                "sec-subheading": "Sigurnosna načela poslovne razine ugrađena u svako rješenje.",
+                "sec-1-title": "Privatnost podataka", "sec-1-desc": "Strog postupak koji osigurava zaštitu korporativnih informacija.",
+                "sec-2-title": "Kontrolirani pristup", "sec-2-desc": "Modeli dozvola s najmanjim privilegijama usklađeni s ulogama u vašem poduzeću.",
+                "sec-3-title": "Ljudsko odobrenje", "sec-3-desc": "Prilagodljive točke provjere koje zahtijevaju potpis čovjeka za ključne radnje.",
+                "faq-heading": "Često postavljana pitanja",
+                "faq-q1": "Što je AI automatizacija?", "faq-a1": "AI automatizacija kombinira inteligenciju strojnog učenja s automatiziranim tijekovima rada za rješavanje složenih, ponavljajućih zadataka bez ručne intervencije.",
+                "faq-q2": "Kako AI može pomoći mom poslovanju?", "faq-a2": "Štedi sate zaposlenicima, smanjuje operativne pogreške, ubrzava vrijeme odziva i omogućuje vašem timu da se usredotoči na strategiju visoke vrijednosti.",
+                "faq-q3": "Moram li zamijeniti postojeći softver?", "faq-a3": "Ne. AI povezujemo izravno u CRM, ERP i komunikacijske alate na koje se vaša tvrtka već oslanja svaki dan.",
+                "faq-q4": "Može li se AI integrirati s našim ERP-om ili CRM-om?", "faq-a4": "Da, prilagođene API integracije omogućuju gladak protok podataka između AI sustava i vaših primarnih enterprise baza podataka.",
+                "faq-q5": "Jesu li podaci naše tvrtke sigurni?", "faq-a5": "Primjenjujemo stroge sigurnosne prakse, kontrole privatnosti podataka i dozvole temeljene na ulogama prilagođene poslovnim okruženjima.",
+                "about-role1": "Diplomirani inženjer strojarstva", "about-role2": "Mechanical Design & AI Automation", "about-linkedin": "LinkedIn profil",
+                "about-badge": "O osnivaču",
+                "about-title": "Od strojnog konstruiranja do AI inženjerstva",
+                "about-p1": "Ja sam <strong class=\"text-slate-200\">Robi</strong>, diplomirani strojar iz Celja. Više godina skupljam dragocjena iskustva kao <strong class=\"text-slate-200\">konstruktor strojeva, uređaja i robotskih ćelija</strong>, a uz to sam uspješno vodio i zahtjevne inženjerske projekte od ideje do realizacije.",
+                "about-p2": "Kroz dugogodišnji rad u industriji shvatio sam da inženjerski pristup rješavanju problema predstavlja odličan temelj za automatizaciju i digitalne sustave.",
+                "about-p3": "Spajanjem preciznosti klasičnog inženjerstva i suvremenih tehnologija pomažem tvrtkama mijenjati složene procese u učinkovita, djelotvorna rješenja.",
+                "contact-heading": "Spremni za automatizaciju poslovanja?",
+                "contact-subheading": "Pronađimo procese u kojima umjetna inteligencija može ostvariti najveći utjecaj.",
+                "form-name": "Ime", "form-company": "Tvrtka", "form-email": "E-pošta", "form-activity": "Što radi vaša tvrtka?",
+                "form-process": "Koji proces biste željeli automatizirati?", "form-tools": "Koje alate/sustave trenutno koristite?",
+                "form-message": "Poruka", "form-checkbox": "Ne znam odakle početi", "form-submit": "Rezervirajte konzultacije",
+                "footer-rights": "&copy; 2026 RF Digital | Sva prava pridržana."
             }
         };
 
