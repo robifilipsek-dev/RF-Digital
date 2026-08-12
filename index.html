@@ -10,14 +10,21 @@
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-white">
 
     <!-- Navigacija -->
-    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800">
+    <header class="fixed top-0 left-0 right-0 z-50 bg-slate-900/85 backdrop-blur-md border-b border-slate-800">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-3">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-white font-black text-lg">
-                    R<span class="text-slate-950">F</span>
+            <!-- Izboljšan profesionalni logotip -->
+            <a href="#" class="flex items-center space-x-3.5 group">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-cyan-500 rounded-xl blur-md opacity-40 group-hover:opacity-75 transition"></div>
+                    <div class="relative w-11 h-11 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg shadow-cyan-500/20 text-white font-black text-xl border border-cyan-400/30">
+                        R<span class="text-slate-950">F</span>
+                    </div>
                 </div>
-                <span class="text-xl font-bold tracking-tight">RF<span class="text-cyan-400">Digital</span></span>
-            </div>
+                <div class="flex flex-col">
+                    <span class="text-xl font-extrabold tracking-tight text-white">RF<span class="text-cyan-400">Digital</span></span>
+                    <span class="text-[10px] uppercase tracking-widest text-slate-400 font-semibold -mt-1">Engineering & AI</span>
+                </div>
+            </a>
             
             <div class="flex items-center space-x-6">
                 <nav class="hidden md:flex items-center space-x-8 text-sm font-medium text-slate-300">
