@@ -28,6 +28,160 @@
             }
         }
     </script>
+
+<style>
+    /* RF Digital - app-like visual system */
+    :root {
+        --rf-bg: #070b14;
+        --rf-panel: rgba(15, 23, 42, 0.78);
+        --rf-panel-strong: rgba(15, 23, 42, 0.94);
+        --rf-border: rgba(100, 116, 139, 0.20);
+        --rf-border-hover: rgba(34, 211, 238, 0.55);
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 50% -10%, rgba(14,165,233,.10), transparent 38%),
+            linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+            #070b14 !important;
+        background-size: auto, 32px 32px, 32px 32px;
+        background-attachment: fixed;
+    }
+
+    section {
+        position: relative;
+    }
+
+    /* More compact application-style navigation */
+    #navbar {
+        background: rgba(7, 11, 20, 0.88) !important;
+        border-color: rgba(100,116,139,.18) !important;
+        box-shadow: 0 10px 35px rgba(0,0,0,.18);
+    }
+    #navbar > div {
+        height: 76px !important;
+    }
+
+    /* App cards */
+    #projekti .grid > div,
+    #solutions .grid > div,
+    #how-it-works .grid > div,
+    #faq details {
+        background: linear-gradient(180deg, rgba(15,23,42,.82), rgba(9,14,26,.82)) !important;
+        border: 1px solid var(--rf-border) !important;
+        box-shadow: 0 12px 32px rgba(0,0,0,.16);
+        transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    #projekti .grid > div {
+        min-height: 184px;
+        position: relative;
+        overflow: hidden;
+    }
+    #projekti .grid > div::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(34,211,238,0), rgba(34,211,238,.9), rgba(59,130,246,0));
+        opacity: .55;
+    }
+
+    #projekti .grid > div:hover,
+    #solutions .grid > div:hover,
+    #how-it-works .grid > div:hover,
+    #faq details:hover {
+        transform: translateY(-4px);
+        border-color: var(--rf-border-hover) !important;
+        box-shadow: 0 18px 42px rgba(8,145,178,.12), 0 10px 28px rgba(0,0,0,.24);
+        background: linear-gradient(180deg, rgba(17,28,49,.94), rgba(10,17,31,.94)) !important;
+    }
+
+    #projekti h3 {
+        letter-spacing: .01em;
+        text-transform: uppercase;
+        font-size: .92rem;
+        color: #67e8f9 !important;
+    }
+
+    #projekti h3 i {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(34,211,238,.10);
+        border: 1px solid rgba(34,211,238,.16);
+        font-size: .75rem;
+    }
+
+    /* More application-like typography */
+    #projekti .grid h4,
+    #solutions h3,
+    #how-it-works h3 {
+        letter-spacing: -.01em;
+    }
+
+    #projekti .grid p,
+    #solutions p,
+    #how-it-works p,
+    #faq p {
+        line-height: 1.65;
+    }
+
+    /* Buttons/links feel like UI controls */
+    #projekti a {
+        width: fit-content;
+        padding: .55rem .72rem;
+        border-radius: .7rem;
+        background: rgba(8,145,178,.08);
+        border: 1px solid rgba(34,211,238,.12);
+    }
+    #projekti a:hover {
+        background: rgba(8,145,178,.15);
+        border-color: rgba(34,211,238,.28);
+    }
+
+    /* Section separators */
+    #solutions,
+    #projekti,
+    #how-it-works,
+    #faq,
+    #about,
+    #contact {
+        background-color: rgba(2,6,23,.20) !important;
+    }
+
+    /* Make the projects area read more like a tool dashboard */
+    #projekti {
+        background:
+            radial-gradient(circle at 15% 10%, rgba(34,211,238,.045), transparent 28%),
+            radial-gradient(circle at 85% 85%, rgba(59,130,246,.045), transparent 30%);
+    }
+
+    /* Responsive card grid: four compact professional tools on wide screens */
+    @media (min-width: 1024px) {
+        #projekti .grid.md\:grid-cols-3 {
+            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        }
+        #projekti .grid.md\:grid-cols-2 {
+            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        #navbar > div {
+            height: 70px !important;
+        }
+        #projekti .grid > div {
+            min-height: 168px;
+        }
+    }
+</style>
+
 </head>
 <body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
 
@@ -49,6 +203,7 @@
             
             <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
                 <a href="#solutions" class="hover:text-cyan-400 transition" data-i18n="nav-solutions">Storitve</a>
+                <a href="#projekti" class="hover:text-cyan-400 transition" data-i18n="nav-projects">Projekti</a>
                 <a href="#how-it-works" class="hover:text-cyan-400 transition" data-i18n="nav-how-it-works">Proces</a>
                 <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav-faq">FAQ</a>
                 <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav-about">O nas</a>
@@ -58,7 +213,7 @@
                 <a href="#contact" data-i18n="nav-cta" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition">
                     Stopite v stik
                 </a>
-                <!-- Jezikovni preklopnik (Vrstni red: SLO, ENG, DEU, HRV) -->
+                <!-- Jezikovni preklopnik -->
                 <select id="language-switcher" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
                     <option value="sl">🇸🇮 SLO</option>
                     <option value="en">🇬🇧 ENG</option>
@@ -196,6 +351,98 @@
         </div>
     </section>
 
+    <!-- PORTFOLIO / APLIKACIJE -->
+    <section id="projekti" class="py-24 relative border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="app-heading">Moje aplikacije in orodja</h2>
+                <p class="mt-4 text-slate-400" data-i18n="app-subheading">Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.</p>
+            </div>
+
+            <!-- Profesionalna orodja -->
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-industry"></i> <span data-i18n="app-cat-pro">Profesionalna orodja</span>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Dimenzioniranje osi</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Kalkulator za izračun in dimenzioniranje linearnih osi ter servomotorjev.</p>
+                    <a href="https://robifilipsek-dev.github.io/linearne-osi/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Analiza takta</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Analiza cikličnega časa in kapacitete robotske celice.</p>
+                    <a href="https://robifilipsek-dev.github.io/cikel-cas/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Varnostna razdalja</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Orodje za hiter in natančen izračun varnostne razdalje v industriji.</p>
+                    <a href="https://robifilipsek-dev.github.io/varnostna-razdalja/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-fit-title">Kalkulator ujemov</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-fit-desc">ISO 286 kalkulator za izračun odstopanj, mejnih mer in vrst ujemov za strojne dele.</p>
+                    <a href="https://robifilipsek-dev.github.io/kalkulator-ujemov/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Hobi, igre in domača uporaba -->
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-gamepad"></i> <span data-i18n="app-cat-hobby">Hobi, igre in domača uporaba</span>
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Flappy runner</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Zabavna spletna igra za sprostitev in krajšanje časa.</p>
+                    <a href="https://robifilipsek-dev.github.io/flappy-runner/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Kalkulator za testo</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Orodje za izračun hidracije, kvasa in fermentacije za popolno Neapeljsko pizzo.</p>
+                    <a href="https://robifilipsek-dev.github.io/pizza-testo/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Trackerji -->
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-chart-line"></i> <span data-i18n="app-cat-trackers">Trackerji</span>
+            </h3>
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Zlato tracker</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Pregled in sledenje gibanja cen zlata.</p>
+                    <a href="https://robifilipsek-dev.github.io/zlato-tracker/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2">Bitcoin tracker</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow">Sledenje cenam in vrednosti bitcoina v realnem času.</p>
+                    <a href="https://robifilipsek-dev.github.io/bitcoin-tracker/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- HOW IT WORKS -->
     <section id="how-it-works" class="py-24 border-t border-slate-900">
         <div class="max-w-7xl mx-auto px-6">
@@ -232,7 +479,7 @@
             <div class="space-y-4">
                 <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
                     <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q1">Kako dolgo traja izdelava spletne strani?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v roku 1 do 2 tednov, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.</p>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.</p>
                 </details>
                 <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
                     <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q2">Ali lahko sami urejamo spletno stran kasneje?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
@@ -243,12 +490,12 @@
                     <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a3">Razvijamo lahke namenske spletne aplikacije in orodja po meri (npr. interni sledilniki, aplikacije za optimizacijo procesov in avtomatizacijo), ki digitalizirajo vaše vsakodnevno delo.</p>
                 </details>
                 <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q5">Kakšne vrste spletnih aplikacija razvijate?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.</p>
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q4">Kakšne vrste spletnih aplikacij razvijate?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.</p>
                 </details>
                 <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q4">Kako začnemo sodelovanje?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.</p>
+                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q5">Kako začnemo sodelovanje?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
+                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.</p>
                 </details>
             </div>
         </div>
@@ -312,22 +559,22 @@
 
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Ime</label>
-                        <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                        <label for="name" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Ime</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-company">Podjetje / Naziv</label>
-                        <input type="text" name="company" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                        <label for="company" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-company">Podjetje / Naziv</label>
+                        <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                 </div>
                 <div class="grid md:grid-cols-2 gap-6">
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">E-pošta</label>
-                        <input type="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">E-pošta</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
                     </div>
                     <div>
-                        <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-service">Katera storitev vas zanima?</label>
-                        <select name="service_type" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition text-slate-300">
+                        <label for="service_type" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-service">Katera storitev vas zanima?</label>
+                        <select id="service_type" name="service_type" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition text-slate-300">
                             <option value="spletna-stran" data-i18n="opt-web">Izdelava spletne strani</option>
                             <option value="avtomatizacija" data-i18n="opt-auto">Avtomatizacija opravil</option>
                             <option value="spletne-aplikacije" data-i18n="opt-app">Aplikacije in orodja po meri</option>
@@ -336,8 +583,8 @@
                     </div>
                 </div>
                 <div>
-                    <label class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Sporočilo</label>
-                    <textarea name="message" rows="4" data-i18n-placeholder="form-message-ph" placeholder="Opišite vaše želje ali projekt..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                    <label for="message" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Sporočilo</label>
+                    <textarea id="message" name="message" rows="4" data-i18n-placeholder="form-message-ph" placeholder="Opišite vaše želje ali projekt..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
                 </div>
                 <button type="submit" data-i18n="form-submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
                     Pošlji povpraševanje
@@ -356,7 +603,7 @@
         const translations = {
             sl: {
                 "nav-subtitle": "Spletne rešitve & avtomatizacija",
-                "nav-solutions": "Storitve", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nas", "nav-cta": "Stopite v stik",
+                "nav-solutions": "Storitve", "nav-projects": "Projekti", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nas", "nav-cta": "Stopite v stik",
                 "hero-badge": "Spletni razvoj & digitalna avtomatizacija",
                 "hero-title": "Sodobne spletne strani in",
                 "hero-title-gradient": "pametna avtomatizacija.",
@@ -377,17 +624,24 @@
                 "s-2-l1": "Avtomatska obvestila o novih strankah", "s-2-l2": "Manj ročnega prepisovanja in napak", "s-2-l3": "Povezava orodij, ki jih že uporabljate",
                 "s-3-title": "Spletne aplikacije in orodja po meri", "s-3-desc": "Razvoj manjših namenskih spletnih orodij, interaktivnih kalkulatorjev ali internih aplikacij, ki poenostavijo vaše delo in izboljšajo uporabniško izkušnjo.",
                 "s-3-l1": "Rešitve prilagojene vašim potrebam", "s-3-l2": "Pregledni vmesniki in enostavna uporaba", "s-3-l3": "Hitro delovanje na vseh napravah",
+                "app-heading": "Moje aplikacije in orodja",
+                "app-subheading": "Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.",
+                "app-cat-pro": "Profesionalna orodja",
+                "app-cat-hobby": "Hobi, igre in domača uporaba",
+                "app-cat-trackers": "Trackerji",
+                "app-btn": "Odpri aplikacijo",
+                "app-fit-title": "Kalkulator ujemov", "app-fit-desc": "ISO 286 kalkulator za izračun odstopanj, mejnih mer in vrst ujemov za strojne dele.",
                 "hiw-heading": "Kako poteka sodelovanje",
                 "hiw-subheading": "Preprost, jasen in transparenten postopek od ideje do končne izvedbe.",
                 "hiw-t1": "POGOVOR IN CILJI", "hiw-1": "Skozi kratek uvodni pogovor definirava vaše želje, potrebe in realen obseg dela.",
                 "hiw-t2": "IZVEDBA", "hiw-2": "Ob pomoči sodobnih orodij in rešitev hitro ter kvalitetno pripravimo vašo spletno stran, aplikacijo ali avtomatizacijo.",
                 "hiw-t3": "PREVZEM IN PODPORA", "hiw-3": "Skupaj pregledamo končni izdelek, uredimo nastavitve in poskrbimo za uspešen zagon v delovanje.",
                 "faq-heading": "Pogosto zastavljena vprašanja",
-                "faq-q1": "Kako dolgo traja izdelava spletne strani?", "faq-a1": "Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v roku 1 do 2 tednov, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.",
+                "faq-q1": "Kako dolgo traja izdelava spletne strani?", "faq-a1": "Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.",
                 "faq-q2": "Ali lahko sami urejamo spletno stran kasneje?", "faq-a2": "Seveda. Strani so narejene tako, da so pregledne, po zaključku pa vam pokažemo tudi osnove, da lahko enostavno sami zamenjate besedila ali slike.",
                 "faq-q3": "Kakšne vrste aplikacij in digitalnih rešitev razvijate?", "faq-a3": "Razvijamo lahke namenske spletne aplikacije in orodja po meri (npr. interni sledilniki, aplikacije za optimizacijo procesov in avtomatizacijo), ki digitalizirajo vaše vsakodnevno delo.",
-                "faq-q5": "Kakšne vrste spletnih aplikacija razvijate?", "faq-a5": "Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.",
-                "faq-q4": "Kako začnemo sodelovanje?", "faq-a4": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.",
+                "faq-q4": "Kakšne vrste spletnih aplikacij razvijate?", "faq-a4": "Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.",
+                "faq-q5": "Kako začnemo sodelovanje?", "faq-a5": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.",
                 "about-role1": "Spletni razvoj & Digitalne rešitve", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "O nas",
                 "about-title": "Inženirska natančnost v digitalnem svetu",
@@ -403,7 +657,7 @@
             },
             en: {
                 "nav-subtitle": "Web Solutions & Automation",
-                "nav-solutions": "Services", "nav-how-it-works": "Process", "nav-faq": "FAQ", "nav-about": "About Us", "nav-cta": "Get in touch",
+                "nav-solutions": "Services", "nav-projects": "Projects", "nav-how-it-works": "Process", "nav-faq": "FAQ", "nav-about": "About Us", "nav-cta": "Get in touch",
                 "hero-badge": "Web Development & Digital Automation",
                 "hero-title": "Modern websites and",
                 "hero-title-gradient": "smart automation.",
@@ -424,6 +678,13 @@
                 "s-2-l1": "Instant lead notifications", "s-2-l2": "Fewer manual errors", "s-2-l3": "Integrations with tools you use",
                 "s-3-title": "Custom Web Apps & Digital Tools", "s-3-desc": "Development of small custom web tools, interactive calculators, or internal apps that simplify your work and improve user experience.",
                 "s-3-l1": "Tailored to your needs", "s-3-l2": "Clean interface & easy usage", "s-3-l3": "Fast performance across devices",
+                "app-heading": "My Apps & Tools",
+                "app-subheading": "Try out working examples of web tools, calculators, and applications I've developed.",
+                "app-cat-pro": "Professional Tools",
+                "app-cat-hobby": "Hobby, Games & Home Use",
+                "app-cat-trackers": "Trackers",
+                "app-btn": "Open Application",
+                "app-fit-title": "Fit Calculator", "app-fit-desc": "ISO 286 calculator for deviations, limit sizes, and fit types for mechanical parts.",
                 "hiw-heading": "How It Works",
                 "hiw-subheading": "Simple, clear, and transparent process from idea to launch.",
                 "hiw-t1": "DISCOVERY", "hiw-1": "A brief initial chat to define your goals, needs, and realistic scope.",
@@ -433,8 +694,8 @@
                 "faq-q1": "How long does a website take?", "faq-a1": "Most smaller presentation and landing pages are built within 1 to 2 weeks, depending on how quickly content is provided.",
                 "faq-q2": "Can we edit the website ourselves later?", "faq-a2": "Yes. Sites are structured cleanly, and we provide a basic walkthrough so you can easily update texts or images yourselves.",
                 "faq-q3": "What types of applications and digital solutions do you develop?", "faq-a3": "We develop custom lightweight web apps and digital tools (e.g., internal trackers, process optimization tools) to digitize your daily workflow.",
-                "faq-q5": "What types of web applications do you develop?", "faq-a5": "We develop custom web tools like internal trackers, interactive calculators, data collection forms, or dashboards for your business.",
-                "faq-q4": "How do we start?", "faq-a4": "Simply fill out the contact form below or drop us an email to discuss your project.",
+                "faq-q4": "What types of web applications do you develop?", "faq-a4": "We develop custom web tools like internal trackers, interactive calculators, data collection forms, or dashboards for your business.",
+                "faq-q5": "How do we start?", "faq-a5": "Simply fill out the contact form below or drop us an email to discuss your project.",
                 "about-role1": "Web Development & Digital Solutions", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profile",
                 "about-badge": "About Us",
                 "about-title": "Engineering Precision in the Digital World",
@@ -450,7 +711,7 @@
             },
             de: {
                 "nav-subtitle": "Weblösungen & Automatisierung",
-                "nav-solutions": "Leistungen", "nav-how-it-works": "Prozess", "nav-faq": "FAQ", "nav-about": "Über uns", "nav-cta": "Kontakt",
+                "nav-solutions": "Leistungen", "nav-projects": "Projekte", "nav-how-it-works": "Prozess", "nav-faq": "FAQ", "nav-about": "Über uns", "nav-cta": "Kontakt",
                 "hero-badge": "Webentwicklung & Digitale Automatisierung",
                 "hero-title": "Moderne Websites und",
                 "hero-title-gradient": "intelligente Automatisierung.",
@@ -471,6 +732,13 @@
                 "s-2-l1": "Sofortige Benachrichtigungen", "s-2-l2": "Weniger manuelle Fehler", "s-2-l3": "Integration bekannter Tools",
                 "s-3-title": "Maßgeschneiderte Web-Apps & Digitale Tools", "s-3-desc": "Entwicklung kleinerer maßgeschneiderter Webtools, interaktiver Rechner oder interner Apps, die Ihre Arbeit vereinfachen.",
                 "s-3-l1": "Maßgeschneidert auf Ihre Bedürfnisse", "s-3-l2": "Übersichtliche Benutzeroberfläche", "s-3-l3": "Schnelle Leistung auf allen Geräten",
+                "app-heading": "Meine Apps & Tools",
+                "app-subheading": "Probieren Sie funktionierende Beispiele von Web-Tools, Rechnern und Apps aus, die ich entwickelt habe.",
+                "app-cat-pro": "Professionelle Tools",
+                "app-cat-hobby": "Hobby, Spiele & Heimgebrauch",
+                "app-cat-trackers": "Tracker",
+                "app-btn": "App öffnen",
+                "app-fit-title": "Passungsrechner", "app-fit-desc": "ISO 286 Rechner für Abweichungen, Grenzmaße und Passungsarten für Maschinenteile.",
                 "hiw-heading": "Wie es funktioniert",
                 "hiw-subheading": "Einfacher, klarer und transparenter Ablauf von der Idee bis zum Start.",
                 "hiw-t1": "BERATUNG", "hiw-1": "Ein kurzes Erstgespräch zur Definition Ihrer Ziele und Wünsche.",
@@ -480,8 +748,8 @@
                 "faq-q1": "Wie lange dauert eine Website?", "faq-a1": "Die meisten kleineren Websites und Landingpages sind innerhalb von 1 bis 2 Wochen fertiggestellt.",
                 "faq-q2": "Können wir die Website später selbst bearbeiten?", "faq-a2": "Ja. Die Seiten werden übersichtlich aufgebaut und wir zeigen Ihnen die Grundlagen zur einfachen Text- oder Bildpflege.",
                 "faq-q3": "Welche Arten von Anwendungen und digitalen Lösungen entwickeln Sie?", "faq-a3": "Wir entwickeln maßgeschneiderte Webanwendungen und Tools (z. B. interne Tracker, Prozessoptimierung), um Ihre tägliche Arbeit zu digitalisieren.",
-                "faq-q5": "Welche Arten von Webanwendungen entwickeln Sie?", "faq-a5": "Wir entwickeln maßgeschneiderte Webtools wie interne Tracker, interaktive Rechner, Datenerfassungsformulare oder Dashboards.",
-                "faq-q4": "Wie starten wir?", "faq-a4": "Füllen Sie einfach das Kontaktformular aus oder schreiben Sie uns eine E-Mail.",
+                "faq-q4": "Welche Arten von Webanwendungen entwickeln Sie?", "faq-a4": "Wir entwickeln maßgeschneiderte Webtools wie interne Tracker, interaktive Rechner, Datenerfassungsformulare oder Dashboards.",
+                "faq-q5": "Wie starten wir?", "faq-a5": "Füllen Sie einfach das Kontaktformular aus oder schreiben Sie uns eine E-Mail.",
                 "about-role1": "Webentwicklung & Digitale Lösungen", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "Über uns",
                 "about-title": "Ingenieurpräzision in der digitalen Welt",
@@ -497,7 +765,7 @@
             },
             hr: {
                 "nav-subtitle": "Web rješenja i automatizacija",
-                "nav-solutions": "Usluge", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nama", "nav-cta": "Kontakt",
+                "nav-solutions": "Usluge", "nav-projects": "Projekti", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nama", "nav-cta": "Kontakt",
                 "hero-badge": "Web razvoj i digitalna automatizacija",
                 "hero-title": "Moderne web stranice i",
                 "hero-title-gradient": "pametna automatizacija.",
@@ -516,8 +784,15 @@
                 "s-1-l1": "Moderan dizajn prilagođen mobitelima", "s-1-l2": "Brza izvedba i jednostavno održavanje", "s-1-l3": "Optimizacija za tražilice (SEO)",
                 "s-2-title": "Jednostavna automatizacija zadataka", "s-2-desc": "Povezivanje web obrazaca, vaše e-pošte i alata za obavješćivanje (npr. Teams ili Slack) kako ne biste propustili nijedan upit.",
                 "s-2-l1": "Trenutne obavijesti o upitima", "s-2-l2": "Manje ručnih pogrešaka", "s-2-l3": "Povezivanje alata koje već koristite",
-                "s-3-title": "Prilagođene web aplikacije i digitalni alati", "s-3-desc": "Razvoj manjih prilagođenih web alata, interaktivnih kalkulatorja ili internih aplikacija koje pojednostavljuju vaš rad.",
+                "s-3-title": "Prilagođene web aplikacije i digitalni alati", "s-3-desc": "Razvoj manjih prilagođenih web alata, interaktivnih kalkulatora ili internih aplikacija koje pojednostavljuju vaš rad.",
                 "s-3-l1": "Rješenja prilagođena vašim potrebama", "s-3-l2": "Pregledno sučelje i jednostavna uporaba", "s-3-l3": "Brzi rad na svim uređajima",
+                "app-heading": "Moje aplikacije i alati",
+                "app-subheading": "Isprobajte radne primjere web alata, kalkulatora i aplikacija koje sam razvio.",
+                "app-cat-pro": "Profesionalni alati",
+                "app-cat-hobby": "Hobi, igre i kućna upotreba",
+                "app-cat-trackers": "Trackerji",
+                "app-btn": "Otvori aplikaciju",
+                "app-fit-title": "Kalkulator dosjeda", "app-fit-desc": "ISO 286 kalkulator za odstupanja, granične mjere i vrste dosjeda za strojne dijelove.",
                 "hiw-heading": "Kako surađujemo",
                 "hiw-subheading": "Jednostavan, jasan i transparentan proces od ideje do realizacije.",
                 "hiw-t1": "KONZULTACIJE", "hiw-1": "Kratki uvodni razgovor za definiranje vaših ciljeva i opsega posla.",
@@ -526,9 +801,9 @@
                 "faq-heading": "Često postavljena pitanja",
                 "faq-q1": "Koliko traje izrada web stranice?", "faq-a1": "Većina manjih prezentacijskih stranica i landing stranica postavi se unutar 1 do 2 tjedna.",
                 "faq-q2": "Možemo li kasnije sami uređivati stranicu?", "faq-a2": "Naravno. Stranice su pregledno složene, a na kraju vam pokažemo osnove za samostalnu izmjenu teksta ili slika.",
-                "faq-q3": "Kakve vrste aplikacija i digitalnih rješenja razvijate?", "faq-a3": "Razvijamo namenske web aplikacije i alate po mjeri (npr. interni sustavi praćenja, alati za optimizaciju procesa) za digitalizaciju vašeg poslovanja.",
-                "faq-q5": "Kakve vrste web aplikacija razvijate?", "faq-a5": "Razvijamo prilagođene web alate kao što su interni sustavi praćenja, interaktivni kalkulatori, obrasci ili nadzorne ploče.",
-                "faq-q4": "Kako započeti suradnju?", "faq-a4": "Ispunite kontakt obrazac u nastavku ili nam pošaljite e-poruku.",
+                "faq-q3": "Kakve vrste aplikacija i digitalnih rješenja razvijate?", "faq-a3": "Razvijamo namjenske web aplikacije i alate po mjeri (npr. interni sustavi praćenja, alati za optimizaciju procesa) za digitalizaciju vašeg poslovanja.",
+                "faq-q4": "Kakve vrste web aplikacija razvijate?", "faq-a4": "Razvijamo prilagođene web alate kao što su interni sustavi praćenja, interaktivni kalkulatori, obrasci ili nadzorne ploče.",
+                "faq-q5": "Kako započeti suradnju?", "faq-a5": "Ispunite kontakt obrazac u nastavku ili nam pošaljite e-poruku.",
                 "about-role1": "Web razvoj i digitalna rješenja",
                 "about-role2": "RF Digital",
                 "about-linkedin": "LinkedIn profil",
@@ -555,18 +830,19 @@
         };
 
         function changeLanguage(lang) {
-            const elements = document.querySelectorAll('[data-i18n]');
-            elements.forEach(el => {
+            document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
                 if (translations[lang] && translations[lang][key]) {
                     el.innerHTML = translations[lang][key];
                 }
             });
 
-            const textarea = document.querySelector('textarea[name="message"]');
-            if (textarea && translations[lang] && translations[lang]["form-message-ph"]) {
-                textarea.placeholder = translations[lang]["form-message-ph"];
-            }
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (translations[lang] && translations[lang][key]) {
+                    el.placeholder = translations[lang][key];
+                }
+            });
 
             document.documentElement.lang = lang;
         }
