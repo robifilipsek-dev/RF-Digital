@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b14">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Crect x='3' y='3' width='58' height='58' rx='12' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='800' fill='%23070b14'%3ERF%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Crect x='3' y='3' width='58' height='58' rx='12' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='800' fill='%23070b14'%3ERF%3C/text%3E%3C/svg%3E">
     
     <!-- SEO & Metadata -->
     <title>RF Digital | Spletne Rešitve & Digitalna Avtomatizacija</title>
@@ -14,6 +17,8 @@
     <meta property="og:type" content="website">
     
     <!-- Tailwind CSS & FontAwesome -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -214,7 +219,8 @@
                     Stopite v stik
                 </a>
                 <!-- Jezikovni preklopnik -->
-                <select id="language-switcher" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
+                <label for="language-switcher" class="sr-only">Izberi jezik</label>
+                <select id="language-switcher" aria-label="Izberi jezik" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
                     <option value="sl">🇸🇮 SLO</option>
                     <option value="en">🇬🇧 ENG</option>
                     <option value="de">🇩🇪 DEU</option>
@@ -365,9 +371,9 @@
             </h3>
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
-                    <h4 class="font-bold text-lg mb-2" data-i18n="app-axis-title">Dimenzioniranje osi</h4>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-axis-desc">Kalkulator za izračun in dimenzioniranje linearnih osi ter servomotorjev.</p>
-                    <a href="https://robifilipsek-dev.github.io/linearne-osi/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-axis-title">Kalkulator mehanskih pogonov</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-axis-desc">Profesionalno orodje za dimenzioniranje mehanskih pogonov.</p>
+                    <a href="https://robifilipsek-dev.github.io/kalkulator-mehanskih-pogonov/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-axis">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -375,7 +381,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-cycle-title">Analiza takta</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-cycle-desc">Analiza cikličnega časa in kapacitete robotske celice.</p>
-                    <a href="https://robifilipsek-dev.github.io/cikel-cas/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/cikel-cas/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-cycle">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -383,7 +389,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-safety-title">Varnostna razdalja</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-safety-desc">Orodje za hiter in natančen izračun varnostne razdalje v industriji.</p>
-                    <a href="https://robifilipsek-dev.github.io/varnostna-razdalja/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/varnostna-razdalja/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-safety">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -405,7 +411,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-flappy-title">Flappy runner</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-flappy-desc">Zabavna spletna igra za sprostitev in krajšanje časa.</p>
-                    <a href="https://robifilipsek-dev.github.io/flappy-runner/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/flappy-runner/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-flappy">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -413,7 +419,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-pizza-title">Kalkulator za testo</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-pizza-desc">Orodje za izračun hidracije, kvasa in fermentacije za popolno Neapeljsko pizzo.</p>
-                    <a href="https://robifilipsek-dev.github.io/pizza-testo/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/pizza-testo/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-pizza">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -427,7 +433,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-gold-title">Zlato tracker</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-gold-desc">Pregled in sledenje gibanja cen zlata.</p>
-                    <a href="https://robifilipsek-dev.github.io/zlato-tracker/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/zlato-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-gold">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -435,7 +441,7 @@
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-bitcoin-title">Bitcoin tracker</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-bitcoin-desc">Sledenje cenam in vrednosti bitcoina v realnem času.</p>
-                    <a href="https://robifilipsek-dev.github.io/bitcoin-tracker/" target="_blank" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                    <a href="https://robifilipsek-dev.github.io/bitcoin-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-bitcoin">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -630,8 +636,8 @@
                 "app-cat-hobby": "Hobi, igre in domača uporaba",
                 "app-cat-trackers": "Trackerji",
                 "app-fit-title": "Kalkulator ujemov", "app-fit-desc": "ISO 286 kalkulator za izračun odstopanj, mejnih mer in vrst ujemov za strojne dele.",
-                "app-axis-title": "Dimenzioniranje osi",
-                "app-axis-desc": "Kalkulator za izračun in dimenzioniranje linearnih osi ter servomotorjev.",
+                "app-axis-title": "Kalkulator mehanskih pogonov",
+                "app-axis-desc": "Profesionalno orodje za dimenzioniranje mehanskih pogonov.",
                 "app-cycle-title": "Analiza takta",
                 "app-cycle-desc": "Analiza cikličnega časa in kapacitete robotske celice.",
                 "app-safety-title": "Varnostna razdalja",
@@ -706,8 +712,8 @@
                 "app-cat-hobby": "Hobby, Games & Home Use",
                 "app-cat-trackers": "Trackers",
                 "app-fit-title": "Fit Calculator", "app-fit-desc": "ISO 286 calculator for deviations, limit sizes, and fit types for mechanical parts.",
-                "app-axis-title": "Axis Sizing",
-                "app-axis-desc": "Calculator for sizing and calculating linear axes and servo motors.",
+                "app-axis-title": "Mechanical Drive Calculator",
+                "app-axis-desc": "Professional tool for sizing mechanical drives.",
                 "app-cycle-title": "Cycle Time Analysis",
                 "app-cycle-desc": "Analysis of cycle time and capacity of a robotic cell.",
                 "app-safety-title": "Safety Distance",
@@ -782,8 +788,8 @@
                 "app-cat-hobby": "Hobby, Spiele & Heimgebrauch",
                 "app-cat-trackers": "Tracker",
                 "app-fit-title": "Passungsrechner", "app-fit-desc": "ISO 286 Rechner für Abweichungen, Grenzmaße und Passungsarten für Maschinenteile.",
-                "app-axis-title": "Achsendimensionierung",
-                "app-axis-desc": "Rechner zur Auslegung und Berechnung von Linearachsen und Servomotoren.",
+                "app-axis-title": "Rechner für mechanische Antriebe",
+                "app-axis-desc": "Professionelles Werkzeug zur Auslegung mechanischer Antriebe.",
                 "app-cycle-title": "Taktanalyse",
                 "app-cycle-desc": "Analyse der Zykluszeit und Kapazität einer Roboterzelle.",
                 "app-safety-title": "Sicherheitsabstand",
@@ -858,8 +864,8 @@
                 "app-cat-hobby": "Hobi, igre i kućna upotreba",
                 "app-cat-trackers": "Trackerji",
                 "app-fit-title": "Kalkulator dosjeda", "app-fit-desc": "ISO 286 kalkulator za odstupanja, granične mjere i vrste dosjeda za strojne dijelove.",
-                "app-axis-title": "Dimenzioniranje osi",
-                "app-axis-desc": "Kalkulator za izračun i dimenzioniranje linearnih osi i servo motora.",
+                "app-axis-title": "Kalkulator mehaničkih pogona",
+                "app-axis-desc": "Profesionalni alat za dimenzioniranje mehaničkih pogona.",
                 "app-cycle-title": "Analiza takta",
                 "app-cycle-desc": "Analiza cikličkog vremena i kapaciteta robotske ćelije.",
                 "app-safety-title": "Sigurnosna udaljenost",
