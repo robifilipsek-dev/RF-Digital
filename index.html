@@ -68,7 +68,7 @@
         height: 76px !important;
     }
 
-    /* App cards */
+    /* App cards - unified fixed sizing and layout */
     #projekti .grid > div,
     #solutions .grid > div,
     #how-it-works .grid > div,
@@ -80,7 +80,10 @@
     }
 
     #projekti .grid > div {
-        min-height: 184px;
+        height: 220px; /* Poenotena višina okenc za aplikacije */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
         position: relative;
         overflow: hidden;
     }
@@ -128,19 +131,26 @@
     #solutions h3,
     #how-it-works h3 {
         letter-spacing: -.01em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     #projekti .grid p,
     #solutions p,
     #how-it-works p,
     #faq p {
-        line-height: 1.65;
+        line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
 
     /* Buttons/links feel like UI controls */
     #projekti a {
         width: fit-content;
-        padding: .55rem .72rem;
+        padding: .5rem .7rem;
         border-radius: .7rem;
         background: rgba(8,145,178,.08);
         border: 1px solid rgba(34,211,238,.12);
@@ -182,7 +192,8 @@
             height: 70px !important;
         }
         #projekti .grid > div {
-            min-height: 168px;
+            height: auto;
+            min-height: 200px;
         }
     }
 </style>
@@ -403,11 +414,11 @@
                 </div>
             </div>
 
-            <!-- Hobi, igre in domača uporaba -->
+            <!-- Domača uporaba in zabava -->
             <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-gamepad"></i> <span data-i18n="app-cat-hobby">Hobi, igre in domača uporaba</span>
+                <i class="fa-solid fa-gamepad"></i> <span data-i18n="app-cat-hobby">Domača uporaba in zabava</span>
             </h3>
-            <div class="grid md:grid-cols-2 gap-6 mb-12">
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-flappy-title">Flappy runner</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-flappy-desc">Zabavna spletna igra za sprostitev in krajšanje časa.</p>
@@ -423,15 +434,23 @@
                         <span data-i18n="app-btn-pizza">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-camper-title">Prostor za avtodom</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-camper-desc">Spletna stran za pregled in načrtovanje prostorov ter lokacij za avtodome.</p>
+                    <a href="https://robifilipsek-dev.github.io/prostor-avtodom/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-camper">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
             </div>
 
-            <!-- Trackerji -->
+            <!-- Sledilniki -->
             <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-chart-line"></i> <span data-i18n="app-cat-trackers">Trackerji</span>
+                <i class="fa-solid fa-chart-line"></i> <span data-i18n="app-cat-trackers">Sledilniki</span>
             </h3>
-            <div class="grid md:grid-cols-2 gap-6">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
-                    <h4 class="font-bold text-lg mb-2" data-i18n="app-gold-title">Zlato tracker</h4>
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-gold-title">Sledilnik zlata</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-gold-desc">Pregled in sledenje gibanja cen zlata.</p>
                     <a href="https://robifilipsek-dev.github.io/zlato-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-gold">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
@@ -439,10 +458,18 @@
                 </div>
 
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
-                    <h4 class="font-bold text-lg mb-2" data-i18n="app-bitcoin-title">Bitcoin tracker</h4>
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-bitcoin-title">Sledilnik bitcoina</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-bitcoin-desc">Sledenje cenam in vrednosti bitcoina v realnem času.</p>
                     <a href="https://robifilipsek-dev.github.io/bitcoin-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-bitcoin">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-diesel-title">Sledilnik cene dizla</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-diesel-desc">Sledenje in pregled gibanja cen dizelskega goriva.</p>
+                    <a href="https://robifilipsek-dev.github.io/cena-dizla/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-diesel">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
             </div>
@@ -633,8 +660,8 @@
                 "app-heading": "Moje aplikacije in orodja",
                 "app-subheading": "Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.",
                 "app-cat-pro": "Profesionalna orodja",
-                "app-cat-hobby": "Hobi, igre in domača uporaba",
-                "app-cat-trackers": "Trackerji",
+                "app-cat-hobby": "Domača uporaba in zabava",
+                "app-cat-trackers": "Sledilniki",
                 "app-fit-title": "Kalkulator ujemov", "app-fit-desc": "ISO 286 kalkulator za izračun odstopanj, mejnih mer in vrst ujemov za strojne dele.",
                 "app-axis-title": "Kalkulator mehanskih pogonov",
                 "app-axis-desc": "Profesionalno orodje za dimenzioniranje mehanskih pogonov.",
@@ -646,10 +673,14 @@
                 "app-flappy-desc": "Zabavna spletna igra za sprostitev in krajšanje časa.",
                 "app-pizza-title": "Kalkulator za testo",
                 "app-pizza-desc": "Orodje za izračun hidracije, kvasa in fermentacije za popolno Neapeljsko pizzo.",
-                "app-gold-title": "Zlato tracker",
+                "app-camper-title": "Prostor za avtodom",
+                "app-camper-desc": "Spletna stran za pregled in načrtovanje prostorov ter lokacij za avtodome.",
+                "app-gold-title": "Sledilnik zlata",
                 "app-gold-desc": "Pregled in sledenje gibanja cen zlata.",
-                "app-bitcoin-title": "Bitcoin tracker",
+                "app-bitcoin-title": "Sledilnik bitcoina",
                 "app-bitcoin-desc": "Sledenje cenam in vrednosti bitcoina v realnem času.",
+                "app-diesel-title": "Sledilnik cene dizla",
+                "app-diesel-desc": "Sledenje in pregled gibanja cen dizelskega goriva.",
 
                 "app-btn-axis": "Odpri aplikacijo",
                 "app-btn-cycle": "Odpri aplikacijo",
@@ -657,8 +688,10 @@
                 "app-btn-fit": "Odpri aplikacijo",
                 "app-btn-flappy": "Odpri aplikacijo",
                 "app-btn-pizza": "Odpri aplikacijo",
+                "app-btn-camper": "Odpri aplikacijo",
                 "app-btn-gold": "Odpri aplikacijo",
                 "app-btn-bitcoin": "Odpri aplikacijo",
+                "app-btn-diesel": "Odpri aplikacijo",
                 "hiw-heading": "Kako poteka sodelovanje",
                 "hiw-subheading": "Preprost, jasen in transparenten postopek od ideje do končne izvedbe.",
                 "hiw-t1": "POGOVOR IN CILJI", "hiw-1": "Skozi kratek uvodni pogovor definirava vaše želje, potrebe in realen obseg dela.",
@@ -709,7 +742,7 @@
                 "app-heading": "My Apps & Tools",
                 "app-subheading": "Try out working examples of web tools, calculators, and applications I've developed.",
                 "app-cat-pro": "Professional Tools",
-                "app-cat-hobby": "Hobby, Games & Home Use",
+                "app-cat-hobby": "Home Use & Entertainment",
                 "app-cat-trackers": "Trackers",
                 "app-fit-title": "Fit Calculator", "app-fit-desc": "ISO 286 calculator for deviations, limit sizes, and fit types for mechanical parts.",
                 "app-axis-title": "Mechanical Drive Calculator",
@@ -722,10 +755,14 @@
                 "app-flappy-desc": "A fun web game for relaxation and passing the time.",
                 "app-pizza-title": "Dough Calculator",
                 "app-pizza-desc": "Tool for calculating hydration, yeast, and fermentation for a perfect Neapolitan pizza.",
+                "app-camper-title": "Camper Spot",
+                "app-camper-desc": "Website for reviewing and planning camper spots and locations.",
                 "app-gold-title": "Gold Tracker",
                 "app-gold-desc": "Overview and tracking of gold price movements.",
                 "app-bitcoin-title": "Bitcoin Tracker",
                 "app-bitcoin-desc": "Real-time tracking of Bitcoin prices and value.",
+                "app-diesel-title": "Diesel Price Tracker",
+                "app-diesel-desc": "Tracking and overview of diesel fuel price movements.",
 
                 "app-btn-axis": "Open Application",
                 "app-btn-cycle": "Open Application",
@@ -733,8 +770,10 @@
                 "app-btn-fit": "Open Application",
                 "app-btn-flappy": "Open Application",
                 "app-btn-pizza": "Open Application",
+                "app-btn-camper": "Open Application",
                 "app-btn-gold": "Open Application",
                 "app-btn-bitcoin": "Open Application",
+                "app-btn-diesel": "Open Application",
                 "hiw-heading": "How It Works",
                 "hiw-subheading": "Simple, clear, and transparent process from idea to launch.",
                 "hiw-t1": "DISCOVERY", "hiw-1": "A brief initial chat to define your goals, needs, and realistic scope.",
@@ -785,7 +824,7 @@
                 "app-heading": "Meine Apps & Tools",
                 "app-subheading": "Probieren Sie funktionierende Beispiele von Web-Tools, Rechnern und Apps aus, die ich entwickelt habe.",
                 "app-cat-pro": "Professionelle Tools",
-                "app-cat-hobby": "Hobby, Spiele & Heimgebrauch",
+                "app-cat-hobby": "Heimgebrauch & Unterhaltung",
                 "app-cat-trackers": "Tracker",
                 "app-fit-title": "Passungsrechner", "app-fit-desc": "ISO 286 Rechner für Abweichungen, Grenzmaße und Passungsarten für Maschinenteile.",
                 "app-axis-title": "Rechner für mechanische Antriebe",
@@ -798,10 +837,14 @@
                 "app-flappy-desc": "Ein unterhaltsames Webspiel zur Entspannung und zum Zeitvertreib.",
                 "app-pizza-title": "Teigrechner",
                 "app-pizza-desc": "Werkzeug zur Berechnung von Hydration, Hefe und Fermentation für eine perfekte neapolitanische Pizza.",
+                "app-camper-title": "Wohnmobilstellplatz",
+                "app-camper-desc": "Website zur Übersicht und Planung von Wohnmobilstellplätzen.",
                 "app-gold-title": "Gold-Tracker",
                 "app-gold-desc": "Übersicht und Verfolgung der Goldpreisentwicklung.",
                 "app-bitcoin-title": "Bitcoin-Tracker",
                 "app-bitcoin-desc": "Echtzeit-Tracking von Bitcoin-Preis und Wert.",
+                "app-diesel-title": "Dieselpreis-Tracker",
+                "app-diesel-desc": "Verfolgung und Übersicht der Dieselkraftstoffpreise.",
 
                 "app-btn-axis": "App öffnen",
                 "app-btn-cycle": "App öffnen",
@@ -809,8 +852,10 @@
                 "app-btn-fit": "App öffnen",
                 "app-btn-flappy": "App öffnen",
                 "app-btn-pizza": "App öffnen",
+                "app-btn-camper": "App öffnen",
                 "app-btn-gold": "App öffnen",
                 "app-btn-bitcoin": "App öffnen",
+                "app-btn-diesel": "App öffnen",
                 "hiw-heading": "Wie es funktioniert",
                 "hiw-subheading": "Einfacher, klarer und transparenter Ablauf von der Idee bis zum Start.",
                 "hiw-t1": "BERATUNG", "hiw-1": "Ein kurzes Erstgespräch zur Definition Ihrer Ziele und Wünsche.",
@@ -861,8 +906,8 @@
                 "app-heading": "Moje aplikacije i alati",
                 "app-subheading": "Isprobajte radne primjere web alata, kalkulatora i aplikacija koje sam razvio.",
                 "app-cat-pro": "Profesionalni alati",
-                "app-cat-hobby": "Hobi, igre i kućna upotreba",
-                "app-cat-trackers": "Trackerji",
+                "app-cat-hobby": "Kućna uporaba i zabava",
+                "app-cat-trackers": "Sledilniki",
                 "app-fit-title": "Kalkulator dosjeda", "app-fit-desc": "ISO 286 kalkulator za odstupanja, granične mjere i vrste dosjeda za strojne dijelove.",
                 "app-axis-title": "Kalkulator mehaničkih pogona",
                 "app-axis-desc": "Profesionalni alat za dimenzioniranje mehaničkih pogona.",
@@ -874,10 +919,14 @@
                 "app-flappy-desc": "Zabavna web igra za opuštanje i kraćenje vremena.",
                 "app-pizza-title": "Kalkulator tijesta",
                 "app-pizza-desc": "Alat za izračun hidratacije, kvasca i fermentacije za savršenu napuljsku pizzu.",
-                "app-gold-title": "Tracker zlata",
+                "app-camper-title": "Mjesto za autodom",
+                "app-camper-desc": "Web stranica za pregled i planiranje mjesta i lokacija za autodome.",
+                "app-gold-title": "Praćenje zlata",
                 "app-gold-desc": "Pregled i praćenje kretanja cijena zlata.",
                 "app-bitcoin-title": "Bitcoin tracker",
                 "app-bitcoin-desc": "Praćenje cijena i vrijednosti Bitcoina u stvarnom vremenu.",
+                "app-diesel-title": "Praćenje cijene dizela",
+                "app-diesel-desc": "Praćenje i pregled kretanja cijena dizelskog goriva.",
 
                 "app-btn-axis": "Otvori aplikaciju",
                 "app-btn-cycle": "Otvori aplikaciju",
@@ -885,59 +934,66 @@
                 "app-btn-fit": "Otvori aplikaciju",
                 "app-btn-flappy": "Otvori aplikaciju",
                 "app-btn-pizza": "Otvori aplikaciju",
+                "app-btn-camper": "Otvori aplikaciju",
                 "app-btn-gold": "Otvori aplikaciju",
                 "app-btn-bitcoin": "Otvori aplikaciju",
+                "app-btn-diesel": "Otvori aplikaciju",
                 "hiw-heading": "Kako surađujemo",
-                "hiw-subheading": "Jednostavan, jasan i transparentan proces od ideje do realizacije.",
-                "hiw-t1": "KONZULTACIJE", "hiw-1": "Kratki uvodni razgovor za definiranje vaših ciljeva i opsega posla.",
-                "hiw-t2": "IZVEDBA", "hiw-2": "Brza i kvalitetna izrada vaše web stranice, aplikacije ili automatizacije.",
-                "hiw-t3": "PREUZIMANJE", "hiw-3": "Zajednički pregled završnog proizvoda, postavke i pokretanje u rad.",
-                "faq-heading": "Često postavljena pitanja",
-                "faq-q1": "Koliko traje izrada web stranice?", "faq-a1": "Većina manjih prezentacijskih stranica i landing stranica postavi se unutar 1 do 2 tjedna.",
-                "faq-q2": "Možemo li kasnije sami uređivati stranicu?", "faq-a2": "Naravno. Stranice su pregledno složene, a na kraju vam pokažemo osnove za samostalnu izmjenu teksta ili slika.",
-                "faq-q3": "Kakve vrste aplikacija i digitalnih rješenja razvijate?", "faq-a3": "Razvijamo namjenske web aplikacije i alate po mjeri (npr. interni sustavi praćenja, alati za optimizaciju procesa) za digitalizaciju vašeg poslovanja.",
-                "faq-q4": "Kakve vrste web aplikacija razvijate?", "faq-a4": "Razvijamo prilagođene web alate kao što su interni sustavi praćenja, interaktivni kalkulatori, obrasci ili nadzorne ploče.",
-                "faq-q5": "Kako započeti suradnju?", "faq-a5": "Ispunite kontakt obrazac u nastavku ili nam pošaljite e-poruku.",
-                "about-role1": "Web razvoj i digitalna rješenja",
-                "about-role2": "RF Digital",
-                "about-linkedin": "LinkedIn profil",
+                "hiw-subheading": "Jednostavan, jasan i transparentan proces od ideje do lansiranja.",
+                "hiw-t1": "KONZULTACIJE", "hiw-1": "Kratak uvodni razgovor za definiranje vaših ciljeva i opsega posla.",
+                "hiw-t2": "IZVEDBA", "hiw-2": "Brza i kvalitetna izrada web stranice, aplikacije ili automatizacije.",
+                "hiw-t3": "PREUZIMANJE I PODRŠKA", "hiw-3": "Zajednički pregled finalnog proizvoda, postavke i uspješan start.",
+                "faq-heading": "Često postavljana pitanja",
+                "faq-q1": "Koliko traje izrada web stranice?", "faq-a1": "Većinu manjih stranica postavimo u roku od 1 do 2 tjedna, ovisno o brzini dostave sadržaja.",
+                "faq-q2": "Možemo li sami uređivati stranicu kasnije?", "faq-a2": "Naravno. Stranice su pregledno složene, a pokazat ćemo vam i osnove za brzu izmjenu teksta ili slika.",
+                "faq-q3": "Kakve vrste aplikacija i rješenja razvijate?", "faq-a3": "Razvijamo prilagođene web aplikacije i alate (npr. interne alate i optimizaciju procesa) za digitalizaciju poslovanja.",
+                "faq-q4": "Koje vrste web aplikacija razvijate?", "faq-a4": "Izrađujemo prilagođene web alate poput internih alata, interaktivnih kalkulatora, obrazaca ili nadzornih ploča.",
+                "faq-q5": "Kako započeti suradnju?", "faq-a5": "Ispunite kontakt obrazac ispod ili nam pošaljite e-poruku kako bismo porazgovarali o projektu.",
+                "about-role1": "Web razvoj & Digitalna rješenja", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "O nama",
-                "about-title": "Inženjerska preciznost u digitalnom svijetu",
-                "about-p1": "Iza brenda RF Digital stoji Robert Filipšek. Kao diplomirani inženjer pridajem veliku važnost preciznosti, sistematičnosti i jasnom dogovoru.",
-                "about-p2": "Strast prema modernim tehnologijama i web razvoju usmjeravam na pomoć malim poduzećima, obrtnicima i pojedincima.",
-                "about-p3": "Cilj je jednostavan: pružiti profesionalan izgled, izvrsno korisničko iskustvo i pouzdan rad bez nepotrebnog kompliciranja.",
+                "about-title": "Inženirska preciznost u digitalnom svijetu",
+                "about-p1": "Iza brenda RF Digital stoji Robert Filipšek. Kao diplomirani inženjer stavljam veliki naglasak na preciznost, sustavnost i jasan dogovor.",
+                "about-p2": "Strast prema modernim tehnologijama usmjeravam na pomoć malim poduzećima, obrtnicima i pojedincima kojima treba moderna web stranica ili aplikacija.",
+                "about-p3": "Cilj je jednostavan: profesionalan izgled, odlično korisničko iskustvo i pouzdan rad bez nepotrebnih komplikacija.",
                 "contact-heading": "Kontaktirajte nas",
                 "contact-subheading": "Imate pitanje ili projekt na umu? Rado ćemo vam pomoći.",
-                "form-name": "Ime",
-                "form-company": "Tvrtka / Naziv",
-                "form-email": "E-pošta",
-                "form-service": "Usluga koja vas zanima",
-                "opt-web": "Izrada web stranice",
-                "opt-auto": "Automatizacija zadataka",
-                "opt-app": "Aplikacije i alati po mjeri",
-                "opt-other": "Ostalo / Savjetovanje",
-                "form-message": "Poruka",
-                "form-message-ph": "Opišite vaše želje ili projekt...",
-                "form-submit": "Pošalji upit",
+                "form-name": "Ime", "form-company": "Tvrtka / Naziv", "form-email": "E-pošta", "form-service": "Usluga koja vas zanima",
+                "opt-web": "Izrada web stranica", "opt-auto": "Automatizacija zadataka", "opt-app": "Prilagođene aplikacije i alati", "opt-other": "Ostalo / Savjetovanje",
+                "form-message": "Poruka", "form-message-ph": "Opišite vaše želje ili projekt...", "form-submit": "Pošalji upit",
                 "footer-rights": "&copy; 2026 RF Digital | Sva prava pridržana."
             }
         };
 
         function changeLanguage(lang) {
+            const t = translations[lang];
+            if (!t) return;
+            
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
-                if (translations[lang] && translations[lang][key]) {
-                    el.innerHTML = translations[lang][key];
+                if (t[key]) {
+                    el.innerHTML = t[key];
                 }
             });
 
             document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
                 const key = el.getAttribute('data-i18n-placeholder');
-                if (translations[lang] && translations[lang][key]) {
-                    el.setAttribute('placeholder', translations[lang][key]);
+                if (t[key]) {
+                    el.setAttribute('placeholder', t[key]);
                 }
             });
+
+            document.getElementById('html-root').setAttribute('lang', lang);
+            localStorage.setItem('rf_preferred_lang', lang);
         }
+
+        // Preverjanje shranjenega jezika ob nalaganju
+        document.addEventListener('DOMContentLoaded', () => {
+            const savedLang = localStorage.getItem('rf_preferred_lang');
+            if (savedLang && translations[savedLang]) {
+                document.getElementById('language-switcher').value = savedLang;
+                changeLanguage(savedLang);
+            }
+        });
     </script>
 </body>
 </html>
