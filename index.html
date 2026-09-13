@@ -81,7 +81,7 @@
     #projekti .grid > div,
     #solutions .grid > div,
     #how-it-works .grid > div,
-    #faq details {
+    #faq .faq-item {
         background: linear-gradient(180deg, rgba(15,23,42,.82), rgba(9,14,26,.82)) !important;
         border: 1px solid var(--rf-border) !important;
         box-shadow: 0 12px 32px rgba(0,0,0,.16);
@@ -109,7 +109,7 @@
     #projekti .grid > div:hover,
     #solutions .grid > div:hover,
     #how-it-works .grid > div:hover,
-    #faq details:hover {
+    #faq .faq-item:hover {
         transform: translateY(-4px);
         border-color: var(--rf-border-hover) !important;
         box-shadow: 0 18px 42px rgba(8,145,178,.12), 0 10px 28px rgba(0,0,0,.24);
@@ -205,6 +205,60 @@
             min-height: 200px;
         }
     }
+
+    /* --- Popravek horizontalnega drsenja na mobilnih napravah --- */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    /* Varovalo za dolge (npr. nemške) besede, da ne raztegnejo ohišja čez širino zaslona */
+    body {
+        overflow-wrap: anywhere;
+    }
+    /* Flex/grid elementi privzeto ne skrčijo pod vsebino - to popravimo, da besedilo pravilno prelomi */
+    #navbar a.group,
+    #navbar .flex.flex-col,
+    .grid > div,
+    section .flex.items-center.justify-center.space-x-3 {
+        min-width: 0;
+    }
+
+    /* --- Mobilni meni (hamburger) --- */
+    #mobile-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    @media (min-width: 768px) {
+        #mobile-menu { top: 76px; }
+    }
+
+    /* --- FAQ: cela kartica je klikljiva --- */
+    #faq .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        overflow: hidden;
+        transition: max-height .35s ease, opacity .25s ease, margin-top .35s ease;
+    }
+    #faq .faq-item.open .faq-answer {
+        max-height: 320px;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+    #faq .faq-item .faq-icon {
+        transition: transform .25s ease;
+    }
+    #faq .faq-item.open .faq-icon {
+        transform: rotate(180deg);
+    }
+    #faq .faq-item p {
+        -webkit-line-clamp: unset !important;
+    }
 </style>
 
 </head>
@@ -234,19 +288,33 @@
                 <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav-about">O nas</a>
             </nav>
 
-            <div class="flex items-center space-x-4">
+            <div class="flex items-center space-x-3 sm:space-x-4">
                 <a href="#contact" data-i18n="nav-cta" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition">
                     Stopite v stik
                 </a>
                 <!-- Jezikovni preklopnik -->
                 <label for="language-switcher" class="sr-only">Izberi jezik</label>
-                <select id="language-switcher" aria-label="Izberi jezik" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer">
+                <select id="language-switcher" aria-label="Izberi jezik" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer flex-shrink-0">
                     <option value="sl">🇸🇮 SLO</option>
                     <option value="en">🇬🇧 ENG</option>
                     <option value="de">🇩🇪 DEU</option>
                     <option value="hr">🇭🇷 HRV</option>
                 </select>
+                <!-- Hamburger meni (mobitel/tablica) -->
+                <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="Meni" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                </button>
             </div>
+        </div>
+
+        <!-- Mobilni meni (razpade) -->
+        <div id="mobile-menu" class="hidden lg:hidden flex-col bg-slate-950/97 backdrop-blur-md border-b border-slate-900 px-6 py-4 space-y-1 shadow-2xl">
+            <a href="#solutions" onclick="closeMobileMenu()" class="block py-3 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition" data-i18n="nav-solutions">Storitve</a>
+            <a href="#projekti" onclick="closeMobileMenu()" class="block py-3 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition" data-i18n="nav-projects">Projekti</a>
+            <a href="#how-it-works" onclick="closeMobileMenu()" class="block py-3 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition" data-i18n="nav-how-it-works">Proces</a>
+            <a href="#faq" onclick="closeMobileMenu()" class="block py-3 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition" data-i18n="nav-faq">FAQ</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block py-3 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition" data-i18n="nav-about">O nas</a>
+            <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav-cta" class="block mt-2 px-3 py-3 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm text-center transition">Stopite v stik</a>
         </div>
     </header>
 
@@ -536,26 +604,48 @@
                 <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="faq-heading">Pogosto zastavljena vprašanja</h2>
             </div>
             <div class="space-y-4">
-                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q1">Kako dolgo traja izdelava spletne strani?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.</p>
-                </details>
-                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q2">Ali lahko sami urejamo spletno stran kasneje?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a2">Seveda. Strani so narejene tako, da so pregledne, po zaključku pa vam pokažemo tudi osnove, da lahko enostavno sami zamenjate besedila ali slike.</p>
-                </details>
-                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q3">Kakšne vrste aplikacij in digitalnih rešitev razvijate?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a3">Razvijamo lahke namenske spletne aplikacije in orodja po meri (npr. interni sledilniki, aplikacije za optimizacijo procesov in avtomatizacijo), ki digitalizirajo vaše vsakodnevno delo.</p>
-                </details>
-                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q4">Kakšne vrste spletnih aplikacij razvijate?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.</p>
-                </details>
-                <details class="p-6 rounded-2xl bg-slate-900 border border-slate-800 group cursor-pointer">
-                    <summary class="font-bold flex justify-between items-center"><span data-i18n="faq-q5">Kako začnemo sodelovanje?</span><span class="text-cyan-400 group-open:rotate-180 transition"><i class="fa-solid fa-chevron-down"></i></span></summary>
-                    <p class="mt-4 text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.</p>
-                </details>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q1">Kako dolgo traja izdelava spletne strani?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q2">Koliko stane izdelava spletne strani ali aplikacije?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a2">Cena je odvisna od obsega in zahtevnosti projekta. Po kratkem uvodnem pogovoru pripravim brezplačno, okvirno ponudbo, prilagojeno vašim potrebam in proračunu.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q3">Ali lahko sami urejamo spletno stran kasneje?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a3">Seveda. Strani so narejene tako, da so pregledne, po zaključku pa vam pokažemo tudi osnove, da lahko enostavno sami zamenjate besedila ali slike.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q4">Kakšne vrste aplikacij, orodij in avtomatizacij razvijate?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Razvijamo lahka namenska spletna orodja po meri - interne sledilnike, interaktivne kalkulatorje, obrazce za zbiranje podatkov, nadzorne plošče in povezave med vašimi obstoječimi orodji, ki digitalizirajo vsakodnevno delo.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q5">Kaj pa gostovanje (hosting) in vzdrževanje po zagonu?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">Po potrebi uredim domeno in gostovanje ali svetujem pri izbiri ponudnika. Na voljo sem tudi po zagonu za manjše popravke, dopolnitve in nadgradnje.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q6">Kako začnemo sodelovanje?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a6">Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -730,10 +820,11 @@
                 "hiw-t3": "PREVZEM IN PODPORA", "hiw-3": "Skupaj pregledamo končni izdelek, uredimo nastavitve in poskrbimo za uspešen zagon v delovanje.",
                 "faq-heading": "Pogosto zastavljena vprašanja",
                 "faq-q1": "Kako dolgo traja izdelava spletne strani?", "faq-a1": "Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo in vsebine.",
-                "faq-q2": "Ali lahko sami urejamo spletno stran kasneje?", "faq-a2": "Seveda. Strani so narejene tako, da so pregledne, po zaključku pa vam pokažemo tudi osnove, da lahko enostavno sami zamenjate besedila ali slike.",
-                "faq-q3": "Kakšne vrste aplikacij in digitalnih rešitev razvijate?", "faq-a3": "Razvijamo lahke namenske spletne aplikacije in orodja po meri (npr. interni sledilniki, aplikacije za optimizacijo procesov in avtomatizacijo), ki digitalizirajo vaše vsakodnevno delo.",
-                "faq-q4": "Kakšne vrste spletnih aplikacij razvijate?", "faq-a4": "Razvijamo prilagojena spletna orodja, kot so interni sledilniki, interaktivni kalkulatorji, obrazci za zbiranje podatkov ali nadzorne plošče za vaše poslovanje.",
-                "faq-q5": "Kako začnemo sodelovanje?", "faq-a5": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.",
+                "faq-q2": "Koliko stane izdelava spletne strani ali aplikacije?", "faq-a2": "Cena je odvisna od obsega in zahtevnosti projekta. Po kratkem uvodnem pogovoru pripravim brezplačno, okvirno ponudbo, prilagojeno vašim potrebam in proračunu.",
+                "faq-q3": "Ali lahko sami urejamo spletno stran kasneje?", "faq-a3": "Seveda. Strani so narejene tako, da so pregledne, po zaključku pa vam pokažemo tudi osnove, da lahko enostavno sami zamenjate besedila ali slike.",
+                "faq-q4": "Kakšne vrste aplikacij, orodij in avtomatizacij razvijate?", "faq-a4": "Razvijamo lahka namenska spletna orodja po meri - interne sledilnike, interaktivne kalkulatorje, obrazce za zbiranje podatkov, nadzorne plošče in povezave med vašimi obstoječimi orodji, ki digitalizirajo vsakodnevno delo.",
+                "faq-q5": "Kaj pa gostovanje (hosting) in vzdrževanje po zagonu?", "faq-a5": "Po potrebi uredim domeno in gostovanje ali svetujem pri izbiri ponudnika. Na voljo sem tudi po zagonu za manjše popravke, dopolnitve in nadgradnje.",
+                "faq-q6": "Kako začnemo sodelovanje?", "faq-a6": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Pogovorili se bomo o vaših željah in našli najboljšo rešitev.",
                 "about-role1": "Spletni razvoj & Digitalne rešitve", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "O nas",
                 "about-title": "Inženirska natančnost v digitalnem svetu",
@@ -817,10 +908,11 @@
                 "hiw-t3": "LAUNCH & SUPPORT", "hiw-3": "Reviewing the final product together, setting everything up, and going live.",
                 "faq-heading": "Frequently Asked Questions",
                 "faq-q1": "How long does a website take?", "faq-a1": "Most smaller presentation and landing pages are built within 1 to 2 weeks, depending on how quickly content is provided.",
-                "faq-q2": "Can we edit the website ourselves later?", "faq-a2": "Yes. Sites are structured cleanly, and we provide a basic walkthrough so you can easily update texts or images yourselves.",
-                "faq-q3": "What types of applications and digital solutions do you develop?", "faq-a3": "We develop custom lightweight web apps and digital tools (e.g., internal trackers, process optimization tools) to digitize your daily workflow.",
-                "faq-q4": "What types of web applications do you develop?", "faq-a4": "We develop custom web tools like internal trackers, interactive calculators, data collection forms, or dashboards for your business.",
-                "faq-q5": "How do we start?", "faq-a5": "Simply fill out the contact form below or drop us an email to discuss your project.",
+                "faq-q2": "How much does a website or app cost?", "faq-a2": "The price depends on the project's scope and complexity. After a short intro call I prepare a free, tailored estimate that fits your needs and budget.",
+                "faq-q3": "Can we edit the website ourselves later?", "faq-a3": "Yes. Sites are structured cleanly, and we provide a basic walkthrough so you can easily update texts or images yourselves.",
+                "faq-q4": "What kind of apps, tools and automations do you build?", "faq-a4": "We build lightweight custom web tools - internal trackers, interactive calculators, data collection forms, dashboards, and integrations between the tools you already use - to digitize your daily workflow.",
+                "faq-q5": "What about hosting and maintenance after launch?", "faq-a5": "I can set up the domain and hosting, or advise on choosing a provider. I'm also available after launch for small fixes, updates and upgrades.",
+                "faq-q6": "How do we start?", "faq-a6": "Simply fill out the contact form below or drop us an email to discuss your project.",
                 "about-role1": "Web Development & Digital Solutions", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profile",
                 "about-badge": "About Us",
                 "about-title": "Engineering Precision in the Digital World",
@@ -904,10 +996,11 @@
                 "hiw-t3": "START & SUPPORT", "hiw-3": "Gemeinsame Prüfung, Einrichtung und erfolgreicher Livegang.",
                 "faq-heading": "Häufig gestellte Fragen",
                 "faq-q1": "Wie lange dauert eine Website?", "faq-a1": "Die meisten kleineren Websites und Landingpages sind innerhalb von 1 bis 2 Wochen fertiggestellt.",
-                "faq-q2": "Können wir die Website später selbst bearbeiten?", "faq-a2": "Ja. Die Seiten werden übersichtlich aufgebaut und wir zeigen Ihnen die Grundlagen zur einfachen Text- oder Bildpflege.",
-                "faq-q3": "Welche Arten von Anwendungen und digitalen Lösungen entwickeln Sie?", "faq-a3": "Wir entwickeln maßgeschneiderte Webanwendungen und Tools (z. B. interne Tracker, Prozessoptimierung), um Ihre tägliche Arbeit zu digitalisieren.",
-                "faq-q4": "Welche Arten von Webanwendungen entwickeln Sie?", "faq-a4": "Wir entwickeln maßgeschneiderte Webtools wie interne Tracker, interaktive Rechner, Datenerfassungsformulare oder Dashboards.",
-                "faq-q5": "Wie beginnen wir?", "faq-a5": "Füllen Sie einfach das untenstehende Kontaktformular aus oder schreiben Sie uns eine E-Mail.",
+                "faq-q2": "Wie viel kostet eine Website oder App?", "faq-a2": "Der Preis hängt vom Umfang und der Komplexität des Projekts ab. Nach einem kurzen Erstgespräch erstelle ich ein kostenloses, individuelles Angebot passend zu Ihrem Budget.",
+                "faq-q3": "Können wir die Website später selbst bearbeiten?", "faq-a3": "Ja. Die Seiten werden übersichtlich aufgebaut und wir zeigen Ihnen die Grundlagen zur einfachen Text- oder Bildpflege.",
+                "faq-q4": "Welche Arten von Apps, Tools und Automatisierungen entwickeln Sie?", "faq-a4": "Wir entwickeln schlanke, maßgeschneiderte Webtools - interne Tracker, interaktive Rechner, Datenerfassungsformulare, Dashboards sowie Verbindungen zwischen Ihren bestehenden Tools - um Ihre tägliche Arbeit zu digitalisieren.",
+                "faq-q5": "Was ist mit Hosting und Wartung nach dem Start?", "faq-a5": "Ich richte bei Bedarf Domain und Hosting ein oder berate bei der Anbieterwahl. Auch nach dem Start stehe ich für kleinere Korrekturen, Ergänzungen und Erweiterungen zur Verfügung.",
+                "faq-q6": "Wie beginnen wir?", "faq-a6": "Füllen Sie einfach das untenstehende Kontaktformular aus oder schreiben Sie uns eine E-Mail.",
                 "about-role1": "Webentwicklung & Digitale Lösungen", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "Über uns",
                 "about-title": "Ingenieurspräzision in der digitalen Welt",
@@ -991,10 +1084,11 @@
                 "hiw-t3": "ISPORUKA I PODRŠKA", "hiw-3": "Zajedno pregledavamo konačni proizvod, uređujemo postavke i puštamo u rad.",
                 "faq-heading": "Često postavljana pitanja",
                 "faq-q1": "Koliko traje izrada web stranice?", "faq-a1": "Većinu manjih web stranica i odredišnih stranica postavljamo u roku od 1 do 2 tjedna.",
-                "faq-q2": "Možemo li sami kasnije uređivati web stranicu?", "faq-a2": "Naravno. Stranice su pregledne, a na kraju vam pokazujemo osnove kako biste lako sami mijenjali tekstove ili slike.",
-                "faq-q3": "Kakve vrste aplikacija i digitalnih rješenja razvijate?", "faq-a3": "Razvijamo prilagođene web alate (npr. interne pratitelje, automatizaciju procesa) koji digitaliziraju vaš svakodnevni rad.",
-                "faq-q4": "Koje specifične web aplikacije radite?", "faq-a4": "Alate poput internih pratitelja, interaktivnih kalkulatora, obrazaca za prikupljanje podataka ili nadzornih ploča.",
-                "faq-q5": "Kako započeti suradnju?", "faq-a5": "Jednostavno ispunite kontakt obrazac u nastavku ili nam pošaljite e-mail.",
+                "faq-q2": "Koliko košta izrada web stranice ili aplikacije?", "faq-a2": "Cijena ovisi o opsegu i složenosti projekta. Nakon kratkog uvodnog razgovora pripremam besplatnu, okvirnu ponudu prilagođenu vašim potrebama i proračunu.",
+                "faq-q3": "Možemo li sami kasnije uređivati web stranicu?", "faq-a3": "Naravno. Stranice su pregledne, a na kraju vam pokazujemo osnove kako biste lako sami mijenjali tekstove ili slike.",
+                "faq-q4": "Kakve vrste aplikacija, alata i automatizacija razvijate?", "faq-a4": "Razvijamo lagane prilagođene web alate - interne pratitelje, interaktivne kalkulatore, obrasce za prikupljanje podataka, nadzorne ploče i povezivanje vaših postojećih alata - koji digitaliziraju vaš svakodnevni rad.",
+                "faq-q5": "Što je s hostingom i održavanjem nakon pokretanja?", "faq-a5": "Po potrebi uređujem domenu i hosting ili savjetujem pri odabiru pružatelja usluge. Dostupan sam i nakon pokretanja za manje ispravke, dopune i nadogradnje.",
+                "faq-q6": "Kako započeti suradnju?", "faq-a6": "Jednostavno ispunite kontakt obrazac u nastavku ili nam pošaljite e-mail.",
                 "about-role1": "Web razvoj i digitalna rješenja", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "O nama",
                 "about-title": "Inženjerska preciznost u digitalnom svijetu",
@@ -1010,7 +1104,52 @@
             }
         };
 
+        // FAQ - celotna kartica je klikljiva, odpre se lahko samo eno vprašanje naenkrat
+        function toggleFaq(el) {
+            const wasOpen = el.classList.contains('open');
+            document.querySelectorAll('#faq .faq-item').forEach(item => {
+                item.classList.remove('open');
+                item.setAttribute('aria-expanded', 'false');
+            });
+            if (!wasOpen) {
+                el.classList.add('open');
+                el.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        // Mobilni meni (hamburger)
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+            const isOpen = menu.classList.contains('flex');
+            if (isOpen) {
+                menu.classList.remove('flex');
+                menu.classList.add('hidden');
+                btn.setAttribute('aria-expanded', 'false');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                btn.setAttribute('aria-expanded', 'true');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            }
+        }
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const btn = document.getElementById('mobile-menu-btn');
+            const icon = document.getElementById('mobile-menu-icon');
+            menu.classList.remove('flex');
+            menu.classList.add('hidden');
+            btn.setAttribute('aria-expanded', 'false');
+            icon.classList.remove('fa-xmark');
+            icon.classList.add('fa-bars');
+        }
+
         function changeLanguage(lang) {
+            if (!translations[lang]) return;
             document.documentElement.lang = lang;
             document.querySelectorAll('[data-i18n]').forEach(el => {
                 const key = el.getAttribute('data-i18n');
@@ -1024,7 +1163,19 @@
                     el.placeholder = translations[lang][key];
                 }
             });
+            const switcher = document.getElementById('language-switcher');
+            if (switcher) switcher.value = lang;
+            try { localStorage.setItem('rf-lang', lang); } catch (e) {}
         }
+
+        // Ob nalaganju obnovimo zadnji izbrani jezik (če obstaja)
+        document.addEventListener('DOMContentLoaded', () => {
+            let savedLang = null;
+            try { savedLang = localStorage.getItem('rf-lang'); } catch (e) {}
+            if (savedLang && translations[savedLang] && savedLang !== 'sl') {
+                changeLanguage(savedLang);
+            }
+        });
     </script>
 </body>
 </html>
