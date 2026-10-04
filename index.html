@@ -189,10 +189,7 @@
 
     @media (min-width: 1024px) {
         #projekti .grid.md\:grid-cols-3 {
-            grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        }
-        #projekti .grid.md\:grid-cols-2 {
-            grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
         }
     }
 
@@ -318,7 +315,7 @@
         <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
         <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
             <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
-                <i class="fa-solid fa-sparkles"></i>
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
                 <span data-i18n="hero-badge">Spletni razvoj & digitalna avtomatizacija</span>
             </div>
             <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight">
@@ -480,7 +477,7 @@
             </div>
 
             <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-utensils"></i> <span data-i18n="app-cat-food">Hrana in kmetija</span>
+                <i class="fa-solid fa-utensils"></i> <span data-i18n="app-cat-food">Hrana in kuhinja</span>
             </h3>
             <div class="grid md:grid-cols-3 gap-6 mb-12">
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
@@ -495,6 +492,14 @@
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-meat-title">Obračun mesa</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-meat-desc">Izračun in evidenca klanja: cenik po kosih mesa, računi za stranke, statistika in tržne cene govedine.</p>
                     <a href="https://robifilipsek-dev.github.io/obracun-mesa/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-recipes-title">Recepti AI</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-recipes-desc">Osebni kuhinjski kopilot z umetno inteligenco za ideje, recepte in lažje načrtovanje obrokov.</p>
+                    <a href="https://robifilipsek-dev.github.io/recepti-ai/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -524,7 +529,7 @@
             <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
                 <i class="fa-solid fa-lightbulb"></i> <span data-i18n="app-cat-life">Osebni razvoj in AI</span>
             </h3>
-            <div class="grid md:grid-cols-3 gap-6 mb-12">
+            <div class="grid md:grid-cols-3 gap-6">
                 <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-spark-title">Dnevna iskra</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-spark-desc">Dnevna porcija modrosti in navdiha, ustvarjena z umetno inteligenco, s kategorijami, zgodovino in priljubljenimi iskrami.</p>
@@ -537,20 +542,6 @@
                     <h4 class="font-bold text-lg mb-2" data-i18n="app-lifeflow-title">LifeFlow AI</h4>
                     <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-lifeflow-desc">Osebni AI pomočnik za lažjo organizacijo dneva in vsakdanjih opravil.</p>
                     <a href="https://robifilipsek-dev.github.io/lifeflow-ai/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
-                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
-                    </a>
-                </div>
-            </div>
-
-            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
-                <i class="fa-solid fa-globe"></i> <span data-i18n="app-cat-hobby">Spletne strani</span>
-            </h3>
-            <div class="grid md:grid-cols-3 gap-6">
-
-                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
-                    <h4 class="font-bold text-lg mb-2" data-i18n="app-camper-title">Prostor za avtodom</h4>
-                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-camper-desc">Spletna stran za zimovanje in hrambo avtodomov ter prikolic v okolici Celja.</p>
-                    <a href="https://robifilipsek-dev.github.io/zimovanje-hramba-avtodomov-prikolic-celje/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
                         <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
                     </a>
                 </div>
@@ -645,7 +636,7 @@
                 <div class="md:col-span-5 flex flex-col items-center text-center">
                     <div class="relative mb-6">
                         <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-30"></div>
-                        <img src="1785750119545.jfif" alt="Robert Filipšek" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl">
+                        <img src="1785750119545.jfif" alt="Robert Filipšek" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%231e293b%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-size=%2726%27 font-weight=%27800%27 fill=%27%2322d3ee%27%3ERF%3C/text%3E%3C/svg%3E';">
                     </div>
                     <h3 class="text-xl font-bold text-slate-100">Robert Filipšek</h3>
                     <p class="text-slate-300 text-sm font-medium mt-1" data-i18n="about-role1">Spletni razvoj & Digitalne rešitve</p>
@@ -805,18 +796,18 @@
                 "s-3-l1": "Rešitve prilagojene vašim potrebam", "s-3-l2": "Pregledni vmesniki in enostavna uporaba", "s-3-l3": "Hitro delovanje na vseh napravah",
                 "app-heading": "Moje aplikacije in orodja",
                 "app-subheading": "Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.",
-"app-cat-trackers": "Finance in cene goriva", "app-cat-food": "Hrana in kmetija", "app-cat-sport": "Šport in rekreacija", "app-cat-life": "Osebni razvoj in AI", "app-cat-hobby": "Spletne strani",
+"app-cat-trackers": "Finance in cene goriva", "app-cat-food": "Hrana in kuhinja", "app-cat-sport": "Šport in rekreacija", "app-cat-life": "Osebni razvoj in AI",
                 "app-btn-open": "Odpri aplikacijo",
                 "app-gold-title": "Sledilnik zlata", "app-gold-desc": "Cena zlata v €/g, vrednost standardnih tež in osebni portfolio z izračunom dobička ter donosnosti.",
                 "app-bitcoin-title": "Sledilnik bitcoina", "app-bitcoin-desc": "Cena Bitcoina v EUR z grafom gibanja, vrednostjo deležev ter osebnim portfoliom z donosnostjo.",
                 "app-fuel-title": "Izračun cene goriva", "app-fuel-desc": "Izračun zneska za plačilo z upoštevanjem popusta na liter, z zgodovino cen dizla in bencina 95 (GOV.SI).",
 "app-pizza-title": "Kalkulator za testo", "app-pizza-desc": "Izračun hidracije, kvasa in fermentacije za popolno pizzo.",
                 "app-meat-title": "Obračun mesa", "app-meat-desc": "Izračun in evidenca klanja: cenik po kosih mesa, računi za stranke, statistika in tržne cene govedine.",
+                "app-recipes-title": "Recepti AI", "app-recipes-desc": "Osebni kuhinjski kopilot z umetno inteligenco za ideje, recepte in lažje načrtovanje obrokov.",
                 "app-sports-title": "Šport in prehrana", "app-sports-desc": "Dnevnik aktivnosti, obrokov, vode in telesne teže z izračunom porabe kalorij ter AI oceno iz opisa ali slike.",
                 "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Spletna rezervacija terminov za peščeni igrišči z dnevno in tedensko kvoto ter pregledom lastnih rezervacij.",
                 "app-spark-title": "Dnevna iskra", "app-spark-desc": "Dnevna porcija modrosti in navdiha, ustvarjena z umetno inteligenco, s kategorijami, zgodovino in priljubljenimi iskrami.",
                 "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Osebni AI pomočnik za lažjo organizacijo dneva in vsakdanjih opravil.",
-"app-camper-title": "Prostor za avtodom", "app-camper-desc": "Spletna stran za zimovanje in hrambo avtodomov ter prikolic v okolici Celja.",
                 
                 
 "hiw-heading": "Kako poteka sodelovanje",
@@ -830,7 +821,7 @@
                 "faq-q3": "Ali lahko sami urejamo spletno stran ali vsebine po zagonu?", "faq-a3": "Seveda. Vse spletne strani in vmesnike zasnujemo tako, da so pregledni in enostavni za uporabo. Po zaključku vam predamo navodila ali kratek prikaz, kako lahko sami hitro zamenjate besedila ali slike.",
                 "faq-q4": "Kakšne vrste avtomatizacij in spletnih orodij razvijate?", "faq-a4": "Razvijamo lahka namenska spletna orodja po meri – npr. interne sledilnike, interaktivne kalkulatorje, obrazce za zbiranje podatkov ter avtomatske povezave med vašo e-pošto, spletnim obrazcem in orodji za obveščanje (Teams, Slack), ki odpravijo ročno prepisovanje podatkov.",
                 "faq-q5": "Kako poteka ureditev domene, gostovanja in tehnične podpore?", "faq-a5": "Poskrbimo za celotno tehnično izvedbo – od ureditve domene in zanesljivega gostovanja do končnega zagona. Če domeno in gostovanje že imate, rešitev preprosto integriramo v vaš obstoječi sistem. Na voljo smo tudi po zagonu za nadgradnje in popravke.",
-                "faq-q6": "Kako začnemo sodelovanje?", "faq-a6": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišete na e-pošto. Dogovorili se bomo za kratek neobvezujoč uvodni pogovor, spoznali vaše cilje ter predlagali najboljšo rešitev.",
+                "faq-q6": "Kako začnemo sodelovanje?", "faq-a6": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišite na e-pošto. Dogovorili se bomo za kratek neobvezujoč uvodni pogovor, spoznali vaše cilje ter predlagali najboljšo rešitev.",
                 "about-role1": "Spletni razvoj & Digitalne rešitve", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
                 "about-badge": "O nas",
                 "about-title": "Inženirska natančnost v digitalnem svetu",
@@ -869,18 +860,18 @@
                 "s-3-l1": "Tailored to your needs", "s-3-l2": "Clean interface & easy usage", "s-3-l3": "Fast performance across devices",
                 "app-heading": "My Apps & Tools",
                 "app-subheading": "Try out working examples of web tools, calculators, and applications I've developed.",
-"app-cat-trackers": "Finance & Fuel Prices", "app-cat-food": "Food & Farm", "app-cat-sport": "Sport & Recreation", "app-cat-life": "Personal Growth & AI", "app-cat-hobby": "Websites",
+"app-cat-trackers": "Finance & Fuel Prices", "app-cat-food": "Food & Kitchen", "app-cat-sport": "Sport & Recreation", "app-cat-life": "Personal Growth & AI",
                 "app-btn-open": "Open Application",
                 "app-gold-title": "Gold Tracker", "app-gold-desc": "Gold price in €/g, values of standard weights, and a personal portfolio with profit and return calculation.",
                 "app-bitcoin-title": "Bitcoin Tracker", "app-bitcoin-desc": "Bitcoin price in EUR with a price chart, values of fractional amounts, and a personal portfolio with ROI.",
                 "app-fuel-title": "Fuel Price Calculator", "app-fuel-desc": "Calculates the amount to pay with a per-litre discount, with diesel and petrol 95 price history (GOV.SI).",
 "app-pizza-title": "Dough Calculator", "app-pizza-desc": "Calculates hydration, yeast, and fermentation for a perfect pizza.",
                 "app-meat-title": "Meat Billing", "app-meat-desc": "Slaughter calculation and records: price list per cut, customer invoices, statistics, and beef market prices.",
+                "app-recipes-title": "Recipes AI", "app-recipes-desc": "A personal AI kitchen copilot for meal ideas, recipes, and easier meal planning.",
                 "app-sports-title": "Sport & Nutrition", "app-sports-desc": "Log of activities, meals, water, and body weight with calorie expenditure calculation and AI estimates from text or photos.",
                 "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Online booking of time slots for two clay courts with daily and weekly quotas and an overview of your own bookings.",
                 "app-spark-title": "Daily Spark", "app-spark-desc": "A daily portion of wisdom and inspiration generated by AI, with categories, history, and favourites.",
                 "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "A personal AI assistant that helps organise your day and everyday tasks.",
-"app-camper-title": "Camper Spot", "app-camper-desc": "A website for winter storage of motorhomes and caravans in the Celje area.",
                 
                 
 "hiw-heading": "How It Works",
@@ -933,18 +924,18 @@
                 "s-3-l1": "Maßgeschneidert auf Ihre Bedürfnisse", "s-3-l2": "Übersichtliche Benutzeroberfläche", "s-3-l3": "Schnelle Leistung auf allen Geräten",
                 "app-heading": "Meine Apps & Tools",
                 "app-subheading": "Probieren Sie funktionierende Beispiele von Web-Tools, Rechnern und Apps aus, die ich entwickelt habe.",
-"app-cat-trackers": "Finanzen & Kraftstoffpreise", "app-cat-food": "Essen & Landwirtschaft", "app-cat-sport": "Sport & Freizeit", "app-cat-life": "Persönliche Entwicklung & KI", "app-cat-hobby": "Websites",
+"app-cat-trackers": "Finanzen & Kraftstoffpreise", "app-cat-food": "Essen & Küche", "app-cat-sport": "Sport & Freizeit", "app-cat-life": "Persönliche Entwicklung & KI",
                 "app-btn-open": "App öffnen",
                 "app-gold-title": "Gold-Tracker", "app-gold-desc": "Goldpreis in €/g, Werte gängiger Gewichte und ein persönliches Portfolio mit Gewinn- und Renditeberechnung.",
                 "app-bitcoin-title": "Bitcoin-Tracker", "app-bitcoin-desc": "Bitcoin-Preis in EUR mit Kursverlauf, Werten von Teilmengen und persönlichem Portfolio mit Rendite.",
                 "app-fuel-title": "Kraftstoffpreisrechner", "app-fuel-desc": "Berechnet den Zahlbetrag mit Rabatt pro Liter, inklusive Preisverlauf für Diesel und Benzin 95 (GOV.SI).",
 "app-pizza-title": "Teigrechner", "app-pizza-desc": "Berechnung von Hydration, Hefe und Fermentation für die perfekte Pizza.",
                 "app-meat-title": "Fleischabrechnung", "app-meat-desc": "Abrechnung und Erfassung von Schlachtungen: Preisliste pro Stück, Kundenrechnungen, Statistik und Rindfleisch-Marktpreise.",
+                "app-recipes-title": "Rezepte AI", "app-recipes-desc": "Ein persönlicher KI-Küchenassistent für Ideen, Rezepte und einfachere Essensplanung.",
                 "app-sports-title": "Sport und Ernährung", "app-sports-desc": "Protokoll für Aktivitäten, Mahlzeiten, Wasser und Körpergewicht mit Kalorienberechnung und KI-Schätzung aus Text oder Foto.",
                 "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Online-Buchung von Zeitfenstern für zwei Sandplätze mit Tages- und Wochenkontingent und Übersicht der eigenen Buchungen.",
                 "app-spark-title": "Tägliche Inspiration", "app-spark-desc": "Eine tägliche Portion Weisheit und Inspiration, von KI erstellt, mit Kategorien, Verlauf und Favoriten.",
                 "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Ein persönlicher KI-Assistent für die einfachere Organisation von Alltag und Aufgaben.",
-"app-camper-title": "Wohnmobilstellplatz", "app-camper-desc": "Website für die Winterlagerung von Wohnmobilen und Wohnwagen in der Region Celje.",
                 
                 
 "hiw-heading": "Wie es funktioniert",
@@ -997,23 +988,23 @@
                 "s-3-l1": "Rješenja prilagođena vašim potrebama", "s-3-l2": "Pregledna sučelja i jednostavna upotreba", "s-3-l3": "Brz rad na svim uređajima",
                 "app-heading": "Moje aplikacije i alati",
                 "app-subheading": "Isprobajte radne primjere web alata, kalkulatora i aplikacija koje sam razvio.",
-"app-cat-trackers": "Financije i cijene goriva", "app-cat-food": "Hrana i poljoprivreda", "app-cat-sport": "Sport i rekreacija", "app-cat-life": "Osobni razvoj i AI", "app-cat-hobby": "Web stranice",
+"app-cat-trackers": "Financije i cijene goriva", "app-cat-food": "Hrana i kuhinja", "app-cat-sport": "Sport i rekreacija", "app-cat-life": "Osobni razvoj i AI",
                 "app-btn-open": "Otvori aplikaciju",
                 "app-gold-title": "Pratitelj zlata", "app-gold-desc": "Cijena zlata u €/g, vrijednost standardnih težina i osobni portfelj s izračunom dobiti i povrata.",
                 "app-bitcoin-title": "Pratitelj bitcoina", "app-bitcoin-desc": "Cijena Bitcoina u EUR s grafom kretanja, vrijednošću dijelova i osobnim portfeljem s povratom.",
                 "app-fuel-title": "Kalkulator cijene goriva", "app-fuel-desc": "Izračun iznosa za plaćanje s popustom po litri, uz povijest cijena dizela i benzina 95 (GOV.SI).",
 "app-pizza-title": "Kalkulator za tijesto", "app-pizza-desc": "Izračun hidratacije, kvasca i fermentacije za savršenu pizzu.",
                 "app-meat-title": "Obračun mesa", "app-meat-desc": "Obračun i evidencija klanja: cjenik po komadima, računi za kupce, statistika i tržišne cijene govedine.",
+                "app-recipes-title": "Recepti AI", "app-recipes-desc": "Osobni AI kuhinjski kopilot za ideje, recepte i lakše planiranje obroka.",
                 "app-sports-title": "Sport i prehrana", "app-sports-desc": "Dnevnik aktivnosti, obroka, vode i tjelesne težine s izračunom potrošnje kalorija i AI procjenom iz opisa ili slike.",
                 "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Web rezervacija termina za dva zemljana terena s dnevnom i tjednom kvotom te pregledom vlastitih rezervacija.",
                 "app-spark-title": "Dnevna iskra", "app-spark-desc": "Dnevna doza mudrosti i inspiracije koju je izradila umjetna inteligencija, s kategorijama, poviješću i favoritima.",
                 "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Osobni AI pomoćnik za lakšu organizaciju dana i svakodnevnih obveza.",
-"app-camper-title": "Prostor za kampere", "app-camper-desc": "Web stranica za zimovanje i pohranu kamp kućica i prikolica u okolici Celja.",
                 
                 
-"hiw-heading": "Kako poteka sodelovanje",
-                "hiw-subheading": "Preprost, jasen in transparenten postopek od ideje do končne izvedbe.",
-                "hiw-t1": "POGOVOR I CILJEVI", "hiw-1": "Kroz kratki uvodni razgovor definiramo vaše želje i opseg posla.",
+"hiw-heading": "Kako izgleda suradnja",
+                "hiw-subheading": "Jednostavan, jasan i transparentan postupak od ideje do konačne izvedbe.",
+                "hiw-t1": "RAZGOVOR I CILJEVI", "hiw-1": "Kroz kratki uvodni razgovor definiramo vaše želje i opseg posla.",
                 "hiw-t2": "IZVEDBA", "hiw-2": "Brzo i kvalitetno izrađujemo vašu web stranicu, aplikaciju ili automatizaciju.",
                 "hiw-t3": "PREUZIMANJE I PODRŠKA", "hiw-3": "Zajedno pregledavamo konačni proizvod i brinemo se za uspješno pokretanje.",
                 "faq-heading": "Često postavljana pitanja",
