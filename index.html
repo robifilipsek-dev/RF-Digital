@@ -317,6 +317,22 @@ html{scroll-padding-top:88px}
 html[data-theme=light] .mq-group{color:#475569}
 @media(prefers-reduced-motion:reduce){.mq-group{animation:none}.mq-group+.mq-group{display:none}.hero::before,.hero::after{animation:none}html{scroll-behavior:auto}}
 .dm{opacity:0;transform:translateY(10px);transition:opacity .45s ease,transform .45s ease}.dm.on{opacity:1;transform:none}
+
+.logo-mark,html[data-theme=light] .logo-mark{color:#fff!important}
+[data-i18n="nav-subtitle"]{overflow-wrap:normal!important;word-break:normal!important;white-space:normal;line-height:1.25}
+@media(max-width:640px){
+ #navbar>div{padding-left:.75rem!important;padding-right:.75rem!important}
+ #navbar>div>a.group{flex:1 1 auto;min-width:0;column-gap:.6rem}
+ #navbar>div>a.group>.relative{margin-right:0}
+ #navbar a.group .space-x-3\.5>*{margin-left:0}
+ #navbar .logo-mark{width:36px;height:36px;font-size:1rem}
+ #navbar a.group span.text-xl{font-size:1.1rem}
+ [data-i18n="nav-subtitle"]{font-size:8px!important;letter-spacing:.05em!important;margin-top:.3rem!important}
+ #navbar>div>div.flex.items-center{flex:0 0 auto;gap:.4rem}
+ #navbar>div>div.flex.items-center>*{margin-left:0!important}
+ #theme-btn,#mobile-menu-btn{width:36px!important;height:36px!important}
+ #language-switcher{padding:.5rem .35rem!important;font-size:.7rem!important}
+}
 </style>
 
 </head>
@@ -328,7 +344,7 @@ html[data-theme=light] .mq-group{color:#475569}
             <a href="#" class="flex items-center space-x-3.5 group">
                 <div class="relative">
                     <div class="absolute inset-0 bg-cyan-500 rounded-xl blur-md opacity-40 group-hover:opacity-75 transition"></div>
-                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg text-white font-black text-lg border border-cyan-400/30">R<span class="text-white">F</span></div>
+                    <div class="logo-mark relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg font-black text-lg border border-cyan-400/30">RF</div>
                 </div>
                 <div class="flex flex-col justify-center py-1">
                     <span class="text-xl font-extrabold tracking-tight text-white leading-none">RF<span class="text-cyan-400">Digital</span></span>
