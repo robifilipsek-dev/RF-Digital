@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="sl" id="html-root" class="scroll-smooth">
+<head>
+    <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KN2CVJHBMC"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KN2CVJHBMC');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#070b14">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Crect x='3' y='3' width='58' height='58' rx='12' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='800' fill='%23ffffff'%3ERF%3C/text%3E%3C/svg%3E">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%2322d3ee'/%3E%3Cstop offset='1' stop-color='%232563eb'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' rx='14' fill='%23070b14'/%3E%3Crect x='3' y='3' width='58' height='58' rx='12' fill='url(%23g)'/%3E%3Ctext x='32' y='42' text-anchor='middle' font-family='Arial,sans-serif' font-size='29' font-weight='800' fill='%23ffffff'%3ERF%3C/text%3E%3C/svg%3E">
+    
+    <!-- SEO & Metadata -->
+    <title>RF Digital | Spletne rešitve & digitalna avtomatizacija</title>
+    <meta name="description" content="RF Digital pomaga podjetjem in obrtnikom do modernih spletnih strani, pametne avtomatizacije in lahkih spletnih aplikacij po meri.">
+    
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="RF Digital | Spletne rešitve & digitalna avtomatizacija">
+    <meta property="og:description" content="Moderne spletne strani, avtomatizacija opravil in spletna orodja po meri za mala in srednja podjetja.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS & FontAwesome -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        darkBg: '#030712',
+                    }
+                }
+            }
+        }
+    </script>
+
+<style>
+    /* RF Digital - app-like visual system */
+    :root {
+        --rf-bg: #070b14;
+        --rf-panel: rgba(15, 23, 42, 0.78);
+        --rf-panel-strong: rgba(15, 23, 42, 0.94);
+        --rf-border: rgba(100, 116, 139, 0.20);
+        --rf-border-hover: rgba(34, 211, 238, 0.55);
+    }
+
+    body {
+        background:
+            radial-gradient(circle at 50% -10%, rgba(14,165,233,.10), transparent 38%),
+            linear-gradient(rgba(255,255,255,.018) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,.018) 1px, transparent 1px),
+            #070b14 !important;
+        background-size: auto, 32px 32px, 32px 32px;
+        background-attachment: fixed;
+    }
+
+    section {
+        position: relative;
+    }
+
+    /* Navigation styling */
+    #navbar {
+        background: rgba(7, 11, 20, 0.88) !important;
+        border-color: rgba(100,116,139,.18) !important;
+        box-shadow: 0 10px 35px rgba(0,0,0,.18);
+    }
+    #navbar > div {
+        height: 76px !important;
+    }
+
+    /* App cards - flexible sizing and full layout */
+    #projekti .grid > div,
+    #solutions .grid > div,
+    #how-it-works .grid > div,
+    #faq .faq-item {
+        background: linear-gradient(180deg, rgba(15,23,42,.82), rgba(9,14,26,.82)) !important;
+        border: 1px solid var(--rf-border) !important;
+        box-shadow: 0 12px 32px rgba(0,0,0,.16);
+        transition: transform .22s ease, border-color .22s ease, box-shadow .22s ease, background .22s ease;
+    }
+
+    /* Dinamična višina okenc namesto fiksne 220px */
+    #projekti .grid > div {
+        min-height: 200px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        overflow: hidden;
+    }
+    #projekti .grid > div::before {
+        content: "";
+        position: absolute;
+        inset: 0 auto auto 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, rgba(34,211,238,0), rgba(34,211,238,.9), rgba(59,130,246,0));
+        opacity: .55;
+    }
+
+    #projekti .grid > div:hover,
+    #solutions .grid > div:hover,
+    #how-it-works .grid > div:hover,
+    #faq .faq-item:hover {
+        transform: translateY(-4px);
+        border-color: var(--rf-border-hover) !important;
+        box-shadow: 0 18px 42px rgba(8,145,178,.12), 0 10px 28px rgba(0,0,0,.24);
+        background: linear-gradient(180deg, rgba(17,28,49,.94), rgba(10,17,31,.94)) !important;
+    }
+
+    #projekti h3 {
+        letter-spacing: .01em;
+        text-transform: uppercase;
+        font-size: .92rem;
+        color: #67e8f9 !important;
+    }
+
+    #projekti h3 i {
+        width: 28px;
+        height: 28px;
+        border-radius: 8px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(34,211,238,.10);
+        border: 1px solid rgba(34,211,238,.16);
+        font-size: .75rem;
+    }
+
+    /* Omogoči celoten prikaz naslovov brez krajšanja in brez ellipsis (dots) */
+    #projekti .grid h4,
+    #solutions h3,
+    #how-it-works h3 {
+        letter-spacing: -.01em;
+        white-space: normal !important;
+        overflow: visible !important;
+        text-overflow: clip !important;
+    }
+
+    /* Omogoči celoten prikaz opisov brez krajšanja z line-clamp */
+    #projekti .grid p,
+    #solutions p,
+    #how-it-works p,
+    #faq p {
+        line-height: 1.5;
+        display: block !important;
+        -webkit-line-clamp: none !important;
+        overflow: visible !important;
+    }
+
+    /* Buttons/links feel like UI controls */
+    #projekti a {
+        width: fit-content;
+        padding: .5rem .7rem;
+        border-radius: .7rem;
+        background: rgba(8,145,178,.08);
+        border: 1px solid rgba(34,211,238,.12);
+    }
+    #projekti a:hover {
+        background: rgba(8,145,178,.15);
+        border-color: rgba(34,211,238,.28);
+    }
+
+    /* Section separators */
+    #solutions,
+    #projekti,
+    #how-it-works,
+    #faq,
+    #about,
+    #contact {
+        background-color: rgba(2,6,23,.20) !important;
+    }
+
+    #projekti {
+        background:
+            radial-gradient(circle at 15% 10%, rgba(34,211,238,.045), transparent 28%),
+            radial-gradient(circle at 85% 85%, rgba(59,130,246,.045), transparent 30%);
+    }
+
+    @media (min-width: 1024px) {
+        #projekti .grid.md\:grid-cols-3 {
+            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        }
+    }
+
+    @media (max-width: 767px) {
+        #navbar > div {
+            height: 70px !important;
+        }
+        #projekti .grid > div {
+            height: auto;
+            min-height: 180px;
+        }
+    }
+
+    /* Horizontal scrolling prevention */
+    html, body {
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+    body {
+        overflow-wrap: anywhere;
+    }
+    #navbar a.group,
+    #navbar .flex.flex-col,
+    .grid > div,
+    section .flex.items-center.justify-center.space-x-3 {
+        min-width: 0;
+    }
+
+    /* --- Mobilni meni: prilagojen tako, da se vse prikaže naenkrat --- */
+    #mobile-menu {
+        position: fixed;
+        top: 70px;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        max-height: calc(100vh - 70px);
+        overflow-y: auto;
+    }
+    @media (min-width: 768px) {
+        #mobile-menu { top: 76px; }
+    }
+
+    /* --- FAQ: cela kartica je klikljiva --- */
+    #faq .faq-answer {
+        max-height: 0;
+        opacity: 0;
+        margin-top: 0;
+        overflow: hidden;
+        transition: max-height .35s ease, opacity .25s ease, margin-top .35s ease;
+    }
+    #faq .faq-item.open .faq-answer {
+        max-height: 500px;
+        opacity: 1;
+        margin-top: 1rem;
+    }
+    #faq .faq-item .faq-icon {
+        transition: transform .25s ease;
+    }
+    #faq .faq-item.open .faq-icon {
+        transform: rotate(180deg);
+    }
+</style>
+
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-cyan-500 selection:text-slate-950">
+
+    <!-- NAVIGATION -->
+    <header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-slate-950/85 backdrop-blur-md border-b border-slate-900">
+        <div class="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-3.5 group">
+                <div class="relative">
+                    <div class="absolute inset-0 bg-cyan-500 rounded-xl blur-md opacity-40 group-hover:opacity-75 transition"></div>
+                    <div class="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-cyan-600 via-cyan-500 to-blue-600 flex items-center justify-center shadow-lg text-white font-black text-lg border border-cyan-400/30">
+                        R<span class="text-white">F</span>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center py-1">
+                    <span class="text-xl font-extrabold tracking-tight text-white leading-none">RF<span class="text-cyan-400">Digital</span></span>
+                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-semibold mt-2 block" data-i18n="nav-subtitle">Spletne rešitve & avtomatizacija</span>
+                </div>
+            </a>
+            
+            <nav class="hidden lg:flex items-center space-x-8 text-sm font-medium text-slate-300">
+                <a href="#solutions" class="hover:text-cyan-400 transition" data-i18n="nav-solutions">Storitve</a>
+                <a href="#projekti" class="hover:text-cyan-400 transition" data-i18n="nav-projects">Projekti</a>
+                <a href="#how-it-works" class="hover:text-cyan-400 transition" data-i18n="nav-how-it-works">Proces</a>
+                <a href="#faq" class="hover:text-cyan-400 transition" data-i18n="nav-faq">FAQ</a>
+                <a href="#about" class="hover:text-cyan-400 transition" data-i18n="nav-about">O nas</a>
+            </nav>
+
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                <a href="#contact" data-i18n="nav-cta" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm shadow-lg shadow-cyan-500/20 transition">
+                    Stopite v stik
+                </a>
+                <!-- Jezikovni preklopnik -->
+                <label for="language-switcher" class="sr-only">Izberi jezik</label>
+                <select id="language-switcher" aria-label="Izberi jezik" onchange="changeLanguage(this.value)" class="bg-slate-900 text-slate-300 text-xs font-medium border border-slate-800 rounded-xl px-2.5 py-2 focus:outline-none focus:border-cyan-500 transition cursor-pointer flex-shrink-0">
+                    <option value="sl">🇸🇮 SLO</option>
+                    <option value="en">🇬🇧 ENG</option>
+                    <option value="de">🇩🇪 DEU</option>
+                    <option value="hr">🇭🇷 HRV</option>
+                </select>
+                <!-- Hamburger meni (mobitel/tablica) -->
+                <button id="mobile-menu-btn" type="button" onclick="toggleMobileMenu()" aria-label="Meni" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden flex-shrink-0 inline-flex items-center justify-center w-10 h-10 rounded-xl bg-slate-900 border border-slate-800 text-slate-300 hover:text-cyan-400 hover:border-cyan-500/40 transition">
+                    <i class="fa-solid fa-bars" id="mobile-menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobilni meni (kompakten, prikaže vse hkrati brez drsenja) -->
+        <div id="mobile-menu" class="hidden lg:hidden flex-col bg-slate-950/97 backdrop-blur-md border-b border-slate-900 px-5 py-3 space-y-1 shadow-2xl">
+            <a href="#solutions" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition font-medium text-sm" data-i18n="nav-solutions">Storitve</a>
+            <a href="#projekti" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition font-medium text-sm" data-i18n="nav-projects">Projekti</a>
+            <a href="#how-it-works" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition font-medium text-sm" data-i18n="nav-how-it-works">Proces</a>
+            <a href="#faq" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition font-medium text-sm" data-i18n="nav-faq">FAQ</a>
+            <a href="#about" onclick="closeMobileMenu()" class="block py-2 px-3 rounded-lg text-slate-300 hover:text-cyan-400 hover:bg-slate-900 transition font-medium text-sm" data-i18n="nav-about">O nas</a>
+            <a href="#contact" onclick="closeMobileMenu()" data-i18n="nav-cta" class="block mt-1.5 px-3 py-2.5 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold text-sm text-center transition">Stopite v stik</a>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="pt-40 pb-20 md:pt-52 md:pb-32 relative overflow-hidden">
+        <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(14,165,233,0.15),rgba(255,255,255,0))]"></div>
+        <div class="max-w-7xl mx-auto px-6 relative z-10 text-center">
+            <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                <span data-i18n="hero-badge">Spletni razvoj & digitalna avtomatizacija</span>
+            </div>
+            <h1 class="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight max-w-5xl mx-auto leading-tight">
+                <span data-i18n="hero-title">Sodobne spletne strani in</span> <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500" data-i18n="hero-title-gradient">pametna avtomatizacija.</span>
+            </h1>
+            <p class="mt-6 text-lg md:text-xl text-slate-400 max-w-2xl mx-auto leading-relaxed" data-i18n="hero-desc">
+                Pomagamo vam postaviti profesionalno spletno prisotnost, poenostaviti vsakodnevna digitalna opravila ter razviti lahka spletna orodja po meri.
+            </p>
+            <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#contact" data-i18n="hero-cta-primary" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-cyan-400 hover:to-blue-500 text-slate-950 font-bold shadow-xl shadow-cyan-500/25 transition">
+                    Brezplačen posvet
+                </a>
+                <a href="#solutions" data-i18n="hero-cta-secondary" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-slate-900 hover:bg-slate-800 border border-slate-800 font-semibold transition">
+                    Preglej storitve
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TRUST / VALUE BAR -->
+    <section class="border-y border-slate-900 bg-slate-900/30 py-6">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-laptop-code text-cyan-400"></i>
+                    <span data-i18n="tb-1">Izdelava spletnih strani</span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-bolt text-cyan-400"></i>
+                    <span data-i18n="tb-2">Enostavna avtomatizacija</span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-code text-cyan-400"></i>
+                    <span data-i18n="tb-3">Aplikacije po meri</span>
+                </div>
+                <div class="flex items-center justify-center space-x-3 text-slate-300 font-medium text-sm">
+                    <i class="fa-solid fa-handshake text-cyan-400"></i>
+                    <span data-i18n="tb-4">Zanesljiva izvedba</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="prob-title">Se vam zdi, da vaša digitalna podoba ne odraža prave vrednosti vašega dela?</h2>
+                <p class="mt-4 text-slate-400" data-i18n="prob-subtitle">Mala podjetja in obrtniki prepogosto izgubljajo stranke zaradi zastarelih spletnih strani in ročnega prepisovanja podatkov.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-globe"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-1-title">Zastarela ali slaba spletna stran</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-1-desc">Stran, ki ne deluje dobro na telefonih in ne prepriča obiskovalcev v oddajo povpraševanja.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-keyboard"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-2-title">Ročno prenašanje podatkov</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-2-desc">Prepisovanje podatkov iz spletnih obrazcev v e-pošto ali Excel tabele.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800/80 hover:border-slate-700 transition">
+                    <div class="w-10 h-10 rounded-lg bg-red-500/10 text-red-400 flex items-center justify-center mb-4"><i class="fa-solid fa-clock"></i></div>
+                    <h3 class="font-semibold text-lg mb-2" data-i18n="p-3-title">Izguba časa z rutino</h3>
+                    <p class="text-sm text-slate-400" data-i18n="p-3-desc">Najnujnejša digitalna opravila vam kradejo čas, ki bi ga morali nameniti svoji primarni stroki.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STORITVE (SERVICES) -->
+    <section id="solutions" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="srv-heading">Kaj ponujamo</h2>
+                <p class="mt-4 text-slate-400" data-i18n="srv-subheading">Praktične, zanesljive in cenovno dostopne rešitve za vaš posel.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Storitve 1 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6"><i class="fa-solid fa-code"></i></div>
+                        <h3 class="font-bold text-xl mb-3" data-i18n="s-1-title">Izdelava sodobnih spletnih strani</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="s-1-desc">Postavitev privlačnih, hitrih in mobilno odzivnih predstavitvenih spletnih strani in pristajalnih strani (landing pages), ki jasno predstavijo vašo ponudbo in privabijo nove stranke.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-1-l1">Moderen dizajn prilagojen telefonom</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-1-l2">Hitra izvedba in enostavno vzdrževanje</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-1-l3">Optimizacija za iskalnike (SEO)</span></li>
+                    </ul>
+                </div>
+                <!-- Storitve 2 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3 class="font-bold text-xl mb-3" data-i18n="s-2-title">Enostavna avtomatizacija opravil</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="s-2-desc">Povezava med spletnim obrazcem, vašo e-pošto in orodji za obveščanje (npr. Microsoft Teams ali Slack), da ne zamudite nobenega povpraševanja.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-2-l1">Avtomatska obvestila o novih strankah</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-2-l2">Manj ročnega prepisovanja in napak</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-2-l3">Povezava orodij, ki jih že uporabljate</span></li>
+                    </ul>
+                </div>
+                <!-- Storitve 3 -->
+                <div class="p-8 rounded-2xl bg-slate-900 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col justify-between">
+                    <div>
+                        <div class="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl mb-6"><i class="fa-solid fa-cubes"></i></div>
+                        <h3 class="font-bold text-xl mb-3" data-i18n="s-3-title">Spletne aplikacije in orodja po meri</h3>
+                        <p class="text-sm text-slate-400 leading-relaxed mb-6" data-i18n="s-3-desc">Razvoj manjših namenskih spletnih orodij, interaktivnih kalkulatorjev ali internih aplikacij, ki poenostavijo vaše delo in izboljšajo uporabniško izkušnjo.</p>
+                    </div>
+                    <ul class="space-y-2 text-xs text-slate-300 border-t border-slate-800 pt-4">
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-3-l1">Rešitve prilagojene vašim potrebam</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-3-l2">Pregledni vmesniki in enostavna uporaba</span></li>
+                        <li><i class="fa-solid fa-check text-cyan-400 mr-2"></i><span data-i18n="s-3-l3">Hitro delovanje na vseh napravah</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PORTFOLIO / APLIKACIJE -->
+    <section id="projekti" class="py-24 relative border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="app-heading">Moje aplikacije in orodja</h2>
+                <p class="mt-4 text-slate-400" data-i18n="app-subheading">Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.</p>
+            </div>
+
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-coins"></i> <span data-i18n="app-cat-trackers">Finance in cene goriva</span>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-gold-title">Sledilnik zlata</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-gold-desc">Cena zlata v €/g, vrednost standardnih tež in osebni portfolio z izračunom dobička ter donosnosti.</p>
+                    <a href="https://robifilipsek-dev.github.io/zlato-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-bitcoin-title">Sledilnik bitcoina</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-bitcoin-desc">Cena Bitcoina v EUR z grafom gibanja, vrednostjo deležev ter osebnim portfoliom z donosnostjo.</p>
+                    <a href="https://robifilipsek-dev.github.io/bitcoin-tracker/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-fuel-title">Izračun cene goriva</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-fuel-desc">Izračun zneska za plačilo z upoštevanjem popusta na liter, z zgodovino cen dizla in bencina 95 (GOV.SI).</p>
+                    <a href="https://robifilipsek-dev.github.io/cena-goriva/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+
+            </div>
+
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-utensils"></i> <span data-i18n="app-cat-food">Hrana in kuhinja</span>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-pizza-title">Kalkulator za testo</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-pizza-desc">Izračun hidracije, kvasa in fermentacije za popolno pizzo.</p>
+                    <a href="https://robifilipsek-dev.github.io/pizza-testo/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-meat-title">Obračun mesa</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-meat-desc">Izračun in evidenca klanja: cenik po kosih mesa, računi za stranke, statistika in tržne cene govedine.</p>
+                    <a href="https://robifilipsek-dev.github.io/obracun-mesa/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-recipes-title">Recepti AI</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-recipes-desc">Osebni kuhinjski kopilot z umetno inteligenco za ideje, recepte in lažje načrtovanje obrokov.</p>
+                    <a href="https://robifilipsek-dev.github.io/recepti-ai/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-person-running"></i> <span data-i18n="app-cat-sport">Šport in rekreacija</span>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6 mb-12">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-sports-title">Šport in prehrana</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-sports-desc">Dnevnik aktivnosti, obrokov, vode in telesne teže z izračunom porabe kalorij ter AI oceno iz opisa ali slike.</p>
+                    <a href="https://robifilipsek-dev.github.io/sportni-sledilnik/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-tennis-title">Tenis Ponikva</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-tennis-desc">Spletna rezervacija terminov za peščeni igrišči z dnevno in tedensko kvoto ter pregledom lastnih rezervacij.</p>
+                    <a href="https://robifilipsek-dev.github.io/tenis-ponikva/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+
+            <h3 class="text-xl font-bold text-cyan-400 mb-6 flex items-center gap-2">
+                <i class="fa-solid fa-lightbulb"></i> <span data-i18n="app-cat-life">Osebni razvoj in AI</span>
+            </h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-spark-title">Dnevna iskra</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-spark-desc">Dnevna porcija modrosti in navdiha, ustvarjena z umetno inteligenco, s kategorijami, zgodovino in priljubljenimi iskrami.</p>
+                    <a href="https://robifilipsek-dev.github.io/dnevna-iskra/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800 hover:border-cyan-500/50 transition flex flex-col">
+                    <h4 class="font-bold text-lg mb-2" data-i18n="app-lifeflow-title">LifeFlow AI</h4>
+                    <p class="text-sm text-slate-400 mb-6 flex-grow" data-i18n="app-lifeflow-desc">Osebni AI pomočnik za lažjo organizacijo dneva in vsakdanjih opravil.</p>
+                    <a href="https://robifilipsek-dev.github.io/lifeflow-ai/" target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex items-center space-x-2 text-sm font-semibold text-cyan-400 hover:text-cyan-300">
+                        <span data-i18n="app-btn-open">Odpri aplikacijo</span> <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section id="how-it-works" class="py-24 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="hiw-heading">Kako poteka sodelovanje</h2>
+                <p class="mt-4 text-slate-400" data-i18n="hiw-subheading">Preprost, jasen in transparenten postopek od ideje do končne izvedbe.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">01</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t1">POGOVOR IN CILJI</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-1">Skozi kratek uvodni pogovor definirava vaše želje, potrebe in realen obseg dela.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">02</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t2">IZVEDBA</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-2">Ob pomoči sodobnih orodij in rešitev hitro ter kvalitetno pripravimo vašo spletno stran, aplikacijo ali avtomatizacijo.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-slate-900/50 border border-slate-800">
+                    <div class="text-cyan-400 font-mono font-bold text-xl mb-3">03</div>
+                    <h3 class="font-bold text-lg mb-2" data-i18n="hiw-t3">PREVZEM IN PODPORA</h3>
+                    <p class="text-sm text-slate-400" data-i18n="hiw-3">Skupaj pregledamo končni izdelek, uredimo nastavitve in poskrbimo za uspešen zagon v delovanje.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ (POPRAVLJENA IN NAKLONJENA POGOSTA VPRAŠANJA) -->
+    <section id="faq" class="py-24 bg-slate-900/40 border-t border-slate-900">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="faq-heading">Pogosto zastavljena vprašanja</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q1">Kako dolgo traja izdelava spletne strani ali aplikacije?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a1">Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo. Za kompleksnejše spletne aplikacije ali avtomatizacije po meri pa časovni okvir natančno določimo ob uvodnem dogovoru.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q2">Koliko stane izdelava spletne strani ali avtomatizacije?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a2">Cena je odvisna od obsega in specifičnih zahtev projekta. Po kratkem uvodnem pogovoru pripravimo brezplačno, transparentno ponudbo, prilagojeno vašim potrebam in proračunu – brez skritih stroškov.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q3">Ali lahko sami urejamo spletno stran ali vsebine po zagonu?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a3">Seveda. Vse spletne strani in vmesnike zasnujemo tako, da so pregledni in enostavni za uporabo. Po zaključku vam predamo navodila ali kratek prikaz, kako lahko sami hitro zamenjate besedila ali slike.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q4">Kakšne vrste avtomatizacij in spletnih orodij razvijate?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a4">Razvijamo lahka namenska spletna orodja po meri – npr. interne sledilnike, interaktivne kalkulatorje, obrazce za zbiranje podatkov ter avtomatske povezave med vašo e-pošto, spletnim obrazcem in orodji za obveščanje (Teams, Slack), ki odpravijo ročno prepisovanje podatkov.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q5">Kako poteka ureditev domene, gostovanja in tehnične podpore?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a5">Poskrbimo za celotno tehnično izvedbo – od ureditve domene in zanesljivega gostovanja do končnega zagona. Če domeno in gostovanje že imate, rešitev preprosto integriramo v vaš obstoječi sistem. Na voljo smo tudi po zagonu za nadgradnje in popravke.</p>
+                </div>
+                <div class="faq-item p-6 rounded-2xl bg-slate-900 border border-slate-800 cursor-pointer transition" role="button" tabindex="0" aria-expanded="false" onclick="toggleFaq(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleFaq(this);}">
+                    <div class="font-bold flex justify-between items-center gap-4">
+                        <span data-i18n="faq-q6">Kako začnemo sodelovanje?</span>
+                        <span class="faq-icon text-cyan-400 flex-shrink-0"><i class="fa-solid fa-chevron-down"></i></span>
+                    </div>
+                    <p class="faq-answer text-sm text-slate-400 leading-relaxed" data-i18n="faq-a6">Preprosto izpolnite spodnji kontaktni obrazec ali nam pišite na e-pošto. Dogovorili se bomo za kratek neobvezujoč uvodni pogovor, spoznali vaše cilje ter predlagali najboljšo rešitev.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section id="about" class="py-24 border-t border-slate-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid md:grid-cols-12 gap-12 items-center">
+                <div class="md:col-span-5 flex flex-col items-center text-center">
+                    <div class="relative mb-6">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-cyan-500 to-blue-600 rounded-full blur-xl opacity-30"></div>
+                        <img src="1785750119545.jfif" alt="Robert Filipšek" class="relative w-48 h-48 md:w-60 md:h-60 rounded-full object-cover border-4 border-slate-800 shadow-2xl" onerror="this.onerror=null;this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 64 64%27%3E%3Crect width=%2764%27 height=%2764%27 fill=%27%231e293b%27/%3E%3Ctext x=%2732%27 y=%2742%27 text-anchor=%27middle%27 font-family=%27Arial%27 font-size=%2726%27 font-weight=%27800%27 fill=%27%2322d3ee%27%3ERF%3C/text%3E%3C/svg%3E';">
+                    </div>
+                    <h3 class="text-xl font-bold text-slate-100">Robert Filipšek</h3>
+                    <p class="text-slate-300 text-sm font-medium mt-1" data-i18n="about-role1">Spletni razvoj & Digitalne rešitve</p>
+                    <p class="text-cyan-400 text-sm font-medium mt-0.5" data-i18n="about-role2">RF Digital</p>
+                    
+                    <a href="https://www.linkedin.com/in/robert-filip%C5%A1ek-88baaa221/" target="_blank" rel="noopener noreferrer" class="mt-4 inline-flex items-center space-x-2 text-xs font-semibold text-slate-400 hover:text-cyan-400 bg-slate-900 border border-slate-800 hover:border-cyan-500/40 px-4 py-2 rounded-xl transition">
+                        <i class="fa-brands fa-linkedin text-cyan-400 text-sm"></i>
+                        <span data-i18n="about-linkedin">LinkedIn Profil</span>
+                    </a>
+                </div>
+                
+                <div class="md:col-span-7">
+                    <div class="inline-flex items-center space-x-2 px-3.5 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 text-xs font-semibold mb-6">
+                        <span data-i18n="about-badge">O nas</span>
+                    </div>
+                    <h2 class="text-3xl font-bold tracking-tight mb-6" data-i18n="about-title">Inženirska natančnost v digitalnem svetu</h2>
+                    <div class="space-y-4 text-slate-400 leading-relaxed text-sm md:text-base">
+                        <p data-i18n="about-p1">
+                            Za znamko RF Digital stoji Robert Filipšek. Kot diplomirani inženir dajem velik poudarek na natančnost, sistematičnost in jasen dogovor pri vsakem projektu.
+                        </p>
+                        <p data-i18n="about-p2">
+                            Strast do sodobnih tehnologij in spletnega razvoja usmerjam v pomoč malim podjetjem, obrtnikom in posameznikom, ki potrebujejo sodobno spletno stran, avtomatizacijo procesov ali namenska spletna orodja.
+                        </p>
+                        <p data-i18n="about-p3">
+                            Naš cilj je preprost: dostaviti profesionalen izgled, odlično uporabniško izkušnjo in zanesljivo delovanje brez nepotrebnega kompliciranja.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section id="contact" class="py-24 bg-slate-900/50 border-t border-slate-900">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold tracking-tight" data-i18n="contact-heading">Stopite v stik</h2>
+                <p class="mt-4 text-slate-400" data-i18n="contact-subheading">Imate vprašanje ali projekt v mislih? Z veseljem vam bomo pomagali.</p>
+                <div class="mt-4 inline-flex items-center space-x-2 text-sm text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-4 py-2 rounded-xl">
+                    <i class="fa-solid fa-envelope"></i>
+                    <a href="mailto:robi.filipsek@gmail.com" class="hover:underline font-medium">robi.filipsek@gmail.com</a>
+                </div>
+            </div>
+            
+            <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6 bg-slate-900 p-8 md:p-10 rounded-2xl border border-slate-800 shadow-2xl">
+                <input type="hidden" name="access_key" value="fefcbc53-50ed-4ab7-8e90-5d1e9d1b8101">
+                <input type="hidden" name="subject" value="Novo povpraševanje s spletne strani RF Digital!">
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-name">Ime</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label for="company" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-company">Podjetje / Naziv</label>
+                        <input type="text" id="company" name="company" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-email">E-pošta</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition">
+                    </div>
+                    <div>
+                        <label for="service_type" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-service">Katera storitev vas zanima?</label>
+                        <select id="service_type" name="service_type" class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition text-slate-300">
+                            <option value="spletna-stran" data-i18n="opt-web">Izdelava spletne strani</option>
+                            <option value="avtomatizacija" data-i18n="opt-auto">Avtomatizacija opravil</option>
+                            <option value="spletne-aplikacije" data-i18n="opt-app">Aplikacije in orodja po meri</option>
+                            <option value="ostalo" data-i18n="opt-other">Ostalo / Svetovanje</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label for="message" class="block text-sm font-medium text-slate-300 mb-2" data-i18n="form-message">Sporočilo</label>
+                    <textarea id="message" name="message" rows="4" data-i18n-placeholder="form-message-ph" placeholder="Opišite vaše želje ali projekt..." class="w-full px-4 py-3 rounded-xl bg-slate-950 border border-slate-800 focus:border-cyan-500 focus:outline-none transition"></textarea>
+                </div>
+                <button type="submit" data-i18n="form-submit" class="w-full py-4 rounded-xl bg-cyan-500 hover:bg-cyan-400 text-slate-950 font-bold shadow-lg shadow-cyan-500/20 transition">
+                    Pošlji povpraševanje
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-slate-900 text-center text-sm text-slate-500">
+        <p data-i18n="footer-rights">&copy; 2026 RF Digital | Vse pravice pridržane.</p>
+    </footer>
+
+    <!-- SKRIPTE -->
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            const isHidden = menu.classList.contains('hidden');
+            
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+                btn.setAttribute('aria-expanded', 'true');
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark');
+            } else {
+                closeMobileMenu();
+            }
+        }
+
+        function closeMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            const icon = document.getElementById('mobile-menu-icon');
+            const btn = document.getElementById('mobile-menu-btn');
+            if (menu && !menu.classList.contains('hidden')) {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+                btn.setAttribute('aria-expanded', 'false');
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            }
+        }
+
+        function toggleFaq(element) {
+            const isOpen = element.classList.contains('open');
+            document.querySelectorAll('#faq .faq-item').forEach(item => {
+                item.classList.remove('open');
+                item.setAttribute('aria-expanded', 'false');
+            });
+            if (!isOpen) {
+                element.classList.add('open');
+                element.setAttribute('aria-expanded', 'true');
+            }
+        }
+
+        const translations = {
+            sl: {
+                "nav-subtitle": "Spletne rešitve & avtomatizacija",
+                "nav-solutions": "Storitve", "nav-projects": "Projekti", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nas", "nav-cta": "Stopite v stik",
+                "hero-badge": "Spletni razvoj & digitalna avtomatizacija",
+                "hero-title": "Sodobne spletne strani in",
+                "hero-title-gradient": "pametna avtomatizacija.",
+                "hero-desc": "Pomagamo vam postaviti profesionalno spletno prisotnost, poenostaviti vsakodnevna digitalna opravila ter razviti lahka spletna orodja po meri.",
+                "hero-cta-primary": "Brezplačen posvet",
+                "hero-cta-secondary": "Preglej storitve",
+                "tb-1": "Izdelava spletnih strani", "tb-2": "Enostavna avtomatizacija", "tb-3": "Aplikacije po meri", "tb-4": "Zanesljiva izvedba",
+                "prob-title": "Se vam zdi, da vaša digitalna podoba ne odraža prave vrednosti vašega dela?",
+                "prob-subtitle": "Mala podjetja in obrtniki prepogosto izgubljajo stranke zaradi zastarelih spletnih strani in ročnega prepisovanja podatkov.",
+                "p-1-title": "Zastarela ali slaba spletna stran", "p-1-desc": "Stran, ki ne deluje dobro na telefonih in ne prepriča obiskovalcev v oddajo povpraševanja.",
+                "p-2-title": "Ročno prenašanje podatkov", "p-2-desc": "Prepisovanje podatkov iz spletnih obrazcev v e-pošto ali Excel tabele.",
+                "p-3-title": "Izguba časa z rutino", "p-3-desc": "Najnujnejša digitalna opravila vam kradejo čas, ki bi ga morali nameniti svoji primarni stroki.",
+                "srv-heading": "Kaj ponujamo",
+                "srv-subheading": "Praktične, zanesljive in cenovno dostopne rešitve za vaš posel.",
+                "s-1-title": "Izdelava sodobnih spletnih strani", "s-1-desc": "Postavitev privlačnih, hitrih in mobilno odzivnih predstavitvenih spletnih strani in pristajalnih strani (landing pages), ki jasno predstavijo vašo ponudbo in privabijo nove stranke.",
+                "s-1-l1": "Moderen dizajn prilagojen telefonom", "s-1-l2": "Hitra izvedba in enostavno vzdrževanje", "s-1-l3": "Optimizacija za iskalnike (SEO)",
+                "s-2-title": "Enostavna avtomatizacija opravil", "s-2-desc": "Povezava med spletnim obrazcem, vašo e-pošto in orodji za obveščanje (npr. Microsoft Teams ali Slack), da ne zamudite nobenega povpraševanja.",
+                "s-2-l1": "Avtomatska obvestila o novih strankah", "s-2-l2": "Manj ročnega prepisovanja in napak", "s-2-l3": "Povezava orodij, ki jih že uporabljate",
+                "s-3-title": "Spletne aplikacije in orodja po meri", "s-3-desc": "Razvoj manjših namenskih spletnih orodij, interaktivnih kalkulatorjev ali internih aplikacij, ki poenostavijo vaše delo in izboljšajo uporabniško izkušnjo.",
+                "s-3-l1": "Rešitve prilagojene vašim potrebam", "s-3-l2": "Pregledni vmesniki in enostavna uporaba", "s-3-l3": "Hitro delovanje na vseh napravah",
+                "app-heading": "Moje aplikacije in orodja",
+                "app-subheading": "Preizkusite delujoče primere spletnih orodij, kalkulatorjev in aplikacij, ki sem jih razvil.",
+"app-cat-trackers": "Finance in cene goriva", "app-cat-food": "Hrana in kuhinja", "app-cat-sport": "Šport in rekreacija", "app-cat-life": "Osebni razvoj in AI",
+                "app-btn-open": "Odpri aplikacijo",
+                "app-gold-title": "Sledilnik zlata", "app-gold-desc": "Cena zlata v €/g, vrednost standardnih tež in osebni portfolio z izračunom dobička ter donosnosti.",
+                "app-bitcoin-title": "Sledilnik bitcoina", "app-bitcoin-desc": "Cena Bitcoina v EUR z grafom gibanja, vrednostjo deležev ter osebnim portfoliom z donosnostjo.",
+                "app-fuel-title": "Izračun cene goriva", "app-fuel-desc": "Izračun zneska za plačilo z upoštevanjem popusta na liter, z zgodovino cen dizla in bencina 95 (GOV.SI).",
+"app-pizza-title": "Kalkulator za testo", "app-pizza-desc": "Izračun hidracije, kvasa in fermentacije za popolno pizzo.",
+                "app-meat-title": "Obračun mesa", "app-meat-desc": "Izračun in evidenca klanja: cenik po kosih mesa, računi za stranke, statistika in tržne cene govedine.",
+                "app-recipes-title": "Recepti AI", "app-recipes-desc": "Osebni kuhinjski kopilot z umetno inteligenco za ideje, recepte in lažje načrtovanje obrokov.",
+                "app-sports-title": "Šport in prehrana", "app-sports-desc": "Dnevnik aktivnosti, obrokov, vode in telesne teže z izračunom porabe kalorij ter AI oceno iz opisa ali slike.",
+                "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Spletna rezervacija terminov za peščeni igrišči z dnevno in tedensko kvoto ter pregledom lastnih rezervacij.",
+                "app-spark-title": "Dnevna iskra", "app-spark-desc": "Dnevna porcija modrosti in navdiha, ustvarjena z umetno inteligenco, s kategorijami, zgodovino in priljubljenimi iskrami.",
+                "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Osebni AI pomočnik za lažjo organizacijo dneva in vsakdanjih opravil.",
+                
+                
+"hiw-heading": "Kako poteka sodelovanje",
+                "hiw-subheading": "Preprost, jasen in transparenten postopek od ideje do končne izvedbe.",
+                "hiw-t1": "POGOVOR IN CILJI", "hiw-1": "Skozi kratek uvodni pogovor definirava vaše želje, potrebe in realen obseg dela.",
+                "hiw-t2": "IZVEDBA", "hiw-2": "Ob pomoči sodobnih orodij in rešitev hitro ter kvalitetno pripravimo vašo spletno stran, aplikacijo ali avtomatizacijo.",
+                "hiw-t3": "PREVZEM IN PODPORA", "hiw-3": "Skupaj pregledamo končni izdelek, uredimo nastavitve in poskrbimo za uspešen zagon v delovanje.",
+                "faq-heading": "Pogosto zastavljena vprašanja",
+                "faq-q1": "Kako dolgo traja izdelava spletne strani ali aplikacije?", "faq-a1": "Večino manjših predstavitvenih spletnih strani in pristajalnih strani postavimo v 1 do 2 tednih, odvisno od tega, kako hitro nam posredujete gradivo. Za kompleksnejše spletne aplikacije ali avtomatizacije po meri pa časovni okvir natančno določimo ob uvodnem dogovoru.",
+                "faq-q2": "Koliko stane izdelava spletne strani ali avtomatizacije?", "faq-a2": "Cena je odvisna od obsega in specifičnih zahtev projekta. Po kratkem uvodnem pogovoru pripravimo brezplačno, transparentno ponudbo, prilagojeno vašim potrebam in proračunu – brez skritih stroškov.",
+                "faq-q3": "Ali lahko sami urejamo spletno stran ali vsebine po zagonu?", "faq-a3": "Seveda. Vse spletne strani in vmesnike zasnujemo tako, da so pregledni in enostavni za uporabo. Po zaključku vam predamo navodila ali kratek prikaz, kako lahko sami hitro zamenjate besedila ali slike.",
+                "faq-q4": "Kakšne vrste avtomatizacij in spletnih orodij razvijate?", "faq-a4": "Razvijamo lahka namenska spletna orodja po meri – npr. interne sledilnike, interaktivne kalkulatorje, obrazce za zbiranje podatkov ter avtomatske povezave med vašo e-pošto, spletnim obrazcem in orodji za obveščanje (Teams, Slack), ki odpravijo ročno prepisovanje podatkov.",
+                "faq-q5": "Kako poteka ureditev domene, gostovanja in tehnične podpore?", "faq-a5": "Poskrbimo za celotno tehnično izvedbo – od ureditve domene in zanesljivega gostovanja do končnega zagona. Če domeno in gostovanje že imate, rešitev preprosto integriramo v vaš obstoječi sistem. Na voljo smo tudi po zagonu za nadgradnje in popravke.",
+                "faq-q6": "Kako začnemo sodelovanje?", "faq-a6": "Preprosto izpolnite spodnji kontaktni obrazec ali nam pišite na e-pošto. Dogovorili se bomo za kratek neobvezujoč uvodni pogovor, spoznali vaše cilje ter predlagali najboljšo rešitev.",
+                "about-role1": "Spletni razvoj & Digitalne rešitve", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
+                "about-badge": "O nas",
+                "about-title": "Inženirska natančnost v digitalnem svetu",
+                "about-p1": "Za znamko RF Digital stoji Robert Filipšek. Kot diplomirani inženir dajem velik poudarek na natančnost, sistematičnost in jasen dogovor pri vsakem projektu.",
+                "about-p2": "Strast do sodobnih tehnologij in spletnega razvoja usmerjam v pomoč malim podjetjem, obrtnikom in posameznikom, ki potrebujejo sodobno spletno stran, avtomatizacijo procesov ali namenska spletna orodja.",
+                "about-p3": "Naš cilj je preprost: dostaviti profesionalen izgled, odlično uporabniško izkušnjo in zanesljivo delovanje brez nepotrebnega kompliciranja.",
+                "contact-heading": "Stopite v stik",
+                "contact-subheading": "Imate vprašanje ali projekt v mislih? Z veseljem vam bomo pomagali.",
+                "form-name": "Ime", "form-company": "Podjetje / Naziv", "form-email": "E-pošta", "form-service": "Katera storitev vas zanima?",
+                "opt-web": "Izdelava spletne strani", "opt-auto": "Avtomatizacija opravil", "opt-app": "Aplikacije in orodja po meri", "opt-other": "Ostalo / Svetovanje",
+                "form-message": "Sporočilo", "form-message-ph": "Opišite vaše želje ali projekt...", "form-submit": "Pošlji povpraševanje",
+                "footer-rights": "&copy; 2026 RF Digital | Vse pravice pridržane."
+            },
+            en: {
+                "nav-subtitle": "Web Solutions & Automation",
+                "nav-solutions": "Services", "nav-projects": "Projects", "nav-how-it-works": "Process", "nav-faq": "FAQ", "nav-about": "About Us", "nav-cta": "Get in touch",
+                "hero-badge": "Web Development & Digital Automation",
+                "hero-title": "Modern websites and",
+                "hero-title-gradient": "smart automation.",
+                "hero-desc": "We help you build a professional online presence, simplify everyday digital tasks, and develop lightweight custom web tools.",
+                "hero-cta-primary": "Free consultation",
+                "hero-cta-secondary": "Explore services",
+                "tb-1": "Web Design", "tb-2": "Simple Automation", "tb-3": "Custom Web Apps", "tb-4": "Reliable Delivery",
+                "prob-title": "Does your digital presence reflect the true value of your work?",
+                "prob-subtitle": "Small businesses and craftsmen too often lose clients due to outdated websites and manual data entry.",
+                "p-1-title": "Outdated or poor website", "p-1-desc": "A site that doesn't work well on mobile phones and fails to convert visitors into inquiries.",
+                "p-2-title": "Manual data handling", "p-2-desc": "Copying data from website forms into emails or Excel spreadsheets.",
+                "p-3-title": "Wasting time on routine", "p-3-desc": "Basic digital chores stealing time from your primary expertise.",
+                "srv-heading": "What We Offer",
+                "srv-subheading": "Practical, reliable, and affordable solutions for your business.",
+                "s-1-title": "Modern Website Development", "s-1-desc": "Creation of attractive, fast, and mobile-responsive presentation sites and landing pages that clearly showcase your offer.",
+                "s-1-l1": "Modern mobile-friendly design", "s-1-l2": "Fast turnaround & easy maintenance", "s-1-l3": "Search engine optimization (SEO)",
+                "s-2-title": "Simple Task Automation", "s-2-desc": "Connecting website forms, your email, and notification tools (like Microsoft Teams or Slack) so you never miss an inquiry.",
+                "s-2-l1": "Instant lead notifications", "s-2-l2": "Fewer manual errors", "s-2-l3": "Integrations with tools you use",
+                "s-3-title": "Custom Web Apps & Digital Tools", "s-3-desc": "Development of small custom web tools, interactive calculators, or internal apps that simplify your work and improve user experience.",
+                "s-3-l1": "Tailored to your needs", "s-3-l2": "Clean interface & easy usage", "s-3-l3": "Fast performance across devices",
+                "app-heading": "My Apps & Tools",
+                "app-subheading": "Try out working examples of web tools, calculators, and applications I've developed.",
+"app-cat-trackers": "Finance & Fuel Prices", "app-cat-food": "Food & Kitchen", "app-cat-sport": "Sport & Recreation", "app-cat-life": "Personal Growth & AI",
+                "app-btn-open": "Open Application",
+                "app-gold-title": "Gold Tracker", "app-gold-desc": "Gold price in €/g, values of standard weights, and a personal portfolio with profit and return calculation.",
+                "app-bitcoin-title": "Bitcoin Tracker", "app-bitcoin-desc": "Bitcoin price in EUR with a price chart, values of fractional amounts, and a personal portfolio with ROI.",
+                "app-fuel-title": "Fuel Price Calculator", "app-fuel-desc": "Calculates the amount to pay with a per-litre discount, with diesel and petrol 95 price history (GOV.SI).",
+"app-pizza-title": "Dough Calculator", "app-pizza-desc": "Calculates hydration, yeast, and fermentation for a perfect pizza.",
+                "app-meat-title": "Meat Billing", "app-meat-desc": "Slaughter calculation and records: price list per cut, customer invoices, statistics, and beef market prices.",
+                "app-recipes-title": "Recipes AI", "app-recipes-desc": "A personal AI kitchen copilot for meal ideas, recipes, and easier meal planning.",
+                "app-sports-title": "Sport & Nutrition", "app-sports-desc": "Log of activities, meals, water, and body weight with calorie expenditure calculation and AI estimates from text or photos.",
+                "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Online booking of time slots for two clay courts with daily and weekly quotas and an overview of your own bookings.",
+                "app-spark-title": "Daily Spark", "app-spark-desc": "A daily portion of wisdom and inspiration generated by AI, with categories, history, and favourites.",
+                "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "A personal AI assistant that helps organise your day and everyday tasks.",
+                
+                
+"hiw-heading": "How It Works",
+                "hiw-subheading": "Simple, clear, and transparent process from idea to launch.",
+                "hiw-t1": "DISCOVERY", "hiw-1": "A brief initial chat to define your goals, needs, and realistic scope.",
+                "hiw-t2": "BUILD", "hiw-2": "Using modern tools and solutions to quickly and efficiently build your site, application, or automation.",
+                "hiw-t3": "LAUNCH & SUPPORT", "hiw-3": "Reviewing the final product together, setting everything up, and going live.",
+                "faq-heading": "Frequently Asked Questions",
+                "faq-q1": "How long does a website or app take?", "faq-a1": "Most smaller presentation sites and landing pages are built within 1 to 2 weeks. Custom applications and automations follow a clear timeline agreed upon initial discovery.",
+                "faq-q2": "How much does a website or automation cost?", "faq-a2": "Pricing depends on project scope and requirements. After a short intro call, we provide a free, transparent estimate tailored to your budget with no hidden fees.",
+                "faq-q3": "Can we edit the website content ourselves later?", "faq-a3": "Yes. All pages and interfaces are designed to be clean and intuitive. We provide clear instructions or a short walkthrough so you can easily update text and media.",
+                "faq-q4": "What kind of apps and automations do you build?", "faq-a4": "We build lightweight custom web tools – internal trackers, interactive calculators, data collection forms, and automated integrations between your email, forms, and tools like Teams or Slack.",
+                "faq-q5": "What about hosting, domain, and technical support?", "faq-a5": "We handle the complete setup from domain and hosting to final launch. If you already have hosting, we seamlessly integrate the solution into your system.",
+                "faq-q6": "How do we get started?", "faq-a6": "Simply fill out the contact form below or drop us an email. We will arrange a quick initial chat to discuss your project.",
+                "about-role1": "Web Development & Digital Solutions", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profile",
+                "about-badge": "About Us",
+                "about-title": "Engineering Precision in the Digital World",
+                "about-p1": "Behind RF Digital is Robert Filipšek. As an engineering graduate, I place great emphasis on precision, systematic approach, and clear communication in every project.",
+                "about-p2": "My passion for modern technology and web development is directed at helping small businesses, craftsmen, and individuals who need a modern website, process automation, or custom web tools.",
+                "about-p3": "The goal is simple: deliver a professional look, great user experience, and reliable performance without unnecessary complexity.",
+                "contact-heading": "Get in touch",
+                "contact-subheading": "Have a question or a project in mind? We will be happy to help you.",
+                "form-name": "Name", "form-company": "Company", "form-email": "Email", "form-service": "Service of interest",
+                "opt-web": "Website Development", "opt-auto": "Task Automation", "opt-app": "Custom Apps & Tools", "opt-other": "Other / Consulting",
+                "form-message": "Message", "form-message-ph": "Describe your wishes or project...", "form-submit": "Send Inquiry",
+                "footer-rights": "&copy; 2026 RF Digital | All rights reserved."
+            },
+            de: {
+                "nav-subtitle": "Weblösungen & Automatisierung",
+                "nav-solutions": "Leistungen", "nav-projects": "Projekte", "nav-how-it-works": "Prozess", "nav-faq": "FAQ", "nav-about": "Über uns", "nav-cta": "Kontakt",
+                "hero-badge": "Webentwicklung & Digitale Automatisierung",
+                "hero-title": "Moderne Websites und",
+                "hero-title-gradient": "intelligente Automatisierung.",
+                "hero-desc": "Wir helfen Ihnen beim Aufbau einer professionellen Online-Präsenz, vereinfachen alltägliche Aufgaben und entwickeln maßgeschneiderte Webtools.",
+                "hero-cta-primary": "Kostenlose Beratung",
+                "hero-cta-secondary": "Leistungen ansehen",
+                "tb-1": "Webdesign", "tb-2": "Einfache Automatisierung", "tb-3": "Maßgeschneiderte Web-Apps", "tb-4": "Zuverlässige Umsetzung",
+                "prob-title": "Spiegelt Ihre digitale Präsenz den wahren Wert Ihrer Arbeit wider?",
+                "prob-subtitle": "Kleine Unternehmen und Handwerker verlieren zu oft Kunden durch veraltete Websites und manuelle Dateneingabe.",
+                "p-1-title": "Veraltete oder schlechte Website", "p-1-desc": "Eine Seite, die mobil nicht gut funktioniert und Besucher nicht zu Anfragen bewegt.",
+                "p-2-title": "Manuelle Datenverarbeitung", "p-2-desc": "Das Abtippen von Formulardaten in E-Mails oder Tabellen.",
+                "p-3-title": "Zeitverlust durch Routine", "p-3-desc": "Grundlegende digitale Aufgaben rauben wertvolle Zeit für Ihr Kerngeschäft.",
+                "srv-heading": "Was wir anbieten",
+                "srv-subheading": "Praktische, zuverlässige und bezahlbare Lösungen für Ihr Unternehmen.",
+                "s-1-title": "Moderne Webentwicklung", "s-1-desc": "Erstellung ansprechender, schneller und mobil optimierter Websites und Landingpages, die Ihr Angebot klar präsentieren.",
+                "s-1-l1": "Modernes, mobiles Design", "s-1-l2": "Schnelle Umsetzung & einfache Pflege", "s-1-l3": "Suchmaschinenoptimierung (SEO)",
+                "s-2-title": "Einfache Aufgabenautomatisierung", "s-2-desc": "Verknüpfung von Formularen, E-Mail und Benachrichtigungstools (wie Teams oder Slack), damit keine Anfrage verloren geht.",
+                "s-2-l1": "Sofortige Benachrichtigungen", "s-2-l2": "Weniger manuelle Fehler", "s-2-l3": "Integration bekannter Tools",
+                "s-3-title": "Maßgeschneiderte Web-Apps & Digitale Tools", "s-3-desc": "Entwicklung kleinerer maßgeschneiderter Webtools, interaktiver Rechner oder interner Apps, die Ihre Arbeit vereinfachen.",
+                "s-3-l1": "Maßgeschneidert auf Ihre Bedürfnisse", "s-3-l2": "Übersichtliche Benutzeroberfläche", "s-3-l3": "Schnelle Leistung auf allen Geräten",
+                "app-heading": "Meine Apps & Tools",
+                "app-subheading": "Probieren Sie funktionierende Beispiele von Web-Tools, Rechnern und Apps aus, die ich entwickelt habe.",
+"app-cat-trackers": "Finanzen & Kraftstoffpreise", "app-cat-food": "Essen & Küche", "app-cat-sport": "Sport & Freizeit", "app-cat-life": "Persönliche Entwicklung & KI",
+                "app-btn-open": "App öffnen",
+                "app-gold-title": "Gold-Tracker", "app-gold-desc": "Goldpreis in €/g, Werte gängiger Gewichte und ein persönliches Portfolio mit Gewinn- und Renditeberechnung.",
+                "app-bitcoin-title": "Bitcoin-Tracker", "app-bitcoin-desc": "Bitcoin-Preis in EUR mit Kursverlauf, Werten von Teilmengen und persönlichem Portfolio mit Rendite.",
+                "app-fuel-title": "Kraftstoffpreisrechner", "app-fuel-desc": "Berechnet den Zahlbetrag mit Rabatt pro Liter, inklusive Preisverlauf für Diesel und Benzin 95 (GOV.SI).",
+"app-pizza-title": "Teigrechner", "app-pizza-desc": "Berechnung von Hydration, Hefe und Fermentation für die perfekte Pizza.",
+                "app-meat-title": "Fleischabrechnung", "app-meat-desc": "Abrechnung und Erfassung von Schlachtungen: Preisliste pro Stück, Kundenrechnungen, Statistik und Rindfleisch-Marktpreise.",
+                "app-recipes-title": "Rezepte AI", "app-recipes-desc": "Ein persönlicher KI-Küchenassistent für Ideen, Rezepte und einfachere Essensplanung.",
+                "app-sports-title": "Sport und Ernährung", "app-sports-desc": "Protokoll für Aktivitäten, Mahlzeiten, Wasser und Körpergewicht mit Kalorienberechnung und KI-Schätzung aus Text oder Foto.",
+                "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Online-Buchung von Zeitfenstern für zwei Sandplätze mit Tages- und Wochenkontingent und Übersicht der eigenen Buchungen.",
+                "app-spark-title": "Tägliche Inspiration", "app-spark-desc": "Eine tägliche Portion Weisheit und Inspiration, von KI erstellt, mit Kategorien, Verlauf und Favoriten.",
+                "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Ein persönlicher KI-Assistent für die einfachere Organisation von Alltag und Aufgaben.",
+                
+                
+"hiw-heading": "Wie es funktioniert",
+                "hiw-subheading": "Einfacher, klarer und transparenter Ablauf von der Idee bis zum Start.",
+                "hiw-t1": "BERATUNG", "hiw-1": "Ein kurzes Erstgespräch zur Definition Ihrer Ziele und Wünsche.",
+                "hiw-t2": "UMSETZUNG", "hiw-2": "Effiziente Erstellung Ihrer Website, App oder Automatisierung.",
+                "hiw-t3": "START & SUPPORT", "hiw-3": "Gemeinsame Prüfung, Einrichtung und erfolgreicher Livegang.",
+                "faq-heading": "Häufig gestellte Fragen",
+                "faq-q1": "Wie lange dauert eine Website oder App?", "faq-a1": "Die meisten kleineren Websites und Landingpages sind innerhalb von 1 bis 2 Wochen fertiggestellt.",
+                "faq-q2": "Wie viel kostet eine Website oder Automatisierung?", "faq-a2": "Der Preis hängt vom Umfang des Projekts ab. Nach einem Erstgespräch erstelle ich ein transparentes, kostenloses Angebot.",
+                "faq-q3": "Können wir die Website später selbst bearbeiten?", "faq-a3": "Ja. Die Seiten werden übersichtlich aufgebaut und wir zeigen Ihnen die Grundlagen zur einfachen Text- und Bildpflege.",
+                "faq-q4": "Welche Arten von Apps und Automatisierungen entwickeln Sie?", "faq-a4": "Wir entwickeln schlanke Webtools – interne Tracker, interaktive Rechner, Datenerfassungsformulare sowie Verbindungen zwischen Ihren E-Mails und Benachrichtigungstools.",
+                "faq-q5": "Was ist mit Hosting und Support?", "faq-a5": "Ich richte bei Bedarf Domain und Hosting ein oder berate bei der Anbieterwahl. Auch nach dem Start stehe ich für Ergänzungen zur Verfügung.",
+                "faq-q6": "Wie beginnen wir?", "faq-a6": "Füllen Sie einfach das untenstehende Kontaktformular aus oder schreiben Sie uns eine E-Mail.",
+                "about-role1": "Webentwicklung & Digitale Lösungen", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
+                "about-badge": "Über uns",
+                "about-title": "Ingenieurspräzision in der digitalen Welt",
+                "about-p1": "Hinter RF Digital steht Robert Filipšek. Als diplomierter Ingenieur lege ich bei jedem Projekt großen Wert auf Präzision, Systematik und klare Absprachen.",
+                "about-p2": "Meine Leidenschaft für moderne Technologien und Webentwicklung richte ich darauf, kleinen Unternehmen, Handwerkern und Einzelpersonen zu helfen, die eine moderne Website, Prozessautomatisierung oder maßgeschneiderte Webtools benötigen.",
+                "about-p3": "Das Ziel ist einfach: ein professionelles Erscheinungsbild, eine hervorragende Benutzererfahrung und zuverlässige Leistung ohne unnötige Komplexität zu liefern.",
+                "contact-heading": "Kontakt",
+                "contact-subheading": "Haben Sie eine Frage oder ein Projekt im Kopf? Wir helfen Ihnen gerne weiter.",
+                "form-name": "Name", "form-company": "Unternehmen", "form-email": "E-Mail", "form-service": "Gewünschte Leistung",
+                "opt-web": "Webentwicklung", "opt-auto": "Aufgabenautomatisierung", "opt-app": "Maßgeschneiderte Apps & Tools", "opt-other": "Sonstiges / Beratung",
+                "form-message": "Nachricht", "form-message-ph": "Beschreiben Sie Ihre Wünsche oder Ihr Projekt...", "form-submit": "Anfrage senden",
+                "footer-rights": "&copy; 2026 RF Digital | Alle Rechte vorbehalten."
+            },
+            hr: {
+                "nav-subtitle": "Web rješenja i automatizacija",
+                "nav-solutions": "Usluge", "nav-projects": "Projekti", "nav-how-it-works": "Proces", "nav-faq": "FAQ", "nav-about": "O nama", "nav-cta": "Stupite u kontakt",
+                "hero-badge": "Web razvoj i digitalna automatizacija",
+                "hero-title": "Moderne web stranice i",
+                "hero-title-gradient": "pametna automatizacija.",
+                "hero-desc": "Pomažemo vam izgraditi profesionalnu internetsku prisutnost, pojednostaviti svakodnevne digitalne zadatke i razviti prilagođene web alate.",
+                "hero-cta-primary": "Besplatne konzultacije",
+                "hero-cta-secondary": "Pregledajte usluge",
+                "tb-1": "Izrada web stranica", "tb-2": "Jednostavna automatizacija", "tb-3": "Prilagođene aplikacije", "tb-4": "Pouzdana izvedba",
+                "prob-title": "Smatrate li da vaša digitalna slika ne odražava pravu vrijednost vašeg rada?",
+                "prob-subtitle": "Male tvrtke i obrtnici prečesto gube klijente zbog zastarjelih web stranica i ručnog prepisivanja podataka.",
+                "p-1-title": "Zastarjela ili loša web stranica", "p-1-desc": "Stranica koja ne radi dobro na mobilnim uređajima i ne pretvara posjetitelje u upite.",
+                "p-2-title": "Ručni prijenos podataka", "p-2-desc": "Prepisovanje podataka iz web obrazaca u e-poštu ili Excel tablice.",
+                "p-3-title": "Gubitak vremena na rutinu", "p-3-desc": "Osnovni digitalni zadaci kradu vam vrijeme koje biste trebali posvetiti svojoj primarnoj struci.",
+                "srv-heading": "Što nudimo",
+                "srv-subheading": "Praktična, pouzdana i pristupačna rješenja za vaše poslovanje.",
+                "s-1-title": "Izrada modernih web stranica", "s-1-desc": "Postavljanje atraktivnih, brzih i mobilno prilagodljivih web stranica i odredišnih stranica koje jasno predstavljaju vašu ponudu.",
+                "s-1-l1": "Moderan dizajn prilagođen telefonima", "s-1-l2": "Brza izvedba i jednostavno održavanje", "s-1-l3": "Optimizacija za tražilice (SEO)",
+                "s-2-title": "Jednostavna automatizacija zadataka", "s-2-desc": "Povezivanje web obrazaca, vaše e-pošte i alata za obavijesti (poput Teamsa ili Slacka) kako ne biste propustili nijedan upit.",
+                "s-2-l1": "Automatske obavijesti o novim klijentima", "s-2-l2": "Manje ručnog prepisivanja i grešaka", "s-2-l3": "Povezivanje alata koje već koristite",
+                "s-3-title": "Prilagođene web aplikacije i alati", "s-3-desc": "Razvoj manjih namjenskih web alata, interaktivnih kalkulatora ili internih aplikacija koje pojednostavljuju vaš rad.",
+                "s-3-l1": "Rješenja prilagođena vašim potrebama", "s-3-l2": "Pregledna sučelja i jednostavna upotreba", "s-3-l3": "Brz rad na svim uređajima",
+                "app-heading": "Moje aplikacije i alati",
+                "app-subheading": "Isprobajte radne primjere web alata, kalkulatora i aplikacija koje sam razvio.",
+"app-cat-trackers": "Financije i cijene goriva", "app-cat-food": "Hrana i kuhinja", "app-cat-sport": "Sport i rekreacija", "app-cat-life": "Osobni razvoj i AI",
+                "app-btn-open": "Otvori aplikaciju",
+                "app-gold-title": "Pratitelj zlata", "app-gold-desc": "Cijena zlata u €/g, vrijednost standardnih težina i osobni portfelj s izračunom dobiti i povrata.",
+                "app-bitcoin-title": "Pratitelj bitcoina", "app-bitcoin-desc": "Cijena Bitcoina u EUR s grafom kretanja, vrijednošću dijelova i osobnim portfeljem s povratom.",
+                "app-fuel-title": "Kalkulator cijene goriva", "app-fuel-desc": "Izračun iznosa za plaćanje s popustom po litri, uz povijest cijena dizela i benzina 95 (GOV.SI).",
+"app-pizza-title": "Kalkulator za tijesto", "app-pizza-desc": "Izračun hidratacije, kvasca i fermentacije za savršenu pizzu.",
+                "app-meat-title": "Obračun mesa", "app-meat-desc": "Obračun i evidencija klanja: cjenik po komadima, računi za kupce, statistika i tržišne cijene govedine.",
+                "app-recipes-title": "Recepti AI", "app-recipes-desc": "Osobni AI kuhinjski kopilot za ideje, recepte i lakše planiranje obroka.",
+                "app-sports-title": "Sport i prehrana", "app-sports-desc": "Dnevnik aktivnosti, obroka, vode i tjelesne težine s izračunom potrošnje kalorija i AI procjenom iz opisa ili slike.",
+                "app-tennis-title": "Tenis Ponikva", "app-tennis-desc": "Web rezervacija termina za dva zemljana terena s dnevnom i tjednom kvotom te pregledom vlastitih rezervacija.",
+                "app-spark-title": "Dnevna iskra", "app-spark-desc": "Dnevna doza mudrosti i inspiracije koju je izradila umjetna inteligencija, s kategorijama, poviješću i favoritima.",
+                "app-lifeflow-title": "LifeFlow AI", "app-lifeflow-desc": "Osobni AI pomoćnik za lakšu organizaciju dana i svakodnevnih obveza.",
+                
+                
+"hiw-heading": "Kako izgleda suradnja",
+                "hiw-subheading": "Jednostavan, jasan i transparentan postupak od ideje do konačne izvedbe.",
+                "hiw-t1": "RAZGOVOR I CILJEVI", "hiw-1": "Kroz kratki uvodni razgovor definiramo vaše želje i opseg posla.",
+                "hiw-t2": "IZVEDBA", "hiw-2": "Brzo i kvalitetno izrađujemo vašu web stranicu, aplikaciju ili automatizaciju.",
+                "hiw-t3": "PREUZIMANJE I PODRŠKA", "hiw-3": "Zajedno pregledavamo konačni proizvod i brinemo se za uspješno pokretanje.",
+                "faq-heading": "Često postavljana pitanja",
+                "faq-q1": "Koliko traje izrada web stranice ili aplikacije?", "faq-a1": "Većinu manjih predstavitvenih web stranica i landing stranica izrađujemo u 1 do 2 tjedna.",
+                "faq-q2": "Koliko košta izrada web stranice ili automatizacije?", "faq-a2": "Cijena ovisi o opsegu projekta. Nakon kratkog razgovora pripremit ćemo besplatnu i transparentnu ponudu.",
+                "faq-q3": "Možemo li sami uređivati web stranicu kasnije?", "faq-a3": "Naravno. Sve stranice dizajnirane su tako da budu jednostavne za korištenje.",
+                "faq-q4": "Kakve vrste aplikacija i automatizacija razvijate?", "faq-a4": "Razvijamo prilagođene web alate – interne pratitelje, kalkulatore i automatizirane veze s e-poštom i obavijestima.",
+                "faq-q5": "Što je s domenom, hostingom i podrškom?", "faq-a5": "Brinemo se za cjelokupnu tehničku izvedbu od domene i hostinga do pokretanja i održavanja.",
+                "faq-q6": "Kako započinjemo suradnju?", "faq-a6": "Jednostavno ispunite kontaktni obrazac ili nam pošaljite e-poštu.",
+                "about-role1": "Web razvoj i digitalna rješenja", "about-role2": "RF Digital", "about-linkedin": "LinkedIn Profil",
+                "about-badge": "O nama",
+                "about-title": "Inženjerska preciznost u digitalnom svijetu",
+                "about-p1": "Iza branda RF Digital stoji Robert Filipšek. Kao diplomirani inženjer pridajem veliki značaj preciznosti, sistematičnosti i jasnom dogovoru.",
+                "about-p2": "Strast prema suvremenim tehnologijama usmjeravam u pomoć malim tvrtkama i obrtnicima kojima je potrebna modernija web stranica ili automatizacija.",
+                "about-p3": "Naš cilj je jednostavan: isporučiti profesionalan izgled i pouzdan rad bez nepotrebne komplikacije.",
+                "contact-heading": "Stupite u kontakt",
+                "contact-subheading": "Imate pitanje ili projekt na umu? Rado ćemo vam pomoći.",
+                "form-name": "Ime", "form-company": "Tvrtka / Naziv", "form-email": "E-pošta", "form-service": "Koja vas usluga zanima?",
+                "opt-web": "Izrada web stranice", "opt-auto": "Automatizacija zadataka", "opt-app": "Prilagođene aplikacije i alati", "opt-other": "Ostalo / Savjetovanje",
+                "form-message": "Poruka", "form-message-ph": "Opišite vaše želje ili projekt...", "form-submit": "Pošaljite upit",
+                "footer-rights": "&copy; 2026 RF Digital | Sva prava pridržana."
+            }
+        };
+
+        function changeLanguage(lang) {
+            if (!translations[lang]) return;
+            const t = translations[lang];
+            
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.innerHTML = t[key];
+                }
+            });
+
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                if (t[key]) {
+                    el.placeholder = t[key];
+                }
+            });
+
+            document.documentElement.lang = lang;
+        }
+    </script>
+</body>
+</html>
